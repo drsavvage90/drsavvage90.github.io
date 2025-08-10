@@ -1,0 +1,356 @@
+/* -------------------------------------------------------
+   Base: fonts, variables (Liquid as default), resets
+-------------------------------------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Orbitron:wght@400;700&family=Press+Start+2P&family=Rajdhani:wght@400;600&family=VT323&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+}
+
+/* Liquid Glass as default tokens on :root */
+:root {
+  --bg: #0e1116;
+  --card: rgba(255, 255, 255, 0.08);
+  --text: #eaf0ff;
+  --muted: #9fb0cb;
+  --accent: #8bc6ff;
+  --accent-2: #8de1cc;
+  --border: rgba(255, 255, 255, 0.14);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  --radius: 18px;
+  --maxw: 1100px;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu,
+    Cantarell, "Noto Sans", sans-serif;
+  --font-display: "Inter", system-ui, sans-serif;
+  --cursor: default;
+  --anim-speed: 0.25s;
+  --anim-slow: 6s;
+}
+
+/* base typography + background composed here so theme overrides can replace it */
+body {
+  font-family: var(--font-body);
+  cursor: var(--cursor);
+  line-height: 1.55;
+  color: var(--text);
+  background: radial-gradient(
+      1000px 600px at 0% 0%,
+      rgba(139, 198, 255, 0.12),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 500px at 100% 100%,
+      rgba(141, 225, 204, 0.1),
+      transparent 60%
+    ),
+    var(--bg);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  margin: 0 0 0.5em;
+}
+.logo {
+  border-radius: var(--radius);
+  transition: filter var(--anim-speed), box-shadow var(--anim-speed),
+    transform var(--anim-speed);
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  border-radius: calc(var(--radius) - 6px);
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform var(--anim-speed), box-shadow var(--anim-speed),
+    filter var(--anim-speed);
+}
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+/* reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* -------------------------------------------------------
+   Tron theme override
+-------------------------------------------------------- */
+body.theme-tron {
+  --bg: #02060d;
+  --card: #050b16;
+  --text: #dff3ff;
+  --muted: #8cc6ff;
+  --accent: #00e5ff;
+  --accent-2: #ff00e6;
+  --border: #0f2440;
+  --font-body: "Rajdhani", system-ui, sans-serif;
+  --font-display: "Orbitron", sans-serif;
+  --cursor: crosshair;
+  background: radial-gradient(
+      1200px 600px at 80% -20%,
+      rgba(255, 0, 230, 0.12),
+      transparent 60%
+    ),
+    radial-gradient(
+      1200px 600px at 0% 120%,
+      rgba(0, 229, 255, 0.1),
+      transparent 60%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 229, 255, 0.06) 0 1px,
+      transparent 1px 40px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0, 229, 255, 0.06) 0 1px,
+      transparent 1px 40px
+    ),
+    var(--bg);
+}
+body.theme-tron .logo {
+  box-shadow: 0 0 0 2px var(--accent) inset, 0 0 28px var(--accent);
+}
+body.theme-tron .btn:hover {
+  animation: glowPulse 1.8s ease-in-out infinite;
+}
+@keyframes glowPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 18px rgba(0, 229, 255, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 36px rgba(0, 229, 255, 0.55);
+  }
+}
+
+/* -------------------------------------------------------
+   Retro 8-bit theme override
+-------------------------------------------------------- */
+body.theme-retro8 {
+  --bg: #1b1c22;
+  --card: #101114;
+  --text: #e7e3cf;
+  --muted: #b8b39c;
+  --accent: #ffd45e;
+  --accent-2: #7bd389;
+  --border: #2a2c33;
+  --font-body: "VT323", ui-monospace, monospace;
+  --font-display: "Press Start 2P", system-ui;
+  --cursor: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Crect width='16' height='16' fill='yellow'/%3E%3C/svg%3E")
+      0 0,
+    auto;
+  background: repeating-linear-gradient(0deg, #20222a 0 12px, #1b1c22 12px 24px),
+    repeating-linear-gradient(90deg, #1c1d24 0 12px, #1b1c22 12px 24px);
+}
+/* keep pixelation to images/canvas only for readability */
+body.theme-retro8 img,
+body.theme-retro8 canvas {
+  image-rendering: pixelated;
+}
+body.theme-retro8 .btn:hover {
+  animation: pixelBounce 0.3s steps(2, end) infinite;
+}
+@keyframes pixelBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+/* -------------------------------------------------------
+   Layout utilities (grid, flex, spacing, containers)
+-------------------------------------------------------- */
+.container {
+  width: min(100% - 2rem, var(--maxw));
+  margin-inline: auto;
+}
+.section {
+  padding: 3rem 0;
+}
+.stack > * + * {
+  margin-top: 1rem;
+}
+.stack-lg > * + * {
+  margin-top: 2rem;
+}
+
+.flex {
+  display: flex;
+}
+.flex-col {
+  flex-direction: column;
+}
+.items-center {
+  align-items: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.justify-center {
+  justify-content: center;
+}
+.gap-2 {
+  gap: 0.5rem;
+}
+.gap-4 {
+  gap: 1rem;
+}
+.gap-6 {
+  gap: 1.5rem;
+}
+
+.grid {
+  display: grid;
+}
+.grid-gap {
+  gap: 1rem;
+}
+.grid-gap-lg {
+  gap: 1.5rem;
+}
+.grid-responsive {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.grid-2 {
+  grid-template-columns: 1fr;
+}
+.grid-3 {
+  grid-template-columns: 1fr;
+}
+@media (width >= 900px) {
+  .grid-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* -------------------------------------------------------
+   Components
+-------------------------------------------------------- */
+header.site {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--bg) 70%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+}
+nav a:hover {
+  color: var(--text);
+  background: color-mix(in srgb, var(--card) 60%, transparent);
+}
+
+.hero {
+  padding: 5rem 0 3rem;
+}
+.hero h1 {
+  font-size: clamp(2rem, 3.5vw + 1rem, 3.25rem);
+}
+.hero .sub {
+  color: var(--muted);
+  max-width: 65ch;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  color: var(--text);
+}
+.card:hover {
+  transform: translateY(-2px);
+  transition: transform var(--anim-speed);
+}
+
+.project {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 0.75rem;
+}
+.project .thumb {
+  aspect-ratio: 16/9;
+  border-radius: calc(var(--radius) - 8px);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--accent) 20%, transparent),
+    transparent
+  );
+  border: 1px solid var(--border);
+}
+.project h3 {
+  margin: 0.25rem 0;
+  font-size: 1.1rem;
+}
+.project .meta {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.info {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 0.75rem;
+  align-items: start;
+}
+.info .icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, var(--accent) 18%, var(--card));
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+footer {
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+}
+.badge {
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  font-size: 0.8rem;
+  color: var(--muted);
+}

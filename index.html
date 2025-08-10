@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dr. Seth Nordgren</title>
+    <link rel="stylesheet" href="stylesheet.css" />
+  </head>
+  <body>
+    <header class="site">
+      <div
+        class="container flex items-center justify-between"
+        style="padding: 0.75rem 0"
+      >
+        <div class="flex items-center gap-4">
+          <div
+            class="logo"
+            style="
+              width: 40px;
+              height: 40px;
+              background: var(--card);
+              border: 1px solid var(--border);
+            "
+          ></div>
+          <strong>Dr. Seth Nordgren</strong>
+        </div>
+        <nav class="flex items-center gap-2">
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#about">About</a>
+          <a href="#contact" class="btn">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero section">
+        <div
+          class="container flex flex-col items-center gap-4"
+          style="text-align: center"
+        >
+          <h1>Who I Am</h1>
+          <p class="sub">
+            This is my portfolio to showcase my work and skills. I am a
+            passionate developer with experience in building responsive and
+            user-friendly web applications. I additionally have a strong
+            background in psychology and behavior analysis, which informs my
+            approach to user-centered design.
+          </p>
+          <div class="flex gap-4">
+            <a class="btn" href="#projects">View Projects</a>
+            <a class="btn" href="#skills">See Skills</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="container stack-lg">
+          <div class="flex items-center justify-between">
+            <h2>Featured Projects</h2>
+            <span class="badge">Auto‑fit grid</span>
+          </div>
+          <div class="grid grid-responsive grid-gap-lg">
+            <article class="card project">
+              <div class="thumb"></div>
+              <div>
+                <h3>Marketing Company CRM</h3>
+                <p class="meta">HTML · CSS · JavaScript</p>
+                <p>
+                  Visualizes session data with trend lines and quick
+                  annotations.
+                </p>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="badge">2025</span>
+                <a class="btn" href="#">Details</a>
+              </div>
+            </article>
+
+            <article class="card project">
+              <div class="thumb"></div>
+              <div>
+                <h3>TBD</h3>
+                <p class="meta">Web · Accessibility · Export</p>
+                <p>TBD.</p>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="badge">2025</span>
+                <a class="btn" href="#">Details</a>
+              </div>
+            </article>
+
+            <article class="card project">
+              <div class="thumb"></div>
+              <div>
+                <h3>Pomodoro Task Manager</h3>
+                <p class="meta">iOS · SwiftUI · Productivity</p>
+                <p>Focus cycles with integrated task notes and stats.</p>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="badge">2024</span>
+                <a class="btn" href="#">Details</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="section">
+        <div class="container stack-lg">
+          <h2>Skills</h2>
+          <div class="grid grid-2 grid-gap-lg">
+            <div class="card stack">
+              <h3>Frontend</h3>
+              <div class="info">
+                <div class="icon">🧩</div>
+                <div>
+                  <strong>UI Systems</strong>
+                  <p class="meta">CSS Grid/Flexbox, tokens, themes</p>
+                </div>
+              </div>
+              <div class="info">
+                <div class="icon">⚡</div>
+                <div>
+                  <strong>Performance</strong>
+                  <p class="meta">Lazy loading, responsive images</p>
+                </div>
+              </div>
+            </div>
+            <div class="card stack">
+              <h3>iOS + Data</h3>
+              <div class="info">
+                <div class="icon">📱</div>
+                <div>
+                  <strong>Swift / SwiftUI</strong>
+                  <p class="meta">Widgets, notifications, StoreKit</p>
+                </div>
+              </div>
+              <div class="info">
+                <div class="icon">📊</div>
+                <div>
+                  <strong>Analytics</strong>
+                  <p class="meta">Charts, offline sync, exports</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container grid grid-2 grid-gap-lg">
+          <div class="card stack">
+            <h2>About</h2>
+            <p>
+              College professor and BCBA-D building practical tools for
+              learning, ethics, and productivity.
+            </p>
+            <p class="muted">
+              Themes: Liquid Glass (default), Tron, Retro 8‑bit.
+            </p>
+          </div>
+          <div class="card">
+            <div class="thumb" style="aspect-ratio: 1/1"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div
+          class="container card flex flex-col items-center gap-4"
+          style="text-align: center"
+        >
+          <h2>Contact</h2>
+          <p class="muted">
+            Want to collaborate or see more examples? Let’s talk.
+          </p>
+          <div class="flex gap-4">
+            <a class="btn" href="mailto:drsnordgren@gmail.com">Email</a>
+            <a class="btn" href="https://github.com/drsavvage90">Github</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container flex items-center justify-between">
+        <small>© 2025 Dr. Seth Nordgren</small>
+        <div class="flex gap-2">
+          <button class="btn" onclick="setTheme('liquid')">Liquid</button>
+          <button class="btn" onclick="setTheme('tron')">Tron</button>
+          <button class="btn" onclick="setTheme('retro8')">Retro 8‑bit</button>
+        </div>
+      </div>
+    </footer>
+
+    <noscript>
+      <div class="container" style="margin: 1rem 0">
+        <div class="card">
+          JavaScript is disabled — theme switching is unavailable, but Liquid
+          Glass remains the default.
+        </div>
+      </div>
+    </noscript>
+  </body>
+  <script>
+    // Persist and apply theme (liquid / tron / retro8). Liquid is the default.
+    (function () {
+      const saved = localStorage.getItem("theme");
+      const apply = (t) => {
+        document.body.className =
+          t === "tron" ? "theme-tron" : t === "retro8" ? "theme-retro8" : ""; // liquid = ""
+      };
+      apply(saved);
+      window.setTheme = function (t) {
+        apply(t);
+        localStorage.setItem("theme", t);
+      };
+    })();
+  </script>
+</html>
