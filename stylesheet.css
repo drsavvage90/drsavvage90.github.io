@@ -1,60 +1,306 @@
+/* =========================================================
+   Multi-Theme CSS System
+   Themes: Liquid Glass (Default), Tron
+   (Retro 8-bit removed)
+========================================================= */
+
 /* -------------------------------------------------------
-   Base: fonts, variables (Liquid as default), resets
+   Fonts & Reset
 -------------------------------------------------------- */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Orbitron:wght@400;700&family=Press+Start+2P&family=Rajdhani:wght@400;600&family=VT323&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap");
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
+
 html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
-/* Liquid Glass as default tokens on :root */
+/* -------------------------------------------------------
+   Default Theme: Liquid Glass (Light/Medium)
+-------------------------------------------------------- */
 :root {
-  --bg: #0e1116;
-  --card: rgba(255, 255, 255, 0.08);
-  --text: #eaf0ff;
-  --muted: #9fb0cb;
-  --accent: #8bc6ff;
-  --accent-2: #8de1cc;
-  --border: rgba(255, 255, 255, 0.14);
-  --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  /* Colors */
+  --bg: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 50%, #94a3b8 100%);
+  --card: rgba(255, 255, 255, 0.45);
+  --text: #1e293b;
+  --muted: #475569;
+  --accent: #0ea5e9;
+  --accent-2: #14b8a6;
+  --border: rgba(148, 163, 184, 0.25);
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.15), 0 10px 20px rgba(0, 0, 0, 0.1);
+
+  /* Layout */
   --radius: 18px;
   --maxw: 1100px;
+
+  /* Typography */
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu,
     Cantarell, "Noto Sans", sans-serif;
   --font-display: "Inter", system-ui, sans-serif;
+
+  /* Interaction */
   --cursor: default;
   --anim-speed: 0.25s;
-  --anim-slow: 6s;
 }
 
-/* base typography + background composed here so theme overrides can replace it */
+/* Base Styles */
 body {
   font-family: var(--font-body);
   cursor: var(--cursor);
   line-height: 1.55;
   color: var(--text);
+  position: relative;
+  min-height: 100vh;
   background: radial-gradient(
-      1000px 600px at 0% 0%,
-      rgba(139, 198, 255, 0.12),
-      transparent 60%
+      ellipse 1400px 900px at 100% -30%,
+      rgba(14, 165, 233, 0.12),
+      transparent 55%
     ),
     radial-gradient(
-      900px 500px at 100% 100%,
-      rgba(141, 225, 204, 0.1),
-      transparent 60%
+      ellipse 1200px 700px at 0% 100%,
+      rgba(20, 184, 166, 0.1),
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse 1000px 700px at 50% 50%,
+      rgba(100, 116, 139, 0.08),
+      transparent 65%
     ),
     var(--bg);
 }
 
+/* Liquid Glass: Aurora Animation */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+      circle at 20% 80%,
+      rgba(14, 165, 233, 0.18) 0%,
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(20, 184, 166, 0.15) 0%,
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 255, 255, 0.4) 0%,
+      transparent 50%
+    );
+  animation: liquidAurora 20s ease-in-out infinite;
+  will-change: transform;
+  backdrop-filter: blur(120px) saturate(1.5);
+  -webkit-backdrop-filter: blur(120px) saturate(1.5);
+}
+
+/* Liquid Glass: Floating Orbs */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+      circle at 70% 40%,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(148, 163, 184, 0.1) 20%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 30% 60%,
+      rgba(14, 165, 233, 0.12) 0%,
+      transparent 35%
+    );
+  animation: liquidOrb 25s ease-in-out infinite reverse;
+  will-change: transform;
+  mix-blend-mode: soft-light;
+}
+
+@keyframes liquidAurora {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+  33% {
+    transform: scale(1.1) rotate(120deg);
+  }
+  66% {
+    transform: scale(0.95) rotate(240deg);
+  }
+}
+
+@keyframes liquidOrb {
+  0%,
+  100% {
+    transform: translateX(0) translateY(0) scale(1);
+  }
+  25% {
+    transform: translateX(30px) translateY(-30px) scale(1.05);
+  }
+  50% {
+    transform: translateX(-20px) translateY(20px) scale(0.95);
+  }
+  75% {
+    transform: translateX(-30px) translateY(-20px) scale(1.02);
+  }
+}
+
+/* -------------------------------------------------------
+   Tron Theme — Movie Grid (Cyan + Orange)
+-------------------------------------------------------- */
+body.theme-tron {
+  /* Palette */
+  --bg: #0b0f1a; /* deep night */
+  --card: rgba(7, 12, 22, 0.9);
+  --text: #e6f9ff; /* cool white */
+  --muted: #8dcfff; /* soft cyan */
+  --accent: #00e5ff; /* neon cyan */
+  --accent-2: #ff7a18; /* neon orange */
+  --border: rgba(0, 229, 255, 0.35);
+
+  /* Type & cursor */
+  --font-body: "Rajdhani", system-ui, sans-serif;
+  --font-display: "Orbitron", sans-serif;
+  --cursor: crosshair;
+
+  /* Starfield / sky glow */
+  background: radial-gradient(
+      1200px 600px at 50% -10%,
+      rgba(0, 229, 255, 0.12),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 400px at 50% 0%,
+      rgba(255, 122, 24, 0.08),
+      transparent 70%
+    ),
+    #060912;
+  color: var(--text);
+}
+
+/* Tron: Perspective Grid Floor */
+body.theme-tron::before {
+  content: "";
+  position: fixed;
+  left: 50%;
+  bottom: -10vh;
+  width: 140vw;
+  height: 120vh;
+  z-index: -1;
+  pointer-events: none;
+
+  /* Build the grid with two repeating linear-gradients */
+  background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 229, 255, 0) 0 78px,
+      rgba(0, 229, 255, 0) 78px 79px,
+      rgba(0, 229, 255, 0.55) 79px 80px /* horizontal lines */
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0, 229, 255, 0) 0 78px,
+      rgba(0, 229, 255, 0) 78px 79px,
+      rgba(0, 229, 255, 0.55) 79px 80px /* vertical lines */
+    );
+
+  /* Perspective plane */
+  transform: translateX(-50%) perspective(900px) rotateX(62deg);
+  transform-origin: 50% 100%;
+
+  /* Cyan glow + subtle blur to sell the neon */
+  box-shadow: 0 -20px 120px rgba(0, 229, 255, 0.35) inset,
+    0 0 40px rgba(0, 229, 255, 0.25);
+
+  filter: drop-shadow(0 -2px 10px rgba(0, 229, 255, 0.3));
+  animation: tronDrift 18s linear infinite;
+  will-change: background-position, transform;
+}
+
+/* Tron: Horizon Glow + Sweep */
+body.theme-tron::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+
+  /* orange horizon band + cyan sweep */
+  background: radial-gradient(
+      60% 25% at 50% 40%,
+      rgba(255, 122, 24, 0.18) 0%,
+      rgba(255, 122, 24, 0.08) 40%,
+      transparent 70%
+    ),
+    linear-gradient(180deg, rgba(0, 229, 255, 0.06), transparent 40%);
+
+  animation: tronSweep 12s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
+@keyframes tronDrift {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 80px 80px, 80px 80px;
+  }
+}
+
+@keyframes tronSweep {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-1vh);
+  }
+}
+
+/* Tron: component treatments */
+body.theme-tron .logo {
+  box-shadow: inset 0 0 0 2px var(--accent), 0 0 28px var(--accent),
+    0 0 10px var(--accent-2) inset;
+}
+
+body.theme-tron .btn {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 229, 255, 0.18),
+    rgba(255, 122, 24, 0.16)
+  );
+  border: 1px solid color-mix(in srgb, var(--accent) 70%, var(--accent-2));
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.6);
+}
+body.theme-tron .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 22px rgba(0, 229, 255, 0.45),
+    0 0 10px rgba(255, 122, 24, 0.35);
+}
+
+/* -------------------------------------------------------
+   (Retro 8-bit Theme removed)
+-------------------------------------------------------- */
+
+/* -------------------------------------------------------
+   Typography
+-------------------------------------------------------- */
 h1,
 h2,
 h3,
@@ -63,12 +309,19 @@ h5,
 h6 {
   font-family: var(--font-display);
   margin: 0 0 0.5em;
+  font-weight: 600;
 }
+
+/* -------------------------------------------------------
+   Components (unchanged)
+-------------------------------------------------------- */
+
 .logo {
   border-radius: var(--radius);
-  transition: filter var(--anim-speed), box-shadow var(--anim-speed),
-    transform var(--anim-speed);
+  transition: filter var(--anim-speed) ease, box-shadow var(--anim-speed) ease,
+    transform var(--anim-speed) ease;
 }
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -76,116 +329,202 @@ h6 {
   padding: 0.6rem 1rem;
   border-radius: calc(var(--radius) - 6px);
   border: 1px solid var(--border);
-  background: var(--card);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.2)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   color: var(--text);
   text-decoration: none;
   cursor: pointer;
-  transition: transform var(--anim-speed), box-shadow var(--anim-speed),
-    filter var(--anim-speed);
+  font-family: inherit;
+  font-size: inherit;
+  transition: all var(--anim-speed) ease;
 }
+
 .btn:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  background: linear-gradient(
+    135deg,
+    rgba(14, 165, 233, 0.2),
+    rgba(255, 255, 255, 0.3)
+  );
+  box-shadow: 0 10px 30px rgba(14, 165, 233, 0.2);
 }
 
-/* reduce motion */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-  }
+.btn:active {
+  transform: translateY(0);
+}
+
+.card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.3)
+  );
+  backdrop-filter: blur(20px) saturate(1.8);
+  -webkit-backdrop-filter: blur(20px) saturate(1.8);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  color: var(--text);
+  transition: all var(--anim-speed) ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0.4)
+  );
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2), 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Header */
+header.site {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  gap: 0.25rem;
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  transition: all var(--anim-speed) ease;
+}
+nav a:hover {
+  color: var(--text);
+  background: color-mix(in srgb, var(--card) 60%, transparent);
+}
+nav a.active {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+}
+
+/* Hero Section */
+.hero {
+  padding: 5rem 0 3rem;
+  text-align: center;
+}
+.hero h1 {
+  font-size: clamp(2rem, 3.5vw + 1rem, 3.25rem);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+.hero .sub {
+  color: var(--muted);
+  max-width: 65ch;
+  margin-inline: auto;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+}
+
+/* Project Cards */
+.project {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 0.75rem;
+  height: 100%;
+}
+.project .thumb {
+  aspect-ratio: 16/9;
+  border-radius: calc(var(--radius) - 8px);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--accent) 20%, transparent),
+    transparent
+  );
+  border: 1px solid var(--border);
+  overflow: hidden;
+  position: relative;
+}
+.project .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.project h3 {
+  margin: 0.25rem 0;
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+.project .meta {
+  color: var(--muted);
+  font-size: 0.95rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Info Cards */
+.info {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+.info .icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, var(--accent) 18%, var(--card));
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  flex-shrink: 0;
+}
+
+/* Footer */
+footer {
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  text-align: center;
+}
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--anim-speed) ease;
+}
+footer a:hover {
+  color: var(--accent-2);
+  text-decoration: underline;
+}
+
+/* Badge */
+.badge {
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  font-size: 0.8rem;
+  color: var(--muted);
+  transition: all var(--anim-speed) ease;
+}
+.badge:hover {
+  background: color-mix(in srgb, var(--accent) 20%, var(--card));
+  color: var(--text);
 }
 
 /* -------------------------------------------------------
-   Tron theme override
--------------------------------------------------------- */
-body.theme-tron {
-  --bg: #02060d;
-  --card: #050b16;
-  --text: #dff3ff;
-  --muted: #8cc6ff;
-  --accent: #00e5ff;
-  --accent-2: #ff00e6;
-  --border: #0f2440;
-  --font-body: "Rajdhani", system-ui, sans-serif;
-  --font-display: "Orbitron", sans-serif;
-  --cursor: crosshair;
-  background: radial-gradient(
-      1200px 600px at 80% -20%,
-      rgba(255, 0, 230, 0.12),
-      transparent 60%
-    ),
-    radial-gradient(
-      1200px 600px at 0% 120%,
-      rgba(0, 229, 255, 0.1),
-      transparent 60%
-    ),
-    repeating-linear-gradient(
-      0deg,
-      rgba(0, 229, 255, 0.06) 0 1px,
-      transparent 1px 40px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      rgba(0, 229, 255, 0.06) 0 1px,
-      transparent 1px 40px
-    ),
-    var(--bg);
-}
-body.theme-tron .logo {
-  box-shadow: 0 0 0 2px var(--accent) inset, 0 0 28px var(--accent);
-}
-body.theme-tron .btn:hover {
-  animation: glowPulse 1.8s ease-in-out infinite;
-}
-@keyframes glowPulse {
-  0%,
-  100% {
-    box-shadow: 0 0 18px rgba(0, 229, 255, 0.25);
-  }
-  50% {
-    box-shadow: 0 0 36px rgba(0, 229, 255, 0.55);
-  }
-}
-
-/* -------------------------------------------------------
-   Retro 8-bit theme override
--------------------------------------------------------- */
-body.theme-retro8 {
-  --bg: #1b1c22;
-  --card: #101114;
-  --text: #e7e3cf;
-  --muted: #b8b39c;
-  --accent: #ffd45e;
-  --accent-2: #7bd389;
-  --border: #2a2c33;
-  --font-body: "VT323", ui-monospace, monospace;
-  --font-display: "Press Start 2P", system-ui;
-  --cursor: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Crect width='16' height='16' fill='yellow'/%3E%3C/svg%3E")
-      0 0,
-    auto;
-  background: repeating-linear-gradient(0deg, #20222a 0 12px, #1b1c22 12px 24px),
-    repeating-linear-gradient(90deg, #1c1d24 0 12px, #1b1c22 12px 24px);
-}
-/* keep pixelation to images/canvas only for readability */
-body.theme-retro8 img,
-body.theme-retro8 canvas {
-  image-rendering: pixelated;
-}
-body.theme-retro8 .btn:hover {
-  animation: pixelBounce 0.3s steps(2, end) infinite;
-}
-@keyframes pixelBounce {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-2px);
-  }
-}
-
-/* -------------------------------------------------------
-   Layout utilities (grid, flex, spacing, containers)
+   Layout Utilities
 -------------------------------------------------------- */
 .container {
   width: min(100% - 2rem, var(--maxw));
@@ -238,15 +577,13 @@ body.theme-retro8 .btn:hover {
 .grid-responsive {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
-.grid-2 {
-  grid-template-columns: 1fr;
-}
+.grid-2,
 .grid-3 {
   grid-template-columns: 1fr;
 }
-@media (width >= 900px) {
+@media (min-width: 900px) {
   .grid-2 {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
   .grid-3 {
     grid-template-columns: repeat(3, 1fr);
@@ -254,103 +591,68 @@ body.theme-retro8 .btn:hover {
 }
 
 /* -------------------------------------------------------
-   Components
+   Utility Classes
 -------------------------------------------------------- */
-header.site {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: color-mix(in srgb, var(--bg) 70%, transparent);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border);
+.text-center {
+  text-align: center;
 }
-nav a {
-  color: var(--muted);
-  text-decoration: none;
-  padding: 0.5rem 0.75rem;
-  border-radius: 10px;
-}
-nav a:hover {
-  color: var(--text);
-  background: color-mix(in srgb, var(--card) 60%, transparent);
-}
-
-.hero {
-  padding: 5rem 0 3rem;
-}
-.hero h1 {
-  font-size: clamp(2rem, 3.5vw + 1rem, 3.25rem);
-}
-.hero .sub {
-  color: var(--muted);
-  max-width: 65ch;
-}
-
-.card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 1rem;
-  color: var(--text);
-}
-.card:hover {
-  transform: translateY(-2px);
-  transition: transform var(--anim-speed);
-}
-
-.project {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  gap: 0.75rem;
-}
-.project .thumb {
-  aspect-ratio: 16/9;
-  border-radius: calc(var(--radius) - 8px);
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--accent) 20%, transparent),
-    transparent
-  );
-  border: 1px solid var(--border);
-}
-.project h3 {
-  margin: 0.25rem 0;
-  font-size: 1.1rem;
-}
-.project .meta {
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-
-.info {
-  display: grid;
-  grid-template-columns: 48px 1fr;
-  gap: 0.75rem;
-  align-items: start;
-}
-.info .icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  display: grid;
-  place-items: center;
-  background: color-mix(in srgb, var(--accent) 18%, var(--card));
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-}
-
-footer {
-  padding: 2.5rem 0;
-  border-top: 1px solid var(--border);
+.text-muted {
   color: var(--muted);
 }
-.badge {
-  display: inline-block;
-  padding: 0.3rem 0.6rem;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: var(--card);
-  font-size: 0.8rem;
-  color: var(--muted);
+.text-accent {
+  color: var(--accent);
+}
+
+/* Screen Reader Only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* -------------------------------------------------------
+   Accessibility
+-------------------------------------------------------- */
+.btn:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* -------------------------------------------------------
+   Performance & Compatibility
+-------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  body::before,
+  body::after {
+    display: none;
+  }
+  .card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+  body {
+    background: white;
+    color: black;
+  }
 }

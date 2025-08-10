@@ -189,7 +189,6 @@
         <div class="flex gap-2">
           <button class="btn" onclick="setTheme('liquid')">Liquid</button>
           <button class="btn" onclick="setTheme('tron')">Tron</button>
-          <button class="btn" onclick="setTheme('retro8')">Retro 8‑bit</button>
         </div>
       </div>
     </footer>
@@ -208,8 +207,7 @@
     (function () {
       const saved = localStorage.getItem("theme");
       const apply = (t) => {
-        document.body.className =
-          t === "tron" ? "theme-tron" : t === "retro8" ? "theme-retro8" : ""; // liquid = ""
+        document.body.className = t === "tron" ? "theme-tron" : ""; // liquid = ""
       };
       apply(saved);
       window.setTheme = function (t) {
