@@ -3,8 +3,20 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Dr. Seth Nordgren</title>
+    <meta name="description" content="Dr. Seth Nordgren - College professor and BCBA-D building practical tools for learning, ethics, and productivity." />
+    <meta name="theme-color" content="#0ea5e9" />
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Critical CSS first -->
     <link rel="stylesheet" href="stylesheet.css" />
+    
+    <!-- Preload key resources -->
+    <link rel="modulepreload" href="app.js" />
+    
+    <title>Dr. Seth Nordgren</title>
   </head>
   <body>
     <header class="site">
@@ -199,19 +211,20 @@
         </div>
       </div>
     </noscript>
+    <script type="module" src="app.js"></script>
+    <script>
+      // Critical theme loading - inline for performance
+      (function () {
+        const saved = localStorage.getItem("theme");
+        const apply = (t) => {
+          document.body.className = t === "tron" ? "theme-tron" : "";
+        };
+        apply(saved);
+        window.setTheme = function (t) {
+          apply(t);
+          localStorage.setItem("theme", t);
+        };
+      })();
+    </script>
   </body>
-  <script>
-    // Persist and apply theme (liquid / tron / retro8). Liquid is the default.
-    (function () {
-      const saved = localStorage.getItem("theme");
-      const apply = (t) => {
-        document.body.className = t === "tron" ? "theme-tron" : ""; // liquid = ""
-      };
-      apply(saved);
-      window.setTheme = function (t) {
-        apply(t);
-        localStorage.setItem("theme", t);
-      };
-    })();
-  </script>
 </html>
