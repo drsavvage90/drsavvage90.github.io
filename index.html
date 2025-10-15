@@ -10,6 +10,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     
+    <!-- Font loading -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+    />
     <!-- Critical CSS first -->
     <link rel="stylesheet" href="stylesheet.css" />
     
@@ -37,10 +42,10 @@
           <strong>Dr. Seth Nordgren</strong>
         </div>
         <nav class="flex items-center gap-2">
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
-          <a href="#about">About</a>
-          <a href="#contact" class="btn">Contact</a>
+          <a href="#projects" data-scroll="#projects">Projects</a>
+          <a href="#skills" data-scroll="#skills">Skills</a>
+          <a href="#about" data-scroll="#about">About</a>
+          <a href="#contact" class="btn" data-scroll="#contact">Contact</a>
         </nav>
       </div>
     </header>
@@ -60,8 +65,8 @@
             approach to user-centered design.
           </p>
           <div class="flex gap-4">
-            <a class="btn" href="#projects">View Projects</a>
-            <a class="btn" href="#skills">See Skills</a>
+            <a class="btn" href="#projects" data-scroll="#projects">View Projects</a>
+            <a class="btn" href="#skills" data-scroll="#skills">See Skills</a>
           </div>
         </div>
       </section>
@@ -69,52 +74,27 @@
       <section id="projects" class="section">
         <div class="container stack-lg">
           <div class="flex items-center justify-between">
-            <h2>Featured Projects</h2>
-            <span class="badge">Auto‑fit grid</span>
+            <h2>Top Projects</h2>
+            <span class="badge">Live from GitHub</span>
           </div>
-          <div class="grid grid-responsive grid-gap-lg">
-            <article class="card project">
+          <div class="grid grid-responsive grid-gap-lg" id="project-grid">
+            <article class="card project" data-placeholder="true">
               <div class="thumb"></div>
               <div>
-                <h3>Marketing Company CRM</h3>
-                <p class="meta">HTML · CSS · JavaScript</p>
+                <h3>GitHub Projects</h3>
+                <p class="meta">Live updates from drsavvage90</p>
                 <p>
-                  Visualizes session data with trend lines and quick
-                  annotations.
+                  Enable JavaScript to load the latest public repositories
+                  directly from GitHub, or visit the profile below.
                 </p>
               </div>
               <div class="flex justify-between items-center">
-                <span class="badge">2025</span>
-                <a class="btn" href="#">Details</a>
-              </div>
-            </article>
-
-            <article class="card project">
-              <div class="thumb"></div>
-              <div>
-                <h3>TBD</h3>
-                <p class="meta">Web · Accessibility · Export</p>
-                <p>TBD.</p>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="badge">2025</span>
-                <a class="btn" href="#">Details</a>
-              </div>
-            </article>
-
-            <article class="card project">
-              <div class="thumb"></div>
-              <div>
-                <h3>Pomodoro Task Manager</h3>
-                <p class="meta">iOS · SwiftUI · Productivity</p>
-                <p>Focus cycles with integrated task notes and stats.</p>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="badge">2024</span>
-                <a class="btn" href="#">Details</a>
+                <span class="badge">Live</span>
+                <a class="btn" href="https://github.com/drsavvage90">View GitHub</a>
               </div>
             </article>
           </div>
+          <p class="muted" id="project-status">Loading GitHub projects…</p>
         </div>
       </section>
 
@@ -161,18 +141,18 @@
       </section>
 
       <section id="about" class="section">
-        <div class="container grid grid-2 grid-gap-lg">
-          <div class="card stack">
-            <h2>About</h2>
-            <p>
-              College professor and BCBA-D building practical tools for
-              learning, ethics, and productivity.
-            </p>
-            <p class="muted">Themes: Liquid Glass (default), Tron.</p>
-          </div>
-          <div class="card">
-            <div class="thumb" style="aspect-ratio: 1/1"></div>
-          </div>
+        <div class="container">
+          <article class="card about-card">
+            <div class="about-copy">
+              <h2>About</h2>
+              <p>
+                College professor and BCBA-D building practical tools for
+                learning, ethics, and productivity.
+              </p>
+              <p class="muted">Themes: Light (default) and Dark.</p>
+            </div>
+            <div class="about-visual" aria-hidden="true"></div>
+          </article>
         </div>
       </section>
 
@@ -195,10 +175,10 @@
 
     <footer>
       <div class="container flex items-center justify-between">
-        <small>© 2025 Dr. Seth Nordgren</small>
+        <small>© <span id="y">2025</span> Dr. Seth Nordgren</small>
         <div class="flex gap-2">
-          <button class="btn" onclick="setTheme('liquid')">Liquid</button>
-          <button class="btn" onclick="setTheme('tron')">Tron</button>
+          <button class="btn" onclick="setTheme('light')">Light</button>
+          <button class="btn" onclick="setTheme('dark')">Dark</button>
         </div>
       </div>
     </footer>
@@ -206,8 +186,8 @@
     <noscript>
       <div class="container" style="margin: 1rem 0">
         <div class="card">
-          JavaScript is disabled — theme switching is unavailable, but Liquid
-          Glass remains the default.
+          JavaScript is disabled — theme switching is unavailable, but the Light
+          theme remains the default.
         </div>
       </div>
     </noscript>
@@ -216,14 +196,11 @@
       // Critical theme loading - inline for performance
       (function () {
         const saved = localStorage.getItem("theme");
-        const apply = (t) => {
-          document.body.className = t === "tron" ? "theme-tron" : "";
-        };
-        apply(saved);
-        window.setTheme = function (t) {
-          apply(t);
-          localStorage.setItem("theme", t);
-        };
+        if (saved === "dark" || saved === "tron") {
+          document.body.classList.add("theme-tron");
+        } else if (saved === "light" || saved === "liquid") {
+          document.body.classList.remove("theme-tron");
+        }
       })();
     </script>
   </body>

@@ -7,8 +7,6 @@
 /* -------------------------------------------------------
    Fonts & Reset
 -------------------------------------------------------- */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap");
-
 *,
 *::before,
 *::after {
@@ -165,77 +163,67 @@ body::after {
 }
 
 /* -------------------------------------------------------
-   Tron Theme — Movie Grid (Cyan + Orange)
+   Tron Theme — Modern Neon Grid
 -------------------------------------------------------- */
 body.theme-tron {
-  /* Palette */
-  --bg: #0b0f1a; /* deep night */
-  --card: rgba(7, 12, 22, 0.9);
-  --text: #e6f9ff; /* cool white */
-  --muted: #8dcfff; /* soft cyan */
-  --accent: #00e5ff; /* neon cyan */
-  --accent-2: #ff7a18; /* neon orange */
-  --border: rgba(0, 229, 255, 0.35);
+  --bg: #04060f;
+  --card: rgba(12, 18, 40, 0.82);
+  --text: #eef6ff;
+  --muted: #5bd2ff;
+  --accent: #3af7ff;
+  --accent-2: #7a5cff;
+  --border: rgba(58, 247, 255, 0.32);
+  --glow: 0 0 32px rgba(58, 247, 255, 0.4);
+  --grid-line: rgba(58, 247, 255, 0.55);
+  --grid-subtle: rgba(122, 92, 255, 0.22);
 
-  /* Type & cursor */
-  --font-body: "Rajdhani", system-ui, sans-serif;
-  --font-display: "Orbitron", sans-serif;
-  --cursor: crosshair;
-
-  /* Starfield / sky glow */
   background: radial-gradient(
-      1200px 600px at 50% -10%,
-      rgba(0, 229, 255, 0.12),
-      transparent 60%
+      75% 60% at 50% -5%,
+      rgba(122, 92, 255, 0.35),
+      transparent 65%
     ),
     radial-gradient(
-      900px 400px at 50% 0%,
-      rgba(255, 122, 24, 0.08),
+      120% 90% at 50% 120%,
+      rgba(58, 247, 255, 0.18),
       transparent 70%
     ),
-    #060912;
+    linear-gradient(160deg, #02030a 0%, #050a18 55%, #0b1736 100%);
   color: var(--text);
 }
 
-/* Tron: Perspective Grid Floor */
 body.theme-tron::before {
   content: "";
   position: fixed;
   left: 50%;
-  bottom: -10vh;
-  width: 140vw;
-  height: 120vh;
+  bottom: -14vh;
+  width: 180vw;
+  height: 150vh;
   z-index: -1;
   pointer-events: none;
 
-  /* Build the grid with two repeating linear-gradients */
-  background: repeating-linear-gradient(
-      0deg,
-      rgba(0, 229, 255, 0) 0 78px,
-      rgba(0, 229, 255, 0) 78px 79px,
-      rgba(0, 229, 255, 0.55) 79px 80px /* horizontal lines */
-    ),
+  background:
+    linear-gradient(180deg, rgba(2, 6, 16, 0.1) 0%, rgba(2, 6, 16, 0.92) 65%),
     repeating-linear-gradient(
       90deg,
-      rgba(0, 229, 255, 0) 0 78px,
-      rgba(0, 229, 255, 0) 78px 79px,
-      rgba(0, 229, 255, 0.55) 79px 80px /* vertical lines */
+      transparent 0 70px,
+      var(--grid-subtle) 70px 72px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 70px,
+      var(--grid-line) 70px 72px
     );
-
-  /* Perspective plane */
-  transform: translateX(-50%) perspective(900px) rotateX(62deg);
+  background-size: cover, 140px 140px, 140px 140px;
+  background-position: 0 0, 0 0, 0 0;
+  transform: translateX(-50%) perspective(1100px) rotateX(63deg) translateY(5vh);
   transform-origin: 50% 100%;
-
-  /* Cyan glow + subtle blur to sell the neon */
-  box-shadow: 0 -20px 120px rgba(0, 229, 255, 0.35) inset,
-    0 0 40px rgba(0, 229, 255, 0.25);
-
-  filter: drop-shadow(0 -2px 10px rgba(0, 229, 255, 0.3));
-  animation: tronDrift 18s linear infinite;
+  box-shadow: 0 -50px 200px rgba(58, 247, 255, 0.22) inset,
+    0 0 140px rgba(122, 92, 255, 0.28);
+  filter: drop-shadow(0 -8px 18px rgba(58, 247, 255, 0.35));
+  animation: tronGridFlow 22s linear infinite;
   will-change: background-position, transform;
 }
 
-/* Tron: Horizon Glow + Sweep */
 body.theme-tron::after {
   content: "";
   position: fixed;
@@ -243,59 +231,238 @@ body.theme-tron::after {
   z-index: -2;
   pointer-events: none;
 
-  /* orange horizon band + cyan sweep */
-  background: radial-gradient(
-      60% 25% at 50% 40%,
-      rgba(255, 122, 24, 0.18) 0%,
-      rgba(255, 122, 24, 0.08) 40%,
+  background:
+    radial-gradient(
+      90% 60% at 50% 15%,
+      rgba(58, 247, 255, 0.22),
       transparent 70%
     ),
-    linear-gradient(180deg, rgba(0, 229, 255, 0.06), transparent 40%);
-
-  animation: tronSweep 12s ease-in-out infinite;
-  will-change: opacity, transform;
+    conic-gradient(
+      from 140deg at 50% 30%,
+      rgba(122, 92, 255, 0.28),
+      rgba(58, 247, 255, 0.12),
+      transparent 75%
+    );
+  mix-blend-mode: screen;
+  opacity: 0.85;
+  animation: tronAurora 16s ease-in-out infinite alternate;
+  will-change: transform, opacity;
 }
 
-@keyframes tronDrift {
+@keyframes tronGridFlow {
   0% {
-    background-position: 0 0, 0 0;
+    background-position: 0 0, 0 0, 0 0;
   }
   100% {
-    background-position: 80px 80px, 80px 80px;
+    background-position: 0 0, 180px 0, 0 180px;
   }
 }
 
-@keyframes tronSweep {
-  0%,
-  100% {
-    opacity: 0.7;
-    transform: translateY(0);
+@keyframes tronAurora {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.75;
   }
   50% {
+    transform: translateY(-1.5vh) scale(1.05);
     opacity: 1;
-    transform: translateY(-1vh);
+  }
+  100% {
+    transform: translateY(0.75vh) scale(1.02);
+    opacity: 0.85;
   }
 }
 
-/* Tron: component treatments */
 body.theme-tron .logo {
-  box-shadow: inset 0 0 0 2px var(--accent), 0 0 28px var(--accent),
-    0 0 10px var(--accent-2) inset;
+  background: radial-gradient(
+      circle at 30% 30%,
+      rgba(58, 247, 255, 0.45),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 70% 70%,
+      rgba(122, 92, 255, 0.4),
+      transparent 60%
+    );
+  border: 1px solid rgba(58, 247, 255, 0.55);
+  box-shadow: inset 0 0 0 2px rgba(58, 247, 255, 0.6),
+    0 0 24px rgba(122, 92, 255, 0.45);
+}
+
+body.theme-tron .card {
+  background: linear-gradient(
+    150deg,
+    rgba(10, 16, 36, 0.92),
+    rgba(16, 24, 52, 0.76)
+  );
+  border: 1px solid rgba(58, 247, 255, 0.25);
+  box-shadow: 0 25px 60px rgba(2, 8, 24, 0.85),
+    0 0 42px rgba(58, 247, 255, 0.18);
+}
+
+body.theme-tron .card::before {
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(58, 247, 255, 0.18),
+    transparent
+  );
+}
+
+body.theme-tron .card:hover {
+  box-shadow: 0 35px 80px rgba(2, 8, 24, 0.9),
+    0 0 52px rgba(122, 92, 255, 0.38);
 }
 
 body.theme-tron .btn {
   background: linear-gradient(
     135deg,
-    rgba(0, 229, 255, 0.18),
-    rgba(255, 122, 24, 0.16)
+    rgba(58, 247, 255, 0.18),
+    rgba(122, 92, 255, 0.28)
   );
-  border: 1px solid color-mix(in srgb, var(--accent) 70%, var(--accent-2));
-  text-shadow: 0 0 8px rgba(0, 229, 255, 0.6);
+  border: 1px solid rgba(58, 247, 255, 0.5);
+  color: var(--text);
+  box-shadow: 0 0 18px rgba(58, 247, 255, 0.35),
+    inset 0 0 12px rgba(58, 247, 255, 0.18);
+  text-shadow: 0 0 8px rgba(58, 247, 255, 0.6);
 }
+
 body.theme-tron .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 22px rgba(0, 229, 255, 0.45),
-    0 0 10px rgba(255, 122, 24, 0.35);
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 18px 35px rgba(2, 10, 26, 0.65),
+    0 0 26px rgba(122, 92, 255, 0.45);
+  background: linear-gradient(
+    135deg,
+    rgba(58, 247, 255, 0.28),
+    rgba(122, 92, 255, 0.36)
+  );
+}
+
+body.theme-tron nav a {
+  color: rgba(231, 244, 255, 0.72);
+  text-shadow: 0 0 10px rgba(58, 247, 255, 0.35);
+}
+
+body.theme-tron nav a:hover,
+body.theme-tron nav a:focus-visible {
+  color: var(--text);
+  background: color-mix(in srgb, var(--accent) 25%, transparent);
+  box-shadow: 0 0 20px rgba(58, 247, 255, 0.25);
+}
+
+body.theme-tron nav a.active {
+  color: var(--text);
+  background: color-mix(in srgb, var(--accent) 40%, transparent);
+  box-shadow: 0 0 18px rgba(122, 92, 255, 0.35);
+}
+
+body.theme-tron .badge {
+  background: linear-gradient(
+    90deg,
+    rgba(58, 247, 255, 0.18),
+    rgba(122, 92, 255, 0.32)
+  );
+  border: 1px solid rgba(58, 247, 255, 0.4);
+  color: var(--text);
+  box-shadow: 0 0 12px rgba(58, 247, 255, 0.3);
+}
+
+body.theme-tron .project .thumb {
+  background: radial-gradient(
+      circle at 20% 20%,
+      rgba(58, 247, 255, 0.3),
+      transparent 55%
+    ),
+    linear-gradient(
+      130deg,
+      rgba(58, 247, 255, 0.12),
+      rgba(122, 92, 255, 0.2)
+    );
+  border-color: rgba(58, 247, 255, 0.35);
+}
+
+body.theme-tron .project .thumb::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(58, 247, 255, 0.25),
+    transparent
+  );
+}
+
+.about-card {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+  grid-template-columns: minmax(0, 1fr);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.about-copy p {
+  max-width: 65ch;
+}
+
+.about-visual {
+  position: relative;
+  min-height: 220px;
+  border-radius: calc(var(--radius) - 6px);
+  background: radial-gradient(
+      circle at 20% 20%,
+      rgba(14, 165, 233, 0.3),
+      transparent 55%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(14, 165, 233, 0.22),
+      rgba(20, 184, 166, 0.18)
+    );
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  box-shadow: 0 30px 70px rgba(14, 165, 233, 0.18);
+}
+
+.about-visual::after {
+  content: "";
+  position: absolute;
+  inset: 12%;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0.05)
+  );
+  mix-blend-mode: screen;
+  opacity: 0.5;
+}
+
+@media (min-width: 900px) {
+  .about-card {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  }
+}
+
+body.theme-tron .about-visual {
+  background: radial-gradient(
+      circle at 20% 20%,
+      rgba(58, 247, 255, 0.35),
+      transparent 50%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(58, 247, 255, 0.2),
+      rgba(122, 92, 255, 0.28)
+    );
+  border-color: rgba(58, 247, 255, 0.35);
+  box-shadow: 0 30px 80px rgba(2, 10, 30, 0.85),
+    0 0 40px rgba(122, 92, 255, 0.35);
+}
+
+body.theme-tron .about-visual::after {
+  background: linear-gradient(
+    135deg,
+    rgba(58, 247, 255, 0.35),
+    rgba(122, 92, 255, 0.15)
+  );
+  opacity: 0.65;
 }
 
 /* -------------------------------------------------------
@@ -788,6 +955,27 @@ body::after {
   100% {
     transform: translateX(100%) translateZ(0);
   }
+}
+
+.project .thumb.has-image {
+  background: #020617;
+  overflow: hidden;
+}
+
+.project .thumb.has-image::before {
+  display: none;
+}
+
+.project .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--anim-speed) ease;
+}
+
+.project:hover .thumb img {
+  transform: scale(1.03);
 }
 
 @media (prefers-reduced-motion: reduce) {
