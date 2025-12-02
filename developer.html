@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Seth Nordgren - Junior Software Developer specializing in iOS/Swift, Web Development, and Python. Building practical applications with clean code." />
+    <meta name="theme-color" content="#0ea5e9" />
+    
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://drsavvage90.github.io/developer" />
+    <meta property="og:title" content="Seth Nordgren - Junior Software Developer" />
+    <meta property="og:description" content="iOS/Swift, Web Development, and Python developer. Building practical applications with clean, maintainable code." />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" />
+    <link rel="stylesheet" href="stylesheet.css" />
+    <link rel="stylesheet" href="pages.css" />
+    
+    <title>Seth Nordgren | Junior Software Developer</title>
+  </head>
+  <body class="dev-page">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+    
+    <header class="site">
+      <div class="container flex items-center justify-between" style="padding: 0.75rem 0">
+        <div class="flex items-center gap-4">
+          <a href="index.html" class="logo-link">
+            <div class="logo dev-logo" style="width: 40px; height: 40px;">
+              <span class="code-bracket">&lt;/&gt;</span>
+            </div>
+          </a>
+          <div>
+            <strong>Seth Nordgren</strong>
+            <span class="header-subtitle">Developer</span>
+          </div>
+        </div>
+        <nav class="flex items-center gap-2" id="main-nav">
+          <a href="index.html">Home</a>
+          <a href="#projects" data-scroll="#projects">Projects</a>
+          <a href="#skills" data-scroll="#skills">Skills</a>
+          <a href="#experience" data-scroll="#experience">Experience</a>
+          <a href="teaching.html">Academic</a>
+          <a href="#contact" class="btn" data-scroll="#contact">Hire Me</a>
+        </nav>
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <!-- Hero Section -->
+      <section class="hero section page-hero dev-hero">
+        <div class="container flex flex-col items-center gap-4" style="text-align: center">
+          <div class="profile-photo dev-photo">
+            <div class="photo-placeholder" aria-label="Profile photo">SN</div>
+          </div>
+          <div class="hero-badge dev-badge">💻 Junior Developer</div>
+          <h1>Seth Nordgren</h1>
+          <p class="credentials dev-title">
+            <span class="typing-text" id="typing-text"></span>
+            <span class="typing-cursor">|</span>
+          </p>
+          <p class="sub">
+            Junior software developer with a unique background in data analysis and behavioral science. 
+            I bring analytical thinking, attention to detail, and a passion for creating user-centered 
+            applications. Currently seeking opportunities to grow and contribute to innovative teams.
+          </p>
+          
+          <div class="tech-stack-preview">
+            <span class="tech-icon" title="Swift">🍎</span>
+            <span class="tech-icon" title="JavaScript">⚡</span>
+            <span class="tech-icon" title="Python">🐍</span>
+            <span class="tech-icon" title="HTML/CSS">🎨</span>
+            <span class="tech-icon" title="Git">📦</span>
+          </div>
+          
+          <div class="flex gap-4 flex-wrap justify-center">
+            <a class="btn btn-primary" href="#projects" data-scroll="#projects">View Projects</a>
+            <a class="btn" href="https://github.com/drsavvage90" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+              GitHub
+            </a>
+            <a class="btn btn-outline" href="#" id="resume-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7,10 12,15 17,10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Resume
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- What I Bring Section -->
+      <section id="value" class="section">
+        <div class="container stack-lg">
+          <h2>What I Bring to the Table</h2>
+          <div class="grid grid-3 grid-gap-lg">
+            <div class="card value-card">
+              <div class="value-icon">🧠</div>
+              <h3>Analytical Thinking</h3>
+              <p>Background in data analysis and behavioral science means I approach problems methodically and make decisions based on evidence.</p>
+            </div>
+            <div class="card value-card">
+              <div class="value-icon">📚</div>
+              <h3>Fast Learner</h3>
+              <p>Academic experience has honed my ability to quickly absorb new information, technologies, and frameworks.</p>
+            </div>
+            <div class="card value-card">
+              <div class="value-icon">👥</div>
+              <h3>User-Centered</h3>
+              <p>My experience working with people translates to building applications that genuinely serve user needs.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="section">
+        <div class="container stack-lg">
+          <div class="flex items-center justify-between flex-wrap gap-4">
+            <h2>Featured Projects</h2>
+            <a href="https://github.com/drsavvage90" target="_blank" rel="noopener" class="btn btn-sm">
+              View All on GitHub →
+            </a>
+          </div>
+          
+          <div class="projects-showcase">
+            <!-- Featured Project -->
+            <article class="card featured-project">
+              <div class="featured-project-content">
+                <div class="project-badges">
+                  <span class="badge badge-featured">⭐ Featured</span>
+                  <span class="badge">Swift</span>
+                  <span class="badge">iOS</span>
+                </div>
+                <h3>Behavior Data Tracker</h3>
+                <p>iOS application for tracking behavioral data with real-time graphing, cloud sync, and export capabilities. Built with SwiftUI and Core Data.</p>
+                <div class="project-features">
+                  <span>✓ Real-time graphing</span>
+                  <span>✓ iCloud sync</span>
+                  <span>✓ PDF exports</span>
+                  <span>✓ Multiple data types</span>
+                </div>
+                <div class="project-links">
+                  <a href="#" class="btn btn-primary">View Project</a>
+                  <a href="#" class="btn">Source Code</a>
+                </div>
+              </div>
+              <div class="featured-project-visual">
+                <div class="device-mockup">
+                  <div class="device-screen">
+                    <div class="app-preview">📊</div>
+                  </div>
+                </div>
+              </div>
+            </article>
+            
+            <!-- Project Grid -->
+            <div class="grid grid-2 grid-gap-lg">
+              <article class="card project-card">
+                <div class="project-header">
+                  <div class="project-icon">🌐</div>
+                  <div class="project-links-mini">
+                    <a href="#" aria-label="View live site">🔗</a>
+                    <a href="#" aria-label="View source code">📂</a>
+                  </div>
+                </div>
+                <h3>Portfolio Website</h3>
+                <p>This responsive portfolio site built with vanilla HTML, CSS, and JavaScript. Features smooth animations, theme switching, and GitHub integration.</p>
+                <div class="project-tech">
+                  <span>HTML5</span>
+                  <span>CSS3</span>
+                  <span>JavaScript</span>
+                </div>
+              </article>
+              
+              <article class="card project-card">
+                <div class="project-header">
+                  <div class="project-icon">🐍</div>
+                  <div class="project-links-mini">
+                    <a href="#" aria-label="View source code">📂</a>
+                  </div>
+                </div>
+                <h3>Data Visualization Scripts</h3>
+                <p>Python scripts for creating publication-ready graphs from behavioral data. Supports multiple chart types and automated styling.</p>
+                <div class="project-tech">
+                  <span>Python</span>
+                  <span>Matplotlib</span>
+                  <span>Pandas</span>
+                </div>
+              </article>
+              
+              <article class="card project-card">
+                <div class="project-header">
+                  <div class="project-icon">⚛️</div>
+                  <div class="project-links-mini">
+                    <a href="#" aria-label="View live site">🔗</a>
+                    <a href="#" aria-label="View source code">📂</a>
+                  </div>
+                </div>
+                <h3>Ethics Quiz App</h3>
+                <p>Interactive web application for practicing ethics scenarios. Features randomized questions, scoring, and detailed feedback.</p>
+                <div class="project-tech">
+                  <span>JavaScript</span>
+                  <span>LocalStorage</span>
+                  <span>CSS Grid</span>
+                </div>
+              </article>
+              
+              <article class="card project-card">
+                <div class="project-header">
+                  <div class="project-icon">📱</div>
+                  <div class="project-links-mini">
+                    <a href="#" aria-label="View source code">📂</a>
+                  </div>
+                </div>
+                <h3>Timer Widget</h3>
+                <p>iOS widget for session timing with customizable intervals, haptic feedback, and complication support for Apple Watch.</p>
+                <div class="project-tech">
+                  <span>SwiftUI</span>
+                  <span>WidgetKit</span>
+                  <span>WatchOS</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="section">
+        <div class="container stack-lg">
+          <h2>Technical Skills</h2>
+          
+          <div class="skills-layout">
+            <div class="card skills-card">
+              <h3>🍎 iOS Development</h3>
+              <div class="skill-bar-container">
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span>Swift</span>
+                    <span class="skill-percent">85%</span>
+                  </div>
+                  <div class="skill-bar"><div class="skill-progress" data-progress="85"></div></div>
+                </div>
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span>SwiftUI</span>
+                    <span class="skill-percent">80%</span>
+                  </div>
+                  <div class="skill-bar"><div class="skill-progress" data-progress="80"></div></div>
+                </div>
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span>Core Data</span>
+                    <span class="skill-percent">70%</span>
+                  </div>
+                  <div class="skill-bar"><div class="skill-progress" data-progress="70"></div></div>
+                </div>
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span>UIKit</span>
+                    <span class="skill-percent">65%</span>
+                  </div>
+                  <div class="skill-bar"><div class="skill-progress" data-progress="65"></div></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="card skills-card">
+              <h3>🌐 Web Development</h3>
+              <div class="skill-bar-container">
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span>HTML5 / CSS3</span>
+                    <span class="skill-percent">90%</span>
+                  </div>
+                  <div class="skill-bar"><div class="skill-progress" data-progress="90"></div></div>
+                </div>
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span>JavaScript (ES6+)</span>
+                    <span class="skill-percent">80%</span>
+                  </div>
+                  <div class="skill-bar"><div class="skill-progress" data-progress="80"></div></div>
+                </div>
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span>React</span>
+                    <span class="skill-percent">60%</span>
+                  </div>
+                  <div class="skill-bar"><div class="skill-progress" data-progress="60"></div></div>
+                </div>
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span>Responsive Design</span>
+                    <span class="skill-percent">85%</span>
+                  </div>
+                  <div class="skill-bar"><div class="skill-progress" data-progress="85"></div></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="card skills-card">
+              <h3>🐍 Python & Data</h3>
+              <div class="skill-bar-container">
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span>Python</span>
+                    <span class="skill-percent">80%</span>
+                  </div>
+                  <div class="skill-bar"><div class="skill-progress" data-progress="80"></div></div>
+                </div>
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span>Pandas</span>
+                    <span class="skill-percent">75%</span>
+                  </div>
+                  <div class="skill-bar"><div class="skill-progress" data-progress="75"></div></div>
+                </div>
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span>Matplotlib</span>
+                    <span class="skill-percent">70%</span>
+                  </div>
+                  <div class="skill-bar"><div class="skill-progress" data-progress="70"></div></div>
+                </div>
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span>Data Analysis</span>
+                    <span class="skill-percent">85%</span>
+                  </div>
+                  <div class="skill-bar"><div class="skill-progress" data-progress="85"></div></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="card skills-card">
+              <h3>🛠️ Tools & Practices</h3>
+              <div class="skill-bar-container">
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span>Git / GitHub</span>
+                    <span class="skill-percent">85%</span>
+                  </div>
+                  <div class="skill-bar"><div class="skill-progress" data-progress="85"></div></div>
+                </div>
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span>VS Code / Xcode</span>
+                    <span class="skill-percent">90%</span>
+                  </div>
+                  <div class="skill-bar"><div class="skill-progress" data-progress="90"></div></div>
+                </div>
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span>Command Line</span>
+                    <span class="skill-percent">75%</span>
+                  </div>
+                  <div class="skill-bar"><div class="skill-progress" data-progress="75"></div></div>
+                </div>
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span>Agile / Scrum</span>
+                    <span class="skill-percent">65%</span>
+                  </div>
+                  <div class="skill-bar"><div class="skill-progress" data-progress="65"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Currently Learning -->
+          <div class="card learning-card">
+            <h3>📖 Currently Learning</h3>
+            <div class="learning-items">
+              <span class="learning-item">Node.js</span>
+              <span class="learning-item">TypeScript</span>
+              <span class="learning-item">PostgreSQL</span>
+              <span class="learning-item">Docker</span>
+              <span class="learning-item">AWS</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience" class="section">
+        <div class="container stack-lg">
+          <h2>Experience & Education</h2>
+          
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="card timeline-content">
+                <span class="timeline-date">2023 - Present</span>
+                <h3>Independent Developer</h3>
+                <p class="timeline-subtitle">Self-Employed</p>
+                <p>Building iOS apps and web applications focused on education and data collection. Launched portfolio site and multiple utility applications.</p>
+                <div class="timeline-tech">
+                  <span>Swift</span>
+                  <span>JavaScript</span>
+                  <span>Python</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="card timeline-content">
+                <span class="timeline-date">2020 - Present</span>
+                <h3>College Professor</h3>
+                <p class="timeline-subtitle">University</p>
+                <p>Teaching behavior analysis courses while developing educational technology tools. Created custom data visualization scripts and student assessment applications.</p>
+                <div class="timeline-tech">
+                  <span>Python</span>
+                  <span>Data Analysis</span>
+                  <span>Excel/VBA</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="card timeline-content">
+                <span class="timeline-date">2022</span>
+                <h3>Apple Developer Program</h3>
+                <p class="timeline-subtitle">Certification</p>
+                <p>Enrolled in Apple Developer Program. Completed Swift and iOS development courses through Apple's resources and various online platforms.</p>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="card timeline-content">
+                <span class="timeline-date">2018</span>
+                <h3>Ph.D. in Behavior Analysis</h3>
+                <p class="timeline-subtitle">University</p>
+                <p>Doctoral research involving data collection systems and statistical analysis, building foundation for data-driven development approach.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- What I'm Looking For -->
+      <section id="goals" class="section">
+        <div class="container">
+          <div class="card goals-card">
+            <h2>What I'm Looking For</h2>
+            <div class="goals-grid">
+              <div class="goal-item">
+                <div class="goal-icon">🚀</div>
+                <h4>Growth Opportunity</h4>
+                <p>A role where I can learn from experienced developers and expand my skills</p>
+              </div>
+              <div class="goal-item">
+                <div class="goal-icon">🤝</div>
+                <h4>Collaborative Team</h4>
+                <p>Working with a supportive team that values mentorship and knowledge sharing</p>
+              </div>
+              <div class="goal-item">
+                <div class="goal-icon">💡</div>
+                <h4>Meaningful Projects</h4>
+                <p>Building applications that make a positive impact on users' lives</p>
+              </div>
+              <div class="goal-item">
+                <div class="goal-icon">📱</div>
+                <h4>iOS or Full-Stack</h4>
+                <p>Ideally focusing on iOS development or full-stack web applications</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="section">
+        <div class="container">
+          <div class="contact-grid">
+            <div class="card contact-info-card">
+              <h2>Let's Connect</h2>
+              <p class="muted">
+                I'm actively seeking junior developer positions. Whether you have an opportunity 
+                or just want to chat about code, I'd love to hear from you!
+              </p>
+              
+              <div class="contact-methods">
+                <a href="mailto:drsnordgren@gmail.com" class="contact-method">
+                  <div class="contact-icon">📧</div>
+                  <div>
+                    <strong>Email</strong>
+                    <span>drsnordgren@gmail.com</span>
+                  </div>
+                </a>
+                <a href="https://github.com/drsavvage90" target="_blank" rel="noopener" class="contact-method">
+                  <div class="contact-icon">💻</div>
+                  <div>
+                    <strong>GitHub</strong>
+                    <span>@drsavvage90</span>
+                  </div>
+                </a>
+                <a href="https://linkedin.com/in/" target="_blank" rel="noopener" class="contact-method">
+                  <div class="contact-icon">💼</div>
+                  <div>
+                    <strong>LinkedIn</strong>
+                    <span>Connect with me</span>
+                  </div>
+                </a>
+              </div>
+              
+              <div class="availability-badge">
+                <span class="status-dot"></span>
+                Available for opportunities
+              </div>
+            </div>
+            
+            <div class="card contact-form-card">
+              <h3>Send a Message</h3>
+              <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" id="name" name="name" required placeholder="Your name">
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" required placeholder="your@email.com">
+                </div>
+                <div class="form-group">
+                  <label for="subject">Subject</label>
+                  <select id="subject" name="subject">
+                    <option value="job">Job Opportunity</option>
+                    <option value="freelance">Freelance Project</option>
+                    <option value="collaboration">Collaboration</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea id="message" name="message" rows="4" required placeholder="Tell me about the opportunity..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">
+                  <span class="btn-text">Send Message</span>
+                  <span class="btn-loading" style="display: none;">Sending...</span>
+                </button>
+              </form>
+              <div id="form-success" class="form-success" style="display: none;">
+                <div class="success-icon">✓</div>
+                <h4>Message Sent!</h4>
+                <p>Thanks for reaching out. I'll get back to you soon.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <strong>Seth Nordgren</strong>
+            <p class="muted">Junior Developer · iOS · Web</p>
+          </div>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="teaching.html">Teaching</a>
+            <a href="developer.html">Developer</a>
+            <a href="#contact" data-scroll="#contact">Contact</a>
+          </div>
+          <div class="footer-social">
+            <a href="https://github.com/drsavvage90" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+            </a>
+            <a href="https://linkedin.com/in/" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a href="https://twitter.com/" target="_blank" rel="noopener" aria-label="Twitter">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <small>© <span id="y">2025</span> Seth Nordgren. Built with ❤️ and vanilla JS.</small>
+          <div class="flex gap-2">
+            <button class="btn btn-sm" onclick="setTheme('light')">☀️ Light</button>
+            <button class="btn btn-sm" onclick="setTheme('dark')">🌙 Dark</button>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <polyline points="18,15 12,9 6,15"></polyline>
+      </svg>
+    </button>
+
+    <script type="module" src="app.js"></script>
+    <script>
+      (function () {
+        const saved = localStorage.getItem("theme");
+        if (saved === "dark" || saved === "tron") {
+          document.body.classList.add("theme-tron");
+        }
+        
+        // Developer page typing animation phrases
+        window.devTypingPhrases = [
+          'iOS Developer',
+          'Web Developer',
+          'Python Enthusiast',
+          'Problem Solver',
+          'Lifelong Learner'
+        ];
+      })();
+    </script>
+  </body>
+</html>
