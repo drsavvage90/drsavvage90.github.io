@@ -89,9 +89,9 @@
   flex-direction: column;
   justify-content: center;
   gap: 5px;
-  width: 40px;
-  height: 40px;
-  padding: 8px;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
   background: transparent;
   border: 1px solid var(--border);
   border-radius: calc(var(--radius) - 6px);
@@ -1592,8 +1592,8 @@ body::after {
 }
 
 .testimonial-btn {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   border: 1px solid var(--border);
   background: var(--card);
@@ -1913,8 +1913,8 @@ body::after {
 }
 
 .footer-social a {
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2147,5 +2147,63 @@ body.theme-tron .skip-link {
     right: 1.5rem;
     width: 44px;
     height: 44px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .section-header h2 {
+    font-size: 1.75rem;
+  }
+  
+  .section-header p {
+    font-size: 0.95rem;
+  }
+  
+  .stat-number {
+    font-size: 1.75rem;
+  }
+  
+  .stat-label {
+    font-size: 0.8rem;
+  }
+  
+  .filter-btn {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.9rem;
+  }
+  
+  .project-card {
+    padding: 1.25rem;
+  }
+  
+  .testimonial-card {
+    padding: 1.25rem;
+  }
+  
+  .testimonial-quote {
+    font-size: 0.95rem;
+  }
+  
+  .contact-info-card,
+  .contact-form-card {
+    padding: 1.25rem;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 0.65rem 0.9rem;
+    font-size: 0.95rem;
+  }
+  
+  .btn {
+    padding: 0.65rem 1.5rem;
+    font-size: 0.95rem;
+  }
+  
+  .social-links a {
+    width: 42px;
+    height: 42px;
+    font-size: 1.1rem;
   }
 }

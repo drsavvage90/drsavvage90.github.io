@@ -742,6 +742,23 @@ body.theme-tron .badge-featured {
 /* -------------------------------------------------------
    Responsive Adjustments
 -------------------------------------------------------- */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .courses-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  
+  .philosophy-pillars {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+/* Mobile */
 @media (max-width: 768px) {
   .publication-item {
     flex-direction: column;
@@ -789,5 +806,86 @@ body.theme-tron .badge-featured {
   
   .contact-option {
     min-width: auto;
+  }
+  
+  .page-hero {
+    padding-top: 2rem;
+  }
+  
+  .profile-photo.large {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .profile-photo.large .photo-placeholder {
+    font-size: 2.5rem;
+  }
+  
+  .philosophy-pillars {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .philosophy-quote {
+    font-size: 1.1rem;
+    padding-left: 1rem;
+  }
+  
+  .course-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .value-prop {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  
+  .badge-featured {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-badge {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .device-mockup {
+    width: 130px;
+    height: 260px;
+  }
+  
+  .timeline-content h4 {
+    font-size: 1rem;
+  }
+  
+  .skill-header h3 {
+    font-size: 1rem;
+  }
+  
+  .topic-tag {
+    font-size: 0.75rem;
+  }
+  
+  .credential-icon {
+    font-size: 2.5rem;
+  }
+  
+  .pub-content h4 {
+    font-size: 0.95rem;
+  }
+  
+  .project-features li {
+    font-size: 0.9rem;
   }
 }

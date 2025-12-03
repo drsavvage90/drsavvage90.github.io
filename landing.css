@@ -1,0 +1,784 @@
+/* =========================================================
+   Landing Page Styles - iOS 26 Liquid Glass Design
+   Path chooser for Teaching vs Developer portfolios
+========================================================= */
+
+/* Reduced Motion Support - Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Skip Link - Accessibility */
+.landing-page .skip-link {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--landing-accent);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  z-index: 9999;
+  font-weight: 600;
+  text-decoration: none;
+  transition: top 0.3s ease;
+}
+
+.landing-page .skip-link:focus {
+  top: 10px;
+  outline: 3px solid var(--landing-accent-2);
+  outline-offset: 2px;
+}
+
+/* Screen Reader Only - Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Light Mode Variables (Default - Liquid Glass) */
+.landing-page {
+  --landing-bg: #f8fafc;
+  --landing-card: rgba(255, 255, 255, 0.6);
+  --landing-card-border: rgba(255, 255, 255, 0.8);
+  --landing-card-shadow: rgba(0, 0, 0, 0.08);
+  --landing-text: #0f172a;
+  --landing-muted: #64748b;
+  --landing-accent: #0ea5e9;
+  --landing-accent-2: #8b5cf6;
+  --landing-glass-blur: 20px;
+  --landing-glass-saturate: 180%;
+  --landing-orb-1: rgba(14, 165, 233, 0.4);
+  --landing-orb-2: rgba(139, 92, 246, 0.35);
+  --landing-orb-3: rgba(236, 72, 153, 0.3);
+  min-height: 100vh;
+  min-height: 100dvh; /* Dynamic viewport height for mobile */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+  background: var(--landing-bg);
+  color: var(--landing-text);
+  transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+              color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark Mode Variables */
+.landing-page.theme-tron {
+  --landing-bg: #030712;
+  --landing-card: rgba(15, 23, 42, 0.7);
+  --landing-card-border: rgba(56, 189, 248, 0.2);
+  --landing-card-shadow: rgba(56, 189, 248, 0.1);
+  --landing-text: #f1f5f9;
+  --landing-muted: #94a3b8;
+  --landing-accent: #38bdf8;
+  --landing-accent-2: #a78bfa;
+  --landing-glass-blur: 24px;
+  --landing-glass-saturate: 150%;
+  --landing-orb-1: rgba(56, 189, 248, 0.3);
+  --landing-orb-2: rgba(167, 139, 250, 0.25);
+  --landing-orb-3: rgba(244, 114, 182, 0.2);
+}
+
+/* Background Effects - Floating Orbs */
+.landing-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bg-gradient {
+  position: absolute;
+  inset: 0;
+}
+
+/* Floating Orbs - iOS 26 Style */
+.bg-gradient::before,
+.bg-gradient::after,
+.bg-grid::before {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: floatOrb 20s ease-in-out infinite;
+}
+
+.bg-gradient::before {
+  width: 600px;
+  height: 600px;
+  background: var(--landing-orb-1);
+  top: -200px;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.bg-gradient::after {
+  width: 500px;
+  height: 500px;
+  background: var(--landing-orb-2);
+  bottom: -150px;
+  right: -100px;
+  animation-delay: -7s;
+}
+
+.bg-grid::before {
+  width: 450px;
+  height: 450px;
+  background: var(--landing-orb-3);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: -14s;
+}
+
+.bg-grid {
+  position: absolute;
+  inset: 0;
+}
+
+/* Subtle noise texture for glass effect */
+.bg-grid::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  mix-blend-mode: overlay;
+}
+
+@keyframes floatOrb {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(50px, -30px) scale(1.1);
+  }
+  50% {
+    transform: translate(-30px, 50px) scale(0.95);
+  }
+  75% {
+    transform: translate(-50px, -20px) scale(1.05);
+  }
+}
+
+/* Main Content */
+.landing-main {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20rem 2rem 4rem;
+  box-sizing: border-box;
+}
+
+.landing-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 0;
+}
+
+/* Header Section */
+.landing-header {
+  text-align: center;
+  animation: fadeSlideUp 0.6s ease-out both;
+}
+
+.landing-photo {
+  margin: 0 auto 1.5rem;
+  width: 120px;
+  height: 120px;
+}
+
+.landing-photo .photo-placeholder {
+  font-size: 2.5rem;
+}
+
+.landing-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, var(--landing-text) 0%, var(--landing-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.landing-subtitle {
+  font-size: 1.1rem;
+  color: var(--landing-accent);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.landing-tagline {
+  color: var(--landing-muted);
+  max-width: 500px;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Path Chooser */
+.path-chooser {
+  width: 100%;
+  animation: fadeSlideUp 0.6s ease-out 0.15s both;
+}
+
+.chooser-prompt {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--landing-muted);
+  margin-bottom: 2rem;
+}
+
+.path-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+/* Path Cards - iOS 26 Liquid Glass */
+.path-card {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  background: var(--landing-card);
+  backdrop-filter: blur(var(--landing-glass-blur)) saturate(var(--landing-glass-saturate));
+  -webkit-backdrop-filter: blur(var(--landing-glass-blur)) saturate(var(--landing-glass-saturate));
+  border: 1px solid var(--landing-card-border);
+  border-radius: 24px;
+  text-decoration: none;
+  color: var(--landing-text);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  animation: fadeSlideUp 0.6s ease-out both;
+  box-shadow: 
+    0 4px 24px var(--landing-card-shadow),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  will-change: transform;
+}
+
+/* Focus styles for keyboard navigation - Accessibility */
+.path-card:focus {
+  outline: none;
+}
+
+.path-card:focus-visible {
+  outline: 3px solid var(--landing-accent);
+  outline-offset: 4px;
+  transform: translateY(-4px);
+}
+
+.teaching-card:focus-visible {
+  outline-color: var(--landing-accent);
+}
+
+.developer-card:focus-visible {
+  outline-color: var(--landing-accent-2);
+}
+
+/* Glass highlight effect */
+.path-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, transparent 100%);
+  border-radius: 24px 24px 0 0;
+  pointer-events: none;
+}
+
+/* Hover glow effect */
+.path-card::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 26px;
+  background: linear-gradient(135deg, var(--landing-accent), var(--landing-accent-2));
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.4s ease;
+}
+
+.path-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 20px 50px var(--landing-card-shadow),
+    0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.path-card:hover::after {
+  opacity: 0.15;
+}
+
+.teaching-card:hover {
+  border-color: var(--landing-accent);
+  box-shadow: 
+    0 20px 50px rgba(14, 165, 233, 0.2),
+    0 0 40px rgba(14, 165, 233, 0.1);
+}
+
+.developer-card:hover {
+  border-color: var(--landing-accent-2);
+  box-shadow: 
+    0 20px 50px rgba(139, 92, 246, 0.2),
+    0 0 40px rgba(139, 92, 246, 0.1);
+}
+
+.path-icon {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.teaching-card .path-icon {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(14, 165, 233, 0.1));
+  color: var(--landing-accent);
+  border: 1px solid rgba(14, 165, 233, 0.3);
+}
+
+.developer-card .path-icon {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(139, 92, 246, 0.1));
+  color: var(--landing-accent-2);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.path-card:hover .path-icon {
+  transform: scale(1.1) rotate(3deg);
+}
+
+.path-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  position: relative;
+  z-index: 1;
+  color: var(--landing-text);
+}
+
+.path-description {
+  color: var(--landing-muted);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.path-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.path-tag {
+  font-size: 0.75rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 100px;
+  font-weight: 600;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background: rgba(100, 116, 139, 0.15);
+  color: var(--landing-muted);
+}
+
+.teaching-card .path-tag {
+  background: rgba(14, 165, 233, 0.15);
+  color: var(--landing-accent);
+}
+
+.developer-card .path-tag {
+  background: rgba(139, 92, 246, 0.15);
+  color: var(--landing-accent-2);
+}
+
+.path-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.teaching-card .path-cta {
+  color: var(--landing-accent);
+}
+
+.developer-card .path-cta {
+  color: var(--landing-accent-2);
+}
+
+.path-cta svg {
+  transition: transform 0.3s ease;
+}
+
+.path-card:hover .path-cta svg {
+  transform: translateX(4px);
+}
+
+/* Landing Footer */
+.landing-footer {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  animation: fadeSlideUp 0.6s ease-out 0.3s both;
+}
+
+/* Glass Theme Toggle Button */
+.theme-toggle-landing {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  border: 1px solid var(--landing-card-border);
+  background: var(--landing-card);
+  backdrop-filter: blur(var(--landing-glass-blur)) saturate(var(--landing-glass-saturate));
+  -webkit-backdrop-filter: blur(var(--landing-glass-blur)) saturate(var(--landing-glass-saturate));
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  box-shadow: 
+    0 4px 16px var(--landing-card-shadow),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.theme-toggle-landing:hover {
+  transform: scale(1.08) rotate(5deg);
+  box-shadow: 
+    0 8px 24px var(--landing-card-shadow),
+    0 0 20px rgba(14, 165, 233, 0.2);
+}
+
+.theme-icon-light,
+.theme-icon-dark {
+  position: absolute;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-icon-dark {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+}
+
+.landing-page.theme-tron .theme-icon-light {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
+}
+
+.landing-page.theme-tron .theme-icon-dark {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+}
+
+/* Glass Social Links */
+.social-links-landing {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.social-links-landing a {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  border: 1px solid var(--landing-card-border);
+  background: var(--landing-card);
+  backdrop-filter: blur(var(--landing-glass-blur)) saturate(var(--landing-glass-saturate));
+  -webkit-backdrop-filter: blur(var(--landing-glass-blur)) saturate(var(--landing-glass-saturate));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--landing-muted);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 16px var(--landing-card-shadow);
+}
+
+.social-links-landing a:hover {
+  border-color: var(--landing-accent);
+  color: var(--landing-accent);
+  transform: translateY(-3px);
+  box-shadow: 
+    0 8px 24px var(--landing-card-shadow),
+    0 0 15px rgba(14, 165, 233, 0.15);
+}
+
+/* Animation */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design - Tablet */
+@media (max-width: 900px) {
+  .path-cards {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  
+  .landing-content {
+    max-width: 500px;
+  }
+}
+
+/* Responsive Design - Mobile */
+@media (max-width: 768px) {
+  .landing-page {
+    align-items: flex-start;
+  }
+  
+  .landing-main {
+    padding: 6rem 1rem 4rem;
+    min-height: auto;
+    align-items: flex-start;
+  }
+  
+  .landing-content {
+    gap: 1.75rem;
+    padding-bottom: 2rem;
+  }
+  
+  .landing-header {
+    padding-top: 1rem;
+  }
+  
+  .path-cards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .path-card {
+    padding: 1.5rem;
+    border-radius: 20px;
+  }
+  
+  .path-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+  }
+  
+  .path-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .path-title {
+    font-size: 1.25rem;
+  }
+  
+  .path-description {
+    font-size: 0.9rem;
+  }
+  
+  .landing-photo {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .landing-photo .photo-placeholder {
+    font-size: 2rem;
+  }
+  
+  .landing-title {
+    font-size: 1.75rem;
+  }
+  
+  .landing-subtitle {
+    font-size: 0.95rem;
+  }
+  
+  .landing-tagline {
+    font-size: 0.9rem;
+    padding: 0 0.5rem;
+  }
+  
+  .chooser-prompt {
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .landing-footer {
+    flex-direction: column;
+    gap: 1.25rem;
+    padding-bottom: 1rem;
+  }
+  
+  /* Smaller floating orbs on mobile */
+  .bg-gradient::before {
+    width: 350px;
+    height: 350px;
+    filter: blur(60px);
+  }
+  
+  .bg-gradient::after {
+    width: 300px;
+    height: 300px;
+    filter: blur(60px);
+  }
+  
+  .bg-grid::before {
+    width: 280px;
+    height: 280px;
+    filter: blur(60px);
+  }
+}
+
+/* Responsive Design - Small Mobile */
+@media (max-width: 400px) {
+  .landing-main {
+    padding: 4rem 0.75rem 3rem;
+  }
+  
+  .landing-content {
+    gap: 1.5rem;
+  }
+  
+  .path-card {
+    padding: 1.25rem;
+  }
+  
+  .path-tags {
+    gap: 0.35rem;
+  }
+  
+  .path-tag {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.6rem;
+  }
+  
+  .landing-title {
+    font-size: 1.5rem;
+  }
+  
+  .landing-photo {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .landing-photo .photo-placeholder {
+    font-size: 1.75rem;
+  }
+}
+
+/* Dark Mode (Tron) - Enhanced Glass Effects */
+.landing-page.theme-tron .path-card {
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 1px rgba(56, 189, 248, 0.5),
+    inset 0 1px 1px rgba(255, 255, 255, 0.05);
+}
+
+.landing-page.theme-tron .path-card:hover {
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(56, 189, 248, 0.15),
+    inset 0 0 30px rgba(56, 189, 248, 0.05);
+}
+
+.landing-page.theme-tron .teaching-card:hover {
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(56, 189, 248, 0.2),
+    inset 0 0 30px rgba(56, 189, 248, 0.05);
+}
+
+.landing-page.theme-tron .developer-card:hover {
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(167, 139, 250, 0.2),
+    inset 0 0 30px rgba(167, 139, 250, 0.05);
+}
+
+.landing-page.theme-tron .landing-title {
+  text-shadow: 0 0 40px rgba(56, 189, 248, 0.5);
+}
+
+.landing-page.theme-tron .theme-toggle-landing:hover,
+.landing-page.theme-tron .social-links-landing a:hover {
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(56, 189, 248, 0.2);
+}
+
+/* Glass Profile Photo */
+.landing-photo {
+  position: relative;
+}
+
+.landing-photo .photo-placeholder {
+  background: var(--landing-card);
+  backdrop-filter: blur(var(--landing-glass-blur)) saturate(var(--landing-glass-saturate));
+  -webkit-backdrop-filter: blur(var(--landing-glass-blur)) saturate(var(--landing-glass-saturate));
+  border: 2px solid var(--landing-card-border);
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--landing-accent);
+  box-shadow: 
+    0 8px 32px var(--landing-card-shadow),
+    inset 0 2px 2px rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.landing-photo:hover .photo-placeholder {
+  transform: scale(1.05);
+  box-shadow: 
+    0 12px 40px var(--landing-card-shadow),
+    0 0 30px rgba(14, 165, 233, 0.15);
+}
