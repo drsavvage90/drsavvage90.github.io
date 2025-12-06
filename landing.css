@@ -51,19 +51,19 @@
 
 /* Light Mode Variables (Default - Liquid Glass) */
 .landing-page {
-  --landing-bg: #f8fafc;
-  --landing-card: rgba(255, 255, 255, 0.6);
-  --landing-card-border: rgba(255, 255, 255, 0.8);
-  --landing-card-shadow: rgba(0, 0, 0, 0.08);
-  --landing-text: #0f172a;
-  --landing-muted: #64748b;
-  --landing-accent: #0ea5e9;
-  --landing-accent-2: #8b5cf6;
+  --landing-bg: #f5f7fa;
+  --landing-card: rgba(255, 255, 255, 0.7);
+  --landing-card-border: rgba(255, 255, 255, 0.18);
+  --landing-card-shadow: rgba(31, 38, 135, 0.15);
+  --landing-text: #1a202c;
+  --landing-muted: #4a5568;
+  --landing-accent: #667eea;
+  --landing-accent-2: #764ba2;
   --landing-glass-blur: 20px;
   --landing-glass-saturate: 180%;
-  --landing-orb-1: rgba(14, 165, 233, 0.4);
-  --landing-orb-2: rgba(139, 92, 246, 0.35);
-  --landing-orb-3: rgba(236, 72, 153, 0.3);
+  --landing-orb-1: rgba(102, 126, 234, 0.4);
+  --landing-orb-2: rgba(118, 75, 162, 0.35);
+  --landing-orb-3: rgba(236, 72, 153, 0.25);
   min-height: 100vh;
   min-height: 100dvh; /* Dynamic viewport height for mobile */
   display: flex;
@@ -72,27 +72,88 @@
   overflow-x: hidden;
   overflow-y: auto;
   position: relative;
-  background: var(--landing-bg);
+  /* Animated gradient background */
+  background: linear-gradient(
+    135deg,
+    #f5f7fa 0%,
+    #e8ecf1 25%,
+    #f5f7fa 50%,
+    #ffffff 75%,
+    #f5f7fa 100%
+  );
+  background-size: 400% 400%;
+  animation: landingBgShift 20s ease-in-out infinite;
   color: var(--landing-text);
-  transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
-              color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Dark Mode Variables */
-.landing-page.theme-tron {
-  --landing-bg: #030712;
-  --landing-card: rgba(15, 23, 42, 0.7);
-  --landing-card-border: rgba(56, 189, 248, 0.2);
-  --landing-card-shadow: rgba(56, 189, 248, 0.1);
-  --landing-text: #f1f5f9;
-  --landing-muted: #94a3b8;
-  --landing-accent: #38bdf8;
+.landing-page.theme-tron,
+[data-theme="dark"] .landing-page,
+[data-theme="modern-dark"] .landing-page {
+  --landing-bg: #0f1419;
+  --landing-card: rgba(26, 31, 46, 0.7);
+  --landing-card-border: rgba(255, 255, 255, 0.1);
+  --landing-card-shadow: rgba(0, 0, 0, 0.3);
+  --landing-text: #e2e8f0;
+  --landing-muted: #cbd5e0;
+  --landing-accent: #818cf8;
   --landing-accent-2: #a78bfa;
   --landing-glass-blur: 24px;
   --landing-glass-saturate: 150%;
-  --landing-orb-1: rgba(56, 189, 248, 0.3);
+  --landing-orb-1: rgba(129, 140, 248, 0.3);
   --landing-orb-2: rgba(167, 139, 250, 0.25);
   --landing-orb-3: rgba(244, 114, 182, 0.2);
+  /* Dark animated gradient */
+  background: linear-gradient(
+    135deg,
+    #0f1419 0%,
+    #1a1f2e 25%,
+    #252d3d 50%,
+    #1a1f2e 75%,
+    #0f1419 100%
+  );
+  background-size: 400% 400%;
+  animation: landingBgShiftDark 25s ease-in-out infinite;
+}
+
+/* Holmes Mode (Victorian) Variables */
+.landing-page.theme-holmes,
+[data-theme="rustic"] .landing-page {
+  --landing-bg: #f4ecd8;
+  --landing-card: #f9f5e7;
+  --landing-card-border: #8b7355;
+  --landing-card-shadow: rgba(45, 31, 26, 0.15);
+  --landing-text: #2d1f1a;
+  --landing-muted: #4a3a2e;
+  --landing-accent: #8b4513;
+  --landing-accent-2: #654321;
+  --landing-glass-blur: 0;
+  --landing-glass-saturate: 100%;
+  --landing-orb-1: rgba(201, 169, 97, 0.12);
+  --landing-orb-2: rgba(139, 69, 19, 0.08);
+  --landing-orb-3: rgba(107, 31, 46, 0.06);
+  
+  /* Victorian colors */
+  --landing-aged-gold: #c9a961;
+  --landing-burgundy: #6b1f2e;
+  --landing-leather: #5c4033;
+  --landing-parchment: #f0e7d5;
+  
+  /* Victorian animated parchment gradient */
+  background: linear-gradient(
+    145deg,
+    #f4ecd8 0%,
+    #f0e7d5 20%,
+    #faf6ed 40%,
+    #f4ecd8 60%,
+    #e8dcc4 80%,
+    #f4ecd8 100%
+  );
+  background-size: 300% 300%;
+  animation: landingBgShiftHolmes 30s ease-in-out infinite;
+  
+  font-family: 'Libre Baskerville', 'Baskerville', 'Garamond', serif;
 }
 
 /* Background Effects - Floating Orbs */
@@ -175,6 +236,126 @@
   }
   75% {
     transform: translate(-50px, -20px) scale(1.05);
+  }
+}
+
+/* Victorian/Holmes Background Animations */
+@keyframes candlelightGlow {
+  0%, 100% {
+    opacity: 0.7;
+    transform: translate(0, 0) scale(1);
+    filter: blur(100px) brightness(1);
+  }
+  15% {
+    opacity: 0.65;
+    filter: blur(100px) brightness(0.97);
+  }
+  30% {
+    opacity: 0.72;
+    transform: translate(10px, -5px) scale(1.02);
+    filter: blur(100px) brightness(1.02);
+  }
+  50% {
+    opacity: 0.68;
+    transform: translate(-5px, 10px) scale(0.98);
+    filter: blur(100px) brightness(0.99);
+  }
+  70% {
+    opacity: 0.7;
+    filter: blur(100px) brightness(1.01);
+  }
+  85% {
+    opacity: 0.66;
+    transform: translate(5px, -10px) scale(1.01);
+    filter: blur(100px) brightness(0.98);
+  }
+}
+
+@keyframes dustMote1 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.5;
+  }
+  20% {
+    transform: translate(30px, -40px) scale(1.05);
+    opacity: 0.45;
+  }
+  40% {
+    transform: translate(-20px, 20px) scale(0.95);
+    opacity: 0.55;
+  }
+  60% {
+    transform: translate(40px, 30px) scale(1.02);
+    opacity: 0.48;
+  }
+  80% {
+    transform: translate(-30px, -20px) scale(0.98);
+    opacity: 0.52;
+  }
+}
+
+@keyframes dustMote2 {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.4;
+  }
+  25% {
+    transform: translate(calc(-50% + 20px), calc(-50% - 30px)) scale(1.08);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translate(calc(-50% - 25px), calc(-50% + 15px)) scale(0.92);
+    opacity: 0.45;
+  }
+  75% {
+    transform: translate(calc(-50% + 15px), calc(-50% + 25px)) scale(1.04);
+    opacity: 0.38;
+  }
+}
+
+/* Landing Page Background Gradient Animations */
+@keyframes landingBgShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 100%;
+  }
+}
+
+@keyframes landingBgShiftDark {
+  0%, 100% {
+    background-position: 0% 0%;
+  }
+  33% {
+    background-position: 100% 50%;
+  }
+  66% {
+    background-position: 50% 100%;
+  }
+}
+
+@keyframes landingBgShiftHolmes {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  20% {
+    background-position: 30% 20%;
+  }
+  40% {
+    background-position: 70% 60%;
+  }
+  60% {
+    background-position: 100% 30%;
+  }
+  80% {
+    background-position: 50% 80%;
   }
 }
 
@@ -743,6 +924,265 @@
 
 .landing-page.theme-tron .landing-title {
   text-shadow: 0 0 40px rgba(56, 189, 248, 0.5);
+}
+
+/* ===========================================
+   Holmes Mode (Victorian) - Landing Page Overrides
+   =========================================== */
+
+/* Victorian animated orbs - candlelight/dust motes effect */
+.landing-page.theme-holmes .bg-gradient::before,
+[data-theme="rustic"] .landing-page .bg-gradient::before {
+  background: radial-gradient(circle, rgba(253, 245, 230, 0.6), transparent 60%);
+  filter: blur(100px);
+  animation: candlelightGlow 8s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+.landing-page.theme-holmes .bg-gradient::after,
+[data-theme="rustic"] .landing-page .bg-gradient::after {
+  background: radial-gradient(circle, rgba(201, 169, 97, 0.3), transparent 50%);
+  filter: blur(80px);
+  animation: dustMote1 20s ease-in-out infinite;
+  opacity: 0.5;
+}
+
+.landing-page.theme-holmes .bg-grid::before,
+[data-theme="rustic"] .landing-page .bg-grid::before {
+  background: radial-gradient(circle, rgba(139, 69, 19, 0.2), transparent 50%);
+  filter: blur(90px);
+  animation: dustMote2 25s ease-in-out infinite;
+  opacity: 0.4;
+}
+
+/* Victorian Typography */
+.landing-page.theme-holmes .landing-title,
+[data-theme="rustic"] .landing-page .landing-title {
+  font-family: 'Cinzel Decorative', 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  background: none;
+  -webkit-text-fill-color: var(--landing-text);
+  text-shadow: 2px 2px 0 rgba(201, 169, 97, 0.3);
+  letter-spacing: 0.05em;
+}
+
+.landing-page.theme-holmes .landing-subtitle,
+[data-theme="rustic"] .landing-page .landing-subtitle {
+  font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: var(--text-sm);
+}
+
+.landing-page.theme-holmes .landing-tagline,
+[data-theme="rustic"] .landing-page .landing-tagline {
+  font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+  font-style: italic;
+  line-height: 1.8;
+}
+
+/* Victorian Cards - Paper with double borders */
+.landing-page.theme-holmes .path-card,
+[data-theme="rustic"] .landing-page .path-card {
+  background: var(--landing-parchment, #f0e7d5);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: 3px double var(--landing-card-border);
+  border-radius: 0;
+  box-shadow: 
+    6px 6px 0 rgba(139, 115, 85, 0.15),
+    0 4px 16px var(--landing-card-shadow);
+  position: relative;
+}
+
+/* Corner ornaments */
+.landing-page.theme-holmes .path-card::before,
+[data-theme="rustic"] .landing-page .path-card::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 24px;
+  height: 24px;
+  border-top: 2px solid var(--landing-aged-gold, #c9a961);
+  border-left: 2px solid var(--landing-aged-gold, #c9a961);
+  background: transparent;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.landing-page.theme-holmes .path-card::after,
+[data-theme="rustic"] .landing-page .path-card::after {
+  content: '';
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 24px;
+  height: 24px;
+  border-bottom: 2px solid var(--landing-aged-gold, #c9a961);
+  border-right: 2px solid var(--landing-aged-gold, #c9a961);
+  background: transparent;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Victorian card hover - offset shadow effect */
+.landing-page.theme-holmes .path-card:hover,
+[data-theme="rustic"] .landing-page .path-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 
+    9px 9px 0 rgba(139, 115, 85, 0.2),
+    0 8px 24px var(--landing-card-shadow);
+}
+
+.landing-page.theme-holmes .path-title,
+[data-theme="rustic"] .landing-page .path-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  letter-spacing: 0.02em;
+}
+
+.landing-page.theme-holmes .path-description,
+[data-theme="rustic"] .landing-page .path-description {
+  font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+  line-height: 1.7;
+}
+
+/* Victorian Tags - Stamp style */
+.landing-page.theme-holmes .path-tag,
+[data-theme="rustic"] .landing-page .path-tag {
+  background: #fdfbf7;
+  border: 1px solid var(--landing-card-border);
+  border-radius: 2px;
+  color: var(--landing-accent);
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 2px 2px 4px rgba(45, 31, 26, 0.1);
+}
+
+.landing-page.theme-holmes .path-cta,
+[data-theme="rustic"] .landing-page .path-cta {
+  font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: var(--text-sm);
+}
+
+/* Victorian Icon styling */
+.landing-page.theme-holmes .path-icon,
+[data-theme="rustic"] .landing-page .path-icon {
+  color: var(--landing-accent);
+}
+
+/* Paper texture overlay for Holmes mode */
+.landing-page.theme-holmes .bg-grid::after,
+[data-theme="rustic"] .landing-page .bg-grid::after {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.04;
+  mix-blend-mode: multiply;
+}
+
+/* Theme Selector on Landing Page */
+.landing-theme-selector {
+  position: relative;
+  z-index: 100;
+}
+
+/* Holmes mode theme selector - Victorian styling */
+.landing-page.theme-holmes .landing-theme-selector .theme-selector-toggle,
+[data-theme="rustic"] .landing-page .landing-theme-selector .theme-selector-toggle {
+  background: var(--landing-parchment, #f0e7d5);
+  border: 2px solid var(--landing-card-border);
+  border-radius: 0;
+  box-shadow: 3px 3px 0 rgba(139, 115, 85, 0.15);
+}
+
+.landing-page.theme-holmes .landing-theme-selector .theme-selector-toggle:hover,
+[data-theme="rustic"] .landing-page .landing-theme-selector .theme-selector-toggle:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 rgba(139, 115, 85, 0.2);
+}
+
+.landing-page.theme-holmes .landing-theme-selector .theme-dropdown,
+[data-theme="rustic"] .landing-page .landing-theme-selector .theme-dropdown {
+  background: var(--landing-parchment, #f0e7d5);
+  border: 2px solid var(--landing-card-border);
+  border-radius: 0;
+  box-shadow: 4px 4px 0 rgba(139, 115, 85, 0.15);
+}
+
+.landing-theme-selector .theme-selector-toggle {
+  background: var(--landing-card);
+  border: 1px solid var(--landing-card-border);
+  backdrop-filter: blur(var(--landing-glass-blur));
+  -webkit-backdrop-filter: blur(var(--landing-glass-blur));
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-theme-selector .theme-selector-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 24px var(--landing-card-shadow);
+}
+
+.landing-theme-selector .theme-dropdown {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 8px;
+  background: var(--landing-card);
+  border: 1px solid var(--landing-card-border);
+  backdrop-filter: blur(var(--landing-glass-blur));
+  -webkit-backdrop-filter: blur(var(--landing-glass-blur));
+  border-radius: 12px;
+  padding: 8px;
+  min-width: 160px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%) translateY(10px);
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px var(--landing-card-shadow);
+}
+
+.landing-theme-selector .theme-dropdown.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.landing-theme-selector .theme-dropdown button {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  text-align: left;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.875rem;
+  color: var(--landing-text);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.landing-theme-selector .theme-dropdown button:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.landing-page.theme-tron .landing-theme-selector .theme-dropdown button:hover,
+.landing-page.theme-rustic-dark .landing-theme-selector .theme-dropdown button:hover,
+[data-theme="modern-dark"] .landing-theme-selector .theme-dropdown button:hover,
+[data-theme="rustic-dark"] .landing-theme-selector .theme-dropdown button:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .landing-page.theme-tron .theme-toggle-landing:hover,

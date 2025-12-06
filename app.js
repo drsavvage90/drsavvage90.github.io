@@ -1,41 +1,194 @@
 // Performance-optimized theme management with preconnect hints
 const body = document.body;
+const html = document.documentElement;
 const yearElement = document.getElementById("y");
 const THEME_KEY = "theme";
 const saved = localStorage.getItem(THEME_KEY);
 
-const normalizeTheme = (theme) => {
-    switch ((theme || "").toLowerCase()) {
-        case "dark":
-        case "tron":
-            return "dark";
-        case "light":
-        case "liquid":
-        default:
-            return "light";
+// Performance: Throttle utility for scroll events
+function throttle(fn, wait) {
+    let lastTime = 0;
+    return function(...args) {
+        const now = Date.now();
+        if (now - lastTime >= wait) {
+            lastTime = now;
+            fn.apply(this, args);
+        }
+    };
+}
+
+// Available themes with their configurations
+const THEMES = {
+    'modern-light': {
+        name: 'Modern Light',
+        description: 'Clean glassmorphism',
+        icon: '☀️',
+        themeColor: '#667eea',
+        bodyClass: ''
+    },
+    'modern-dark': {
+        name: 'Modern Dark',
+        description: 'Sleek dark mode',
+        icon: '🌙',
+        themeColor: '#0f1419',
+        bodyClass: 'theme-tron'
+    },
+    'rustic': {
+        name: 'Holmes',
+        description: 'Victorian elegance',
+        icon: '🔍',
+        themeColor: '#8b4513',
+        bodyClass: 'theme-holmes'
     }
 };
 
+const normalizeTheme = (theme) => {
+    const t = (theme || "").toLowerCase();
+    // Map legacy values to new theme names
+    if (t === 'dark' || t === 'tron') return 'modern-dark';
+    if (t === 'light' || t === 'liquid') return 'modern-light';
+    if (t === 'rustic') return 'rustic';
+    // Check if it's already a valid theme
+    if (THEMES[t]) return t;
+    return 'modern-light';
+};
+
+// Get current theme
+function getCurrentTheme() {
+    return html.getAttribute('data-theme') || 'modern-light';
+}
+
 // Optimized theme application with requestAnimationFrame
-function applyTheme(theme) {
+function applyTheme(theme, announce = false) {
     const active = normalizeTheme(theme);
-    const isDark = active === "dark";
+    const config = THEMES[active];
 
     requestAnimationFrame(() => {
-        body.classList.toggle("theme-tron", isDark);
+        // Use data-theme attribute on html element
+        html.setAttribute('data-theme', active);
+        
+        // Remove all theme body classes, then add the correct one
+        body.classList.remove('theme-tron');
+        if (config.bodyClass) {
+            body.classList.add(config.bodyClass);
+        }
+        
         localStorage.setItem(THEME_KEY, active);
+        
+        // Update theme-color meta tag
+        const metaTheme = document.querySelector('meta[name="theme-color"]');
+        if (metaTheme) {
+            metaTheme.setAttribute('content', config.themeColor);
+        }
+        
+        // Update theme selector UI if present
+        updateThemeSelectorUI(active);
     });
+    
+    // Announce theme change for screen readers
+    if (announce) {
+        const announcement = document.createElement('div');
+        announcement.setAttribute('role', 'status');
+        announcement.setAttribute('aria-live', 'polite');
+        announcement.className = 'sr-only';
+        announcement.style.cssText = 'position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;';
+        announcement.textContent = `Theme changed to ${config.name}`;
+        document.body.appendChild(announcement);
+        setTimeout(() => announcement.remove(), 1000);
+    }
 
     return active;
 }
 
-if (saved) {
-    applyTheme(saved);
-} else {
-    applyTheme("light");
+// Update theme selector UI
+function updateThemeSelectorUI(activeTheme) {
+    const selectors = document.querySelectorAll('.theme-selector');
+    selectors.forEach(selector => {
+        const btn = selector.querySelector('.theme-selector-btn');
+        const options = selector.querySelectorAll('.theme-option');
+        const config = THEMES[activeTheme];
+        
+        if (btn) {
+            const iconEl = btn.querySelector('.theme-icon');
+            const nameEl = btn.querySelector('.theme-name');
+            if (iconEl) iconEl.textContent = config.icon;
+            if (nameEl) nameEl.textContent = config.name;
+        }
+        
+        options.forEach(opt => {
+            const isActive = opt.dataset.theme === activeTheme;
+            opt.classList.toggle('active', isActive);
+        });
+    });
 }
 
-globalThis.setTheme = applyTheme;
+// Initialize theme selector functionality
+function initThemeSelector() {
+    const selectors = document.querySelectorAll('.theme-selector');
+    
+    selectors.forEach(selector => {
+        const btn = selector.querySelector('.theme-selector-btn');
+        const dropdown = selector.querySelector('.theme-dropdown');
+        const options = selector.querySelectorAll('.theme-option');
+        
+        // Toggle dropdown
+        btn?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            selector.classList.toggle('open');
+        });
+        
+        // Handle theme selection
+        options.forEach(opt => {
+            opt.addEventListener('click', () => {
+                const theme = opt.dataset.theme;
+                applyTheme(theme, true);
+                selector.classList.remove('open');
+            });
+        });
+        
+        // Close on outside click
+        document.addEventListener('click', (e) => {
+            if (!selector.contains(e.target)) {
+                selector.classList.remove('open');
+            }
+        });
+        
+        // Keyboard navigation
+        btn?.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                selector.classList.toggle('open');
+            } else if (e.key === 'Escape') {
+                selector.classList.remove('open');
+            }
+        });
+    });
+}
+
+// Apply saved theme on load
+if (saved) {
+    applyTheme(saved, false);
+} else {
+    // Check system preference for initial theme
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(prefersDark ? 'modern-dark' : 'modern-light', false);
+}
+
+// Listen for system theme changes (only if user hasn't set a preference)
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    const current = getCurrentTheme();
+    // Only auto-switch if user is on a modern theme
+    if (current === 'modern-light' || current === 'modern-dark') {
+        if (!localStorage.getItem(THEME_KEY)) {
+            applyTheme(e.matches ? 'modern-dark' : 'modern-light', false);
+        }
+    }
+});
+
+// Global theme API
+globalThis.setTheme = (theme) => applyTheme(theme, true);
+globalThis.getTheme = getCurrentTheme;
+globalThis.THEMES = THEMES;
 
 // Intersection Observer for scroll animations
 const observerOptions = {
@@ -56,6 +209,9 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe elements for scroll animations
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize theme selector
+    initThemeSelector();
+    
     const elementsToAnimate = document.querySelectorAll('.card, .hero h1, .hero .sub, .stat-item');
     elementsToAnimate.forEach(el => {
         el.classList.add('fade-in-up', 'stagger-delay');
@@ -141,7 +297,8 @@ function initScrollProgress() {
         progressBar.style.width = `${progress}%`;
     }
     
-    window.addEventListener('scroll', updateProgress, { passive: true });
+    // Use throttled scroll for better performance
+    window.addEventListener('scroll', throttle(updateProgress, 16), { passive: true });
     updateProgress();
 }
 
@@ -369,25 +526,43 @@ function initTestimonials() {
         goToSlide(currentIndex + 1);
     });
     
-    // Update on resize
-    window.addEventListener('resize', () => {
+    // Update on resize (throttled)
+    window.addEventListener('resize', throttle(() => {
         cardsPerView = getCardsPerView();
         currentIndex = Math.min(currentIndex, cards.length - cardsPerView);
         updateSlider();
+    }, 100));
+    
+    // Auto-advance with visibility-aware pause
+    let autoAdvanceInterval;
+    function startAutoAdvance() {
+        autoAdvanceInterval = setInterval(() => {
+            if (currentIndex >= cards.length - cardsPerView) {
+                goToSlide(0);
+            } else {
+                goToSlide(currentIndex + 1);
+            }
+        }, 5000);
+    }
+    
+    function stopAutoAdvance() {
+        clearInterval(autoAdvanceInterval);
+    }
+    
+    // Pause when page not visible (performance optimization)
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            stopAutoAdvance();
+        } else {
+            startAutoAdvance();
+        }
     });
     
-    // Auto-advance every 5 seconds
-    setInterval(() => {
-        if (currentIndex >= cards.length - cardsPerView) {
-            goToSlide(0);
-        } else {
-            goToSlide(currentIndex + 1);
-        }
-    }, 5000);
+    startAutoAdvance();
 }
 
 // -------------------------------------------------------
-// Contact Form
+// Contact Form with Formspree
 // -------------------------------------------------------
 function initContactForm() {
     const form = document.getElementById('contact-form');
@@ -407,22 +582,40 @@ function initContactForm() {
         btnLoading.style.display = 'inline';
         submitBtn.disabled = true;
         
-        // Simulate form submission (replace with actual form handler like Formspree)
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        
-        // Show success message
-        form.style.display = 'none';
-        successMessage.style.display = 'block';
-        
-        // Reset form after 5 seconds
-        setTimeout(() => {
-            form.reset();
-            form.style.display = 'flex';
-            successMessage.style.display = 'none';
+        try {
+            // Submit to Formspree
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                // Show success message
+                form.style.display = 'none';
+                successMessage.style.display = 'block';
+                
+                // Reset form after 5 seconds
+                setTimeout(() => {
+                    form.reset();
+                    form.style.display = 'flex';
+                    successMessage.style.display = 'none';
+                    btnText.style.display = 'inline';
+                    btnLoading.style.display = 'none';
+                    submitBtn.disabled = false;
+                }, 5000);
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            // Show error state
+            alert('Sorry, there was an error sending your message. Please try emailing directly.');
             btnText.style.display = 'inline';
             btnLoading.style.display = 'none';
             submitBtn.disabled = false;
-        }, 5000);
+        }
     });
 }
 

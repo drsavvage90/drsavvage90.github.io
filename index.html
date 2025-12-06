@@ -4,7 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Dr. Seth Nordgren - College professor and BCBA-D building practical tools for learning, ethics, and productivity." />
-    <meta name="theme-color" content="#0ea5e9" />
+    <meta name="theme-color" content="#667eea" />
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json" />
     
     <!-- Open Graph / Social Sharing -->
     <meta property="og:type" content="website" />
@@ -29,11 +32,11 @@
     <!-- Font loading with display swap for performance -->
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;500;600;700&family=Cinzel+Decorative:wght@400;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap"
       media="print" onload="this.media='all'"
     />
     <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;500;600;700&family=Cinzel+Decorative:wght@400;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" />
     </noscript>
     
     <!-- Preload critical CSS -->
@@ -51,8 +54,7 @@
       "description": "Bridging behavior science and technology to create practical tools for learning, ethics, and productivity.",
       "url": "https://drsavvage90.github.io",
       "sameAs": [
-        "https://github.com/drsavvage90",
-        "https://linkedin.com/in/yourprofile"
+        "https://github.com/drsavvage90"
       ],
       "knowsAbout": ["Applied Behavior Analysis", "iOS Development", "Web Development", "Educational Technology"]
     }
@@ -144,21 +146,20 @@
           </div>
         </div>
         
-        <!-- Theme Toggle -->
+        <!-- Theme Selector -->
         <div class="landing-footer">
-          <button class="theme-toggle-landing" id="theme-toggle" aria-label="Toggle theme">
-            <span class="theme-icon-light">☀️</span>
-            <span class="theme-icon-dark">🌙</span>
-          </button>
+          <div class="theme-selector landing-theme-selector">
+            <button class="theme-selector-toggle" aria-label="Change theme" aria-expanded="false" aria-haspopup="true">🎨</button>
+            <div class="theme-dropdown" role="menu">
+              <button data-theme="modern-light" role="menuitem">☀️ Modern Light</button>
+              <button data-theme="modern-dark" role="menuitem">🌙 Modern Dark</button>
+              <button data-theme="rustic" role="menuitem">🔍 Holmes</button>
+            </div>
+          </div>
           <div class="social-links-landing">
             <a href="https://github.com/drsavvage90" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-              </svg>
-            </a>
-            <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
               </svg>
             </a>
           </div>
@@ -207,43 +208,130 @@
         pathCards.forEach(addHoverFeedback);
       });
       
-      // Theme toggle for landing page - iOS 26 Liquid Glass
-      const landingPage = document.querySelector('.landing-page');
-      const themeToggle = document.getElementById('theme-toggle');
-      const savedTheme = localStorage.getItem('theme') || 'liquid-glass';
+      // Theme System
+      const THEMES = {
+        MODERN_LIGHT: 'modern-light',
+        MODERN_DARK: 'modern-dark',
+        RUSTIC: 'rustic'  // Holmes/Victorian theme
+      };
       
-      // Apply saved theme on load
-      if (savedTheme === 'tron') {
-        landingPage.classList.add('theme-tron');
+      function normalizeTheme(theme) {
+        // Map old theme names to new ones
+        const themeMap = {
+          'liquid-glass': THEMES.MODERN_LIGHT,
+          'light': THEMES.MODERN_LIGHT,
+          'tron': THEMES.MODERN_DARK,
+          'dark': THEMES.MODERN_DARK,
+          'rustic-light': THEMES.RUSTIC,
+          'rustic-dark': THEMES.RUSTIC,
+          'holmes': THEMES.RUSTIC
+        };
+        return themeMap[theme] || theme || THEMES.MODERN_LIGHT;
       }
       
-      // Toggle theme on click with smooth transition
-      themeToggle.addEventListener('click', () => {
-        // Add transition class for smooth color change
-        landingPage.style.transition = 'background 0.5s ease, color 0.5s ease';
+      function applyTheme(theme) {
+        const normalizedTheme = normalizeTheme(theme);
+        const html = document.documentElement;
+        const body = document.body;
         
-        landingPage.classList.toggle('theme-tron');
-        const newTheme = landingPage.classList.contains('theme-tron') ? 'tron' : 'liquid-glass';
-        localStorage.setItem('theme', newTheme);
+        // Set data-theme attribute (primary method)
+        html.setAttribute('data-theme', normalizedTheme);
         
-        // Announce theme change for screen readers
+        // Also maintain body classes for backwards compatibility
+        body.classList.remove('theme-tron', 'theme-rustic-light', 'theme-rustic-dark', 'theme-holmes');
+        if (normalizedTheme === THEMES.MODERN_DARK) {
+          body.classList.add('theme-tron');
+        } else if (normalizedTheme === THEMES.RUSTIC) {
+          body.classList.add('theme-holmes');
+        }
+        
+        // Update meta theme-color
+        const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+        if (metaThemeColor) {
+          const colors = {
+            [THEMES.MODERN_LIGHT]: '#f8fafc',
+            [THEMES.MODERN_DARK]: '#0a0a0f',
+            [THEMES.RUSTIC]: '#f0e6d3'  // Victorian parchment
+          };
+          metaThemeColor.content = colors[normalizedTheme] || '#f8fafc';
+        }
+        
+        // Store theme preference
+        localStorage.setItem('theme', normalizedTheme);
+        
+        // Announce theme change
         const announcement = document.createElement('div');
         announcement.setAttribute('role', 'status');
         announcement.setAttribute('aria-live', 'polite');
         announcement.className = 'sr-only';
-        announcement.textContent = `Theme changed to ${newTheme === 'tron' ? 'dark' : 'light'} mode`;
+        announcement.textContent = `Theme changed to ${normalizedTheme.replace('-', ' ')}`;
         document.body.appendChild(announcement);
         setTimeout(() => announcement.remove(), 1000);
-      });
+      }
       
-      // Keyboard shortcut for theme toggle (T key)
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 't' || e.key === 'T') {
-          if (document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
-            themeToggle.click();
+      function initThemeSelector() {
+        const selector = document.querySelector('.theme-selector');
+        if (!selector) return;
+        
+        const toggle = selector.querySelector('.theme-selector-toggle');
+        const dropdown = selector.querySelector('.theme-dropdown');
+        const buttons = dropdown.querySelectorAll('button[data-theme]');
+        
+        // Toggle dropdown
+        toggle.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const isOpen = dropdown.classList.toggle('active');
+          toggle.setAttribute('aria-expanded', isOpen);
+        });
+        
+        // Theme selection
+        buttons.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const theme = btn.dataset.theme;
+            applyTheme(theme);
+            dropdown.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+        
+        // Close dropdown on outside click
+        document.addEventListener('click', (e) => {
+          if (!selector.contains(e.target)) {
+            dropdown.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
           }
-        }
-      });
+        });
+        
+        // Keyboard navigation
+        toggle.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
+            e.preventDefault();
+            dropdown.classList.add('active');
+            toggle.setAttribute('aria-expanded', 'true');
+            buttons[0].focus();
+          }
+        });
+        
+        dropdown.addEventListener('keydown', (e) => {
+          const currentIndex = Array.from(buttons).indexOf(document.activeElement);
+          if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            buttons[(currentIndex + 1) % buttons.length].focus();
+          } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            buttons[(currentIndex - 1 + buttons.length) % buttons.length].focus();
+          } else if (e.key === 'Escape') {
+            dropdown.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.focus();
+          }
+        });
+      }
+      
+      // Initialize theme on load
+      const savedTheme = localStorage.getItem('theme');
+      applyTheme(savedTheme);
+      initThemeSelector();
     </script>
   </body>
 </html>

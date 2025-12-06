@@ -4,7 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Dr. Seth Nordgren - BCBA-D, College Professor specializing in Applied Behavior Analysis, Ethics, and Educational Technology." />
-    <meta name="theme-color" content="#0ea5e9" />
+    <meta name="theme-color" content="#667eea" />
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json" />
     
     <!-- Open Graph / Social Sharing -->
     <meta property="og:type" content="website" />
@@ -15,9 +18,23 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
     
+    <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" />
+    
+    <!-- Font loading with display swap for performance -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;500;600;700&family=Cinzel+Decorative:wght@400;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap"
+      media="print" onload="this.media='all'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;500;600;700&family=Cinzel+Decorative:wght@400;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" />
+    </noscript>
+    
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="stylesheet.css" as="style" />
+    <link rel="preload" href="pages.css" as="style" />
     <link rel="stylesheet" href="stylesheet.css" />
     <link rel="stylesheet" href="pages.css" />
     
@@ -40,10 +57,11 @@
         </div>
         <nav class="flex items-center gap-2" id="main-nav">
           <a href="index.html">Home</a>
+          <a href="#credentials" data-scroll="#credentials">Credentials</a>
           <a href="#courses" data-scroll="#courses">Courses</a>
           <a href="#research" data-scroll="#research">Research</a>
           <a href="#philosophy" data-scroll="#philosophy">Philosophy</a>
-          <a href="developer.html">Dev Portfolio</a>
+          <a href="#testimonials" data-scroll="#testimonials">Testimonials</a>
           <a href="#contact" class="btn" data-scroll="#contact">Contact</a>
         </nav>
         <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
@@ -78,10 +96,6 @@
             <div class="stat-item">
               <span class="stat-number" data-target="500">0</span><span class="stat-suffix">+</span>
               <span class="stat-label">Students Taught</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number" data-target="8">0</span><span class="stat-suffix">+</span>
-              <span class="stat-label">Publications</span>
             </div>
             <div class="stat-item">
               <span class="stat-number" data-target="15">0</span><span class="stat-suffix">+</span>
@@ -236,7 +250,7 @@
       <!-- Research Section -->
       <section id="research" class="section">
         <div class="container stack-lg">
-          <h2>Research & Publications</h2>
+          <h2>Research Interests</h2>
           <div class="research-areas">
             <div class="card research-area">
               <h3>🔬 Research Interests</h3>
@@ -248,55 +262,6 @@
                 <li>Telehealth service delivery models</li>
               </ul>
             </div>
-          </div>
-          
-          <h3 style="margin-top: 2rem;">Selected Publications</h3>
-          <div class="publications-list">
-            <article class="publication-item">
-              <div class="pub-year">2024</div>
-              <div class="pub-content">
-                <h4>Technology-Based Ethics Training: A Systematic Review</h4>
-                <p class="pub-journal">Journal of Applied Behavior Analysis</p>
-                <p class="pub-authors">Nordgren, S., Smith, J., & Johnson, M.</p>
-                <a href="#" class="pub-link">View Publication →</a>
-              </div>
-            </article>
-            
-            <article class="publication-item">
-              <div class="pub-year">2023</div>
-              <div class="pub-content">
-                <h4>Data Visualization Practices Among Behavior Analysts: A Survey Study</h4>
-                <p class="pub-journal">Behavior Analysis in Practice</p>
-                <p class="pub-authors">Nordgren, S. & Williams, R.</p>
-                <a href="#" class="pub-link">View Publication →</a>
-              </div>
-            </article>
-            
-            <article class="publication-item">
-              <div class="pub-year">2023</div>
-              <div class="pub-content">
-                <h4>Effective Feedback Strategies in Supervision: A Component Analysis</h4>
-                <p class="pub-journal">Behavior Analysis: Research and Practice</p>
-                <p class="pub-authors">Nordgren, S., Davis, K., & Thompson, L.</p>
-                <a href="#" class="pub-link">View Publication →</a>
-              </div>
-            </article>
-            
-            <article class="publication-item">
-              <div class="pub-year">2022</div>
-              <div class="pub-content">
-                <h4>Teaching Ethics: Comparing Case-Based and Principle-Based Approaches</h4>
-                <p class="pub-journal">Education and Treatment of Children</p>
-                <p class="pub-authors">Nordgren, S.</p>
-                <a href="#" class="pub-link">View Publication →</a>
-              </div>
-            </article>
-          </div>
-          
-          <div class="text-center" style="margin-top: 1.5rem;">
-            <a href="https://scholar.google.com/" target="_blank" rel="noopener" class="btn">
-              View All on Google Scholar
-            </a>
           </div>
         </div>
       </section>
@@ -417,18 +382,11 @@
                   <span>drsnordgren@gmail.com</span>
                 </div>
               </a>
-              <a href="https://scholar.google.com/" target="_blank" rel="noopener" class="contact-option">
-                <div class="contact-option-icon">📚</div>
+              <a href="https://github.com/drsavvage90" target="_blank" rel="noopener" class="contact-option">
+                <div class="contact-option-icon">💻</div>
                 <div>
-                  <strong>Google Scholar</strong>
-                  <span>View Publications</span>
-                </div>
-              </a>
-              <a href="https://linkedin.com/in/" target="_blank" rel="noopener" class="contact-option">
-                <div class="contact-option-icon">💼</div>
-                <div>
-                  <strong>LinkedIn</strong>
-                  <span>Connect Professionally</span>
+                  <strong>GitHub</strong>
+                  <span>@drsavvage90</span>
                 </div>
               </a>
             </div>
@@ -451,23 +409,45 @@
             <a href="#contact" data-scroll="#contact">Contact</a>
           </div>
           <div class="footer-social">
-            <a href="https://scholar.google.com/" target="_blank" rel="noopener" aria-label="Google Scholar">
+            <a href="https://github.com/drsavvage90" target="_blank" rel="noopener" aria-label="GitHub">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                <path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/>
-              </svg>
-            </a>
-            <a href="https://linkedin.com/in/" target="_blank" rel="noopener" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
               </svg>
             </a>
           </div>
         </div>
         <div class="footer-bottom">
           <small>© <span id="y">2025</span> Dr. Seth Nordgren. All rights reserved.</small>
-          <div class="flex gap-2">
-            <button class="btn btn-sm" onclick="setTheme('light')">☀️ Light</button>
-            <button class="btn btn-sm" onclick="setTheme('dark')">🌙 Dark</button>
+          <!-- Theme Selector -->
+          <div class="theme-selector footer-theme-selector" aria-label="Theme selector">
+            <button class="theme-selector-btn" aria-haspopup="true" aria-expanded="false">
+              <span class="theme-icon">☀️</span>
+              <span class="theme-name">Modern Light</span>
+              <span class="chevron">▼</span>
+            </button>
+            <div class="theme-dropdown" role="menu">
+              <button class="theme-option" data-theme="modern-light" role="menuitem">
+                <div class="theme-preview theme-preview-modern-light"></div>
+                <div class="theme-option-info">
+                  <span class="theme-option-name">Modern Light</span>
+                  <span class="theme-option-desc">Clean glassmorphism</span>
+                </div>
+              </button>
+              <button class="theme-option" data-theme="modern-dark" role="menuitem">
+                <div class="theme-preview theme-preview-modern-dark"></div>
+                <div class="theme-option-info">
+                  <span class="theme-option-name">Modern Dark</span>
+                  <span class="theme-option-desc">Sleek dark mode</span>
+                </div>
+              </button>
+              <button class="theme-option" data-theme="rustic" role="menuitem">
+                <div class="theme-preview theme-preview-holmes"></div>
+                <div class="theme-option-info">
+                  <span class="theme-option-name">Holmes</span>
+                  <span class="theme-option-desc">Victorian detective</span>
+                </div>
+              </button>
+            </div>
           </div>
         </div>
       </div>
