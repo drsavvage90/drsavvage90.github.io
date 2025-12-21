@@ -508,12 +508,27 @@ body {
 }
 
 /* -------------------------------------------------------
-   Global Transitions for Theme Switching
+   Theme Switching Transitions (Targeted, not global)
+   Only apply transitions to elements that change with theme
 -------------------------------------------------------- */
-* {
-  transition: color var(--anim-speed) var(--anim-easing),
-              background-color var(--anim-speed) var(--anim-easing),
+body,
+header.site,
+.card,
+.glass-card,
+.glass-panel,
+.btn,
+nav a,
+.footer-content,
+.hero,
+section {
+  transition: background-color var(--anim-speed) var(--anim-easing),
               border-color var(--anim-speed) var(--anim-easing);
+}
+
+h1, h2, h3, h4, h5, h6,
+p, span, a, li,
+.text-primary, .text-secondary, .muted {
+  transition: color var(--anim-speed) var(--anim-easing);
 }
 
 /* -------------------------------------------------------
@@ -2421,6 +2436,16 @@ body::after {
     opacity: 1;
     transform: none;
   }
+}
+
+/* Pause animations when tab is hidden (performance) */
+.animations-paused body,
+.animations-paused body::before,
+.animations-paused body::after,
+.animations-paused .bg-gradient::before,
+.animations-paused .bg-gradient::after,
+.animations-paused .bg-grid::before {
+  animation-play-state: paused !important;
 }
 
 /* Print Styles */

@@ -190,6 +190,22 @@ globalThis.setTheme = (theme) => applyTheme(theme, true);
 globalThis.getTheme = getCurrentTheme;
 globalThis.THEMES = THEMES;
 
+// -------------------------------------------------------
+// Performance: Pause animations when tab is hidden
+// -------------------------------------------------------
+function initAnimationPause() {
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            document.body.style.animationPlayState = 'paused';
+            document.documentElement.classList.add('animations-paused');
+        } else {
+            document.body.style.animationPlayState = 'running';
+            document.documentElement.classList.remove('animations-paused');
+        }
+    });
+}
+initAnimationPause();
+
 // Intersection Observer for scroll animations
 const observerOptions = {
     threshold: 0.1,
@@ -626,6 +642,23 @@ function initActiveNavigation() {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('nav a[data-scroll]');
     
+    // Mark current page link as active
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const pageLinks = document.querySelectorAll('nav a[href]');
+    pageLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        // Check if this is a page link (not a hash link)
+        if (href && !href.startsWith('#')) {
+            const linkPage = href.split('/').pop();
+            if (linkPage === currentPage || 
+                (currentPage === '' && linkPage === 'index.html') ||
+                (currentPage === 'index.html' && href === 'index.html')) {
+                link.classList.add('active');
+            }
+        }
+    });
+    
+    // Scroll-based active state for section links
     const navObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
