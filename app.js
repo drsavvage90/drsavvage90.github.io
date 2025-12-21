@@ -80,9 +80,6 @@ function applyTheme(theme, announce = false) {
         if (metaTheme) {
             metaTheme.setAttribute('content', config.themeColor);
         }
-        
-        // Update theme selector UI if present
-        updateThemeSelectorUI(active);
     });
     
     // Announce theme change for screen readers
@@ -98,28 +95,6 @@ function applyTheme(theme, announce = false) {
     }
 
     return active;
-}
-
-// Update theme selector UI
-function updateThemeSelectorUI(activeTheme) {
-    const selectors = document.querySelectorAll('.theme-selector');
-    selectors.forEach(selector => {
-        const btn = selector.querySelector('.theme-selector-btn');
-        const options = selector.querySelectorAll('.theme-option');
-        const config = THEMES[activeTheme];
-        
-        if (btn) {
-            const iconEl = btn.querySelector('.theme-icon');
-            const nameEl = btn.querySelector('.theme-name');
-            if (iconEl) iconEl.textContent = config.icon;
-            if (nameEl) nameEl.textContent = config.name;
-        }
-        
-        options.forEach(opt => {
-            const isActive = opt.dataset.theme === activeTheme;
-            opt.classList.toggle('active', isActive);
-        });
-    });
 }
 
 // Apply saved theme on load
