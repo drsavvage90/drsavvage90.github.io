@@ -153,38 +153,7 @@
           </div>
         </div>
         
-        <!-- Theme Selector -->
         <div class="landing-footer">
-          <div class="theme-selector landing-theme-selector" aria-label="Theme selector">
-            <button class="theme-selector-btn" aria-haspopup="true" aria-expanded="false">
-              <span class="theme-icon">☀️</span>
-              <span class="theme-name">Modern Light</span>
-              <span class="chevron">▼</span>
-            </button>
-            <div class="theme-dropdown" role="menu">
-              <button class="theme-option" data-theme="modern-light" role="menuitem">
-                <div class="theme-preview theme-preview-modern-light"></div>
-                <div class="theme-option-info">
-                  <span class="theme-option-name">Modern Light</span>
-                  <span class="theme-option-desc">Clean glassmorphism</span>
-                </div>
-              </button>
-              <button class="theme-option" data-theme="modern-dark" role="menuitem">
-                <div class="theme-preview theme-preview-modern-dark"></div>
-                <div class="theme-option-info">
-                  <span class="theme-option-name">Modern Dark</span>
-                  <span class="theme-option-desc">Sleek dark mode</span>
-                </div>
-              </button>
-              <button class="theme-option" data-theme="rustic" role="menuitem">
-                <div class="theme-preview theme-preview-holmes"></div>
-                <div class="theme-option-info">
-                  <span class="theme-option-name">Holmes</span>
-                  <span class="theme-option-desc">Victorian elegance</span>
-                </div>
-              </button>
-            </div>
-          </div>
           <div class="social-links-landing">
             <a href="https://github.com/drsavvage90" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -350,94 +319,9 @@
         setTimeout(() => announcement.remove(), 1000);
       }
       
-      function initThemeSelector() {
-        const selector = document.querySelector('.theme-selector');
-        if (!selector) return;
-        
-        const btn = selector.querySelector('.theme-selector-btn');
-        const dropdown = selector.querySelector('.theme-dropdown');
-        const options = selector.querySelectorAll('.theme-option');
-        
-        // Theme configs for UI updates
-        const themeConfigs = {
-          'modern-light': { icon: '☀️', name: 'Modern Light' },
-          'modern-dark': { icon: '🌙', name: 'Modern Dark' },
-          'rustic': { icon: '🔍', name: 'Holmes' }
-        };
-        
-        // Update button display
-        function updateSelectorUI(theme) {
-          const config = themeConfigs[theme] || themeConfigs['modern-light'];
-          const iconEl = btn.querySelector('.theme-icon');
-          const nameEl = btn.querySelector('.theme-name');
-          if (iconEl) iconEl.textContent = config.icon;
-          if (nameEl) nameEl.textContent = config.name;
-          
-          options.forEach(opt => {
-            opt.classList.toggle('active', opt.dataset.theme === theme);
-          });
-        }
-        
-        // Toggle dropdown
-        btn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          selector.classList.toggle('open');
-          const isOpen = selector.classList.contains('open');
-          btn.setAttribute('aria-expanded', isOpen);
-        });
-        
-        // Theme selection
-        options.forEach(opt => {
-          opt.addEventListener('click', () => {
-            const theme = opt.dataset.theme;
-            applyTheme(theme);
-            updateSelectorUI(theme);
-            selector.classList.remove('open');
-            btn.setAttribute('aria-expanded', 'false');
-          });
-        });
-        
-        // Close dropdown on outside click
-        document.addEventListener('click', (e) => {
-          if (!selector.contains(e.target)) {
-            selector.classList.remove('open');
-            btn.setAttribute('aria-expanded', 'false');
-          }
-        });
-        
-        // Keyboard navigation
-        btn.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
-            e.preventDefault();
-            selector.classList.add('open');
-            btn.setAttribute('aria-expanded', 'true');
-            options[0].focus();
-          } else if (e.key === 'Escape') {
-            selector.classList.remove('open');
-            btn.setAttribute('aria-expanded', 'false');
-          }
-        });
-        
-        dropdown.addEventListener('keydown', (e) => {
-          const currentIndex = Array.from(options).indexOf(document.activeElement);
-          if (e.key === 'ArrowDown') {
-            e.preventDefault();
-            options[(currentIndex + 1) % options.length].focus();
-          } else if (e.key === 'ArrowUp') {
-            e.preventDefault();
-            options[(currentIndex - 1 + options.length) % options.length].focus();
-          } else if (e.key === 'Escape') {
-            selector.classList.remove('open');
-            btn.setAttribute('aria-expanded', 'false');
-            btn.focus();
-          }
-        });
-      }
-      
-      // Initialize theme on load
+// Initialize theme on load
       const savedTheme = localStorage.getItem('theme');
       applyTheme(savedTheme);
-      initThemeSelector();
     </script>
   </body>
 </html>
