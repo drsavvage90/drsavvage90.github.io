@@ -122,49 +122,6 @@ function updateThemeSelectorUI(activeTheme) {
     });
 }
 
-// Initialize theme selector functionality
-function initThemeSelector() {
-    const selectors = document.querySelectorAll('.theme-selector');
-    
-    selectors.forEach(selector => {
-        const btn = selector.querySelector('.theme-selector-btn');
-        const dropdown = selector.querySelector('.theme-dropdown');
-        const options = selector.querySelectorAll('.theme-option');
-        
-        // Toggle dropdown
-        btn?.addEventListener('click', (e) => {
-            e.stopPropagation();
-            selector.classList.toggle('open');
-        });
-        
-        // Handle theme selection
-        options.forEach(opt => {
-            opt.addEventListener('click', () => {
-                const theme = opt.dataset.theme;
-                applyTheme(theme, true);
-                selector.classList.remove('open');
-            });
-        });
-        
-        // Close on outside click
-        document.addEventListener('click', (e) => {
-            if (!selector.contains(e.target)) {
-                selector.classList.remove('open');
-            }
-        });
-        
-        // Keyboard navigation
-        btn?.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                selector.classList.toggle('open');
-            } else if (e.key === 'Escape') {
-                selector.classList.remove('open');
-            }
-        });
-    });
-}
-
 // Apply saved theme on load
 if (saved) {
     applyTheme(saved, false);
@@ -225,9 +182,6 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe elements for scroll animations
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize theme selector
-    initThemeSelector();
-    
     const elementsToAnimate = document.querySelectorAll('.card, .hero h1, .hero .sub, .stat-item');
     elementsToAnimate.forEach(el => {
         el.classList.add('fade-in-up', 'stagger-delay');
