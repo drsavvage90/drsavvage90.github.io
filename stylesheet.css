@@ -494,6 +494,7 @@ body.theme-tron {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 html,
@@ -1214,6 +1215,10 @@ textarea::placeholder {
 -------------------------------------------------------- */
 section {
   padding: var(--space-3xl) 0;
+}
+
+section[id] {
+  scroll-margin-top: 90px;
 }
 
 .section-card {

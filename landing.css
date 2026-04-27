@@ -367,7 +367,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 20rem 2rem 4rem;
+  padding: clamp(4rem, 8vh, 6rem) 2rem 4rem;
   box-sizing: border-box;
 }
 

@@ -18,7 +18,8 @@
 }
 
 .page-hero {
-  padding-top: 4rem;
+  min-height: auto;
+  padding: 4rem 0 3rem;
 }
 
 .hero-badge {
