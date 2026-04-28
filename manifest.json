@@ -1,7 +1,7 @@
 {
   "name": "Dr. Seth Nordgren - Portfolio",
   "short_name": "Seth Nordgren",
-  "description": "BCBA-D, College Professor, and CTO of Enigma Software Systems portfolio",
+  "description": "CTO of Enigma Software Systems, software developer, and BCBA-D portfolio",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f5f7fa",
@@ -22,7 +22,7 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["education", "portfolio", "personal"],
+  "categories": ["business", "productivity", "portfolio", "personal"],
   "lang": "en-US",
   "dir": "ltr"
 }

@@ -1,9 +1,8 @@
-// Performance-optimized theme management with preconnect hints
+// Light-only theme management
 const body = document.body;
 const html = document.documentElement;
 const yearElement = document.getElementById("y");
 const THEME_KEY = "theme";
-const saved = localStorage.getItem(THEME_KEY);
 
 // Performance: Throttle utility for scroll events
 function throttle(fn, wait) {
@@ -25,31 +24,10 @@ const THEMES = {
         icon: '☀️',
         themeColor: '#667eea',
         bodyClass: ''
-    },
-    'modern-dark': {
-        name: 'Modern Dark',
-        description: 'Sleek dark mode',
-        icon: '🌙',
-        themeColor: '#0f1419',
-        bodyClass: 'theme-tron'
-    },
-    'rustic': {
-        name: 'Holmes',
-        description: 'Victorian elegance',
-        icon: '🔍',
-        themeColor: '#8b4513',
-        bodyClass: 'theme-holmes'
     }
 };
 
-const normalizeTheme = (theme) => {
-    const t = (theme || "").toLowerCase();
-    // Map legacy values to new theme names
-    if (t === 'dark' || t === 'tron') return 'modern-dark';
-    if (t === 'light' || t === 'liquid') return 'modern-light';
-    if (t === 'rustic') return 'rustic';
-    // Check if it's already a valid theme
-    if (THEMES[t]) return t;
+const normalizeTheme = () => {
     return 'modern-light';
 };
 
@@ -60,28 +38,25 @@ function getCurrentTheme() {
 
 // Optimized theme application with requestAnimationFrame
 function applyTheme(theme, announce = false) {
-    const active = normalizeTheme(theme);
+    const active = normalizeTheme();
     const config = THEMES[active];
 
     requestAnimationFrame(() => {
         // Use data-theme attribute on html element
         html.setAttribute('data-theme', active);
-        
-        // Remove all theme body classes, then add the correct one
-        body.classList.remove('theme-tron');
-        if (config.bodyClass) {
-            body.classList.add(config.bodyClass);
-        }
-        
+
+        // Keep the public portfolio light-only.
+        body.classList.remove('theme-tron', 'theme-holmes', 'theme-rustic-light', 'theme-rustic-dark');
+
         localStorage.setItem(THEME_KEY, active);
-        
+
         // Update theme-color meta tag
         const metaTheme = document.querySelector('meta[name="theme-color"]');
         if (metaTheme) {
             metaTheme.setAttribute('content', config.themeColor);
         }
     });
-    
+
     // Announce theme change for screen readers
     if (announce) {
         const announcement = document.createElement('div');
@@ -97,25 +72,8 @@ function applyTheme(theme, announce = false) {
     return active;
 }
 
-// Apply saved theme on load
-if (saved) {
-    applyTheme(saved, false);
-} else {
-    // Check system preference for initial theme
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    applyTheme(prefersDark ? 'modern-dark' : 'modern-light', false);
-}
-
-// Listen for system theme changes (only if user hasn't set a preference)
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-    const current = getCurrentTheme();
-    // Only auto-switch if user is on a modern theme
-    if (current === 'modern-light' || current === 'modern-dark') {
-        if (!localStorage.getItem(THEME_KEY)) {
-            applyTheme(e.matches ? 'modern-dark' : 'modern-light', false);
-        }
-    }
-});
+// Apply light theme on every load, regardless of saved or system preferences.
+applyTheme('modern-light', false);
 
 // Global theme API
 globalThis.setTheme = (theme) => applyTheme(theme, true);
@@ -144,25 +102,34 @@ const observerOptions = {
     rootMargin: '0px 0px -50px 0px'
 };
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-            // Add staggered delay for multiple elements
-            const delay = index * 100;
-            entry.target.style.setProperty('--delay', `${delay}ms`);
-            entry.target.classList.add('visible');
-        }
-    });
-}, observerOptions);
+const observer = 'IntersectionObserver' in window
+    ? new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                // Add staggered delay for multiple elements
+                const delay = index * 100;
+                entry.target.style.setProperty('--delay', `${delay}ms`);
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions)
+    : null;
 
 // Observe elements for scroll animations
 document.addEventListener('DOMContentLoaded', () => {
-    const elementsToAnimate = document.querySelectorAll('.card, .hero h1, .hero .sub, .stat-item');
+    const elementsToAnimate = document.querySelectorAll(
+        '.card, .hero h1, .hero .sub, .stat-item, .section-heading, .hero-proof-strip, .hero-actions, .hero-proof-item, .value-card, .project-proof-panel, .project-proof-grid > div, .skills-proof, .proof-items > div, .contact-method, .focus-cta'
+    );
+    const revealImmediately = Boolean(window.location.hash) || !observer;
     elementsToAnimate.forEach(el => {
         el.classList.add('fade-in-up', 'stagger-delay');
-        observer.observe(el);
+        if (revealImmediately) {
+            el.classList.add('visible');
+        } else {
+            observer.observe(el);
+        }
     });
-    
+
     // Initialize all interactive features
     initStatsCounter();
     initSkillBars();
@@ -175,7 +142,95 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollProgress();
     initBackToTop();
     initMobileMenu();
+    initInitialHashScroll();
+    initHashNavigation();
+    initSectionPresence();
+    initPremiumMotion();
 });
+
+// -------------------------------------------------------
+// Section presence and page-level polish
+// -------------------------------------------------------
+function initSectionPresence() {
+    const sections = document.querySelectorAll('main section[id]');
+    if (!sections.length) return;
+
+    sections.forEach(section => section.classList.add('section-presence'));
+
+    if (!('IntersectionObserver' in window)) {
+        sections.forEach(section => section.classList.add('section-in-view'));
+        return;
+    }
+
+    const presenceObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            entry.target.classList.toggle('section-in-view', entry.isIntersecting);
+        });
+    }, {
+        threshold: 0.18,
+        rootMargin: '-10% 0px -28% 0px'
+    });
+
+    const activeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                document.body.dataset.activeSection = entry.target.id;
+            }
+        });
+    }, {
+        threshold: 0.35,
+        rootMargin: '-18% 0px -42% 0px'
+    });
+
+    sections.forEach(section => {
+        presenceObserver.observe(section);
+        activeObserver.observe(section);
+    });
+}
+
+// -------------------------------------------------------
+// Premium pointer-responsive motion
+// -------------------------------------------------------
+function initPremiumMotion() {
+    const finePointer = window.matchMedia('(pointer: fine)').matches;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!finePointer || reducedMotion) return;
+
+    let raf = null;
+    let pointerX = 50;
+    let pointerY = 20;
+
+    const updateGlobalPointer = () => {
+        document.documentElement.style.setProperty('--pointer-x', `${pointerX}%`);
+        document.documentElement.style.setProperty('--pointer-y', `${pointerY}%`);
+        raf = null;
+    };
+
+    window.addEventListener('pointermove', (event) => {
+        pointerX = (event.clientX / window.innerWidth) * 100;
+        pointerY = (event.clientY / window.innerHeight) * 100;
+        if (!raf) {
+            raf = requestAnimationFrame(updateGlobalPointer);
+        }
+    }, { passive: true });
+
+    document.querySelectorAll(
+        '.card, .btn, .project-action, .contact-method, .skill-tags span, .timeline-tech span, .project-proof-grid div, .proof-items div, .hero-proof-item, .skills-summary, .focus-cta, .availability-badge'
+    ).forEach((element) => {
+        element.addEventListener('pointermove', (event) => {
+            const rect = element.getBoundingClientRect();
+            const x = ((event.clientX - rect.left) / rect.width) * 100;
+            const y = ((event.clientY - rect.top) / rect.height) * 100;
+            element.style.setProperty('--mx', `${x}%`);
+            element.style.setProperty('--my', `${y}%`);
+        }, { passive: true });
+
+        element.addEventListener('pointerleave', () => {
+            element.style.setProperty('--mx', '50%');
+            element.style.setProperty('--my', '0%');
+        });
+    });
+}
 
 // -------------------------------------------------------
 // Typing Animation
@@ -183,24 +238,23 @@ document.addEventListener('DOMContentLoaded', () => {
 function initTypingAnimation() {
     const typingElement = document.getElementById('typing-text');
     if (!typingElement) return;
-    
+
     const phrases = [
-        'BCBA-D',
-        'College Professor',
-        'iOS Developer',
-        'Web Developer',
-        'Behavior Scientist',
-        'EdTech Innovator'
+        'CTO at Enigma Software Systems',
+        'Software Developer',
+        'AI Systems Builder',
+        'Behavior Science Technologist',
+        'Product-Focused Engineer'
     ];
-    
+
     let phraseIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
     let typingSpeed = 100;
-    
+
     function type() {
         const currentPhrase = phrases[phraseIndex];
-        
+
         if (isDeleting) {
             typingElement.textContent = currentPhrase.substring(0, charIndex - 1);
             charIndex--;
@@ -210,7 +264,7 @@ function initTypingAnimation() {
             charIndex++;
             typingSpeed = 100;
         }
-        
+
         if (!isDeleting && charIndex === currentPhrase.length) {
             // Pause at end of phrase
             typingSpeed = 2000;
@@ -220,10 +274,10 @@ function initTypingAnimation() {
             phraseIndex = (phraseIndex + 1) % phrases.length;
             typingSpeed = 500;
         }
-        
+
         setTimeout(type, typingSpeed);
     }
-    
+
     // Start typing after a short delay
     setTimeout(type, 1000);
 }
@@ -234,14 +288,14 @@ function initTypingAnimation() {
 function initScrollProgress() {
     const progressBar = document.getElementById('scroll-progress');
     if (!progressBar) return;
-    
+
     function updateProgress() {
         const scrollTop = window.scrollY;
         const docHeight = document.documentElement.scrollHeight - window.innerHeight;
         const progress = (scrollTop / docHeight) * 100;
         progressBar.style.width = `${progress}%`;
     }
-    
+
     // Use throttled scroll for better performance
     window.addEventListener('scroll', throttle(updateProgress, 16), { passive: true });
     updateProgress();
@@ -253,7 +307,7 @@ function initScrollProgress() {
 function initBackToTop() {
     const backToTopBtn = document.getElementById('back-to-top');
     if (!backToTopBtn) return;
-    
+
     function toggleButton() {
         if (window.scrollY > 400) {
             backToTopBtn.classList.add('visible');
@@ -261,16 +315,21 @@ function initBackToTop() {
             backToTopBtn.classList.remove('visible');
         }
     }
-    
+
     window.addEventListener('scroll', toggleButton, { passive: true });
-    
+
     backToTopBtn.addEventListener('click', () => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         });
+
+        if (window.location.hash) {
+            history.pushState(null, "", window.location.pathname + window.location.search);
+            setActiveNavLink("");
+        }
     });
-    
+
     toggleButton();
 }
 
@@ -280,39 +339,39 @@ function initBackToTop() {
 function initMobileMenu() {
     const hamburger = document.getElementById('hamburger-btn');
     const nav = document.getElementById('main-nav');
-    
+
     if (!hamburger || !nav) return;
-    
+
     function toggleMenu() {
         const isOpen = nav.classList.toggle('open');
         hamburger.classList.toggle('active');
         hamburger.setAttribute('aria-expanded', isOpen);
         document.body.classList.toggle('menu-open', isOpen);
     }
-    
+
     function closeMenu() {
         nav.classList.remove('open');
         hamburger.classList.remove('active');
         hamburger.setAttribute('aria-expanded', 'false');
         document.body.classList.remove('menu-open');
     }
-    
+
     hamburger.addEventListener('click', toggleMenu);
-    
+
     // Close menu when clicking a link
     nav.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', closeMenu);
     });
-    
+
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
-        if (nav.classList.contains('open') && 
-            !nav.contains(e.target) && 
+        if (nav.classList.contains('open') &&
+            !nav.contains(e.target) &&
             !hamburger.contains(e.target)) {
             closeMenu();
         }
     });
-    
+
     // Close menu on escape key
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && nav.classList.contains('open')) {
@@ -327,7 +386,7 @@ function initMobileMenu() {
 // -------------------------------------------------------
 function initStatsCounter() {
     const statNumbers = document.querySelectorAll('.stat-number');
-    
+
     const counterObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -337,7 +396,7 @@ function initStatsCounter() {
             }
         });
     }, { threshold: 0.5 });
-    
+
     statNumbers.forEach(stat => counterObserver.observe(stat));
 }
 
@@ -346,7 +405,7 @@ function animateCounter(element, target) {
     const increment = target / 50;
     const duration = 2000;
     const stepTime = duration / 50;
-    
+
     const timer = setInterval(() => {
         current += increment;
         if (current >= target) {
@@ -363,7 +422,8 @@ function animateCounter(element, target) {
 // -------------------------------------------------------
 function initSkillBars() {
     const skillBars = document.querySelectorAll('.skill-progress');
-    
+    if (!skillBars.length || !('IntersectionObserver' in window)) return;
+
     const skillObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -374,7 +434,7 @@ function initSkillBars() {
             }
         });
     }, { threshold: 0.3 });
-    
+
     skillBars.forEach(bar => skillObserver.observe(bar));
 }
 
@@ -384,13 +444,13 @@ function initSkillBars() {
 function initProjectFilters() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectGrid = document.getElementById('project-grid');
-    
+
     filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             // Update active state
             filterButtons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            
+
             const filter = btn.dataset.filter;
             filterProjects(filter);
         });
@@ -399,16 +459,16 @@ function initProjectFilters() {
 
 function filterProjects(filter) {
     const projects = document.querySelectorAll('#project-grid .project');
-    
+
     projects.forEach(project => {
         const language = project.dataset.language?.toLowerCase() || '';
-        const shouldShow = filter === 'all' || 
+        const shouldShow = filter === 'all' ||
             (filter === 'javascript' && (language.includes('javascript') || language.includes('typescript'))) ||
             (filter === 'swift' && language.includes('swift')) ||
             (filter === 'python' && language.includes('python')) ||
             (filter === 'html' && (language.includes('html') || language.includes('css'))) ||
             (filter === 'other' && !['javascript', 'typescript', 'swift', 'python', 'html', 'css'].some(l => language.includes(l)));
-        
+
         if (shouldShow) {
             project.style.display = '';
             project.style.animation = 'fadeIn 0.3s ease forwards';
@@ -427,13 +487,13 @@ function initTestimonials() {
     const prevBtn = document.querySelector('.testimonial-btn.prev');
     const nextBtn = document.querySelector('.testimonial-btn.next');
     const dotsContainer = document.querySelector('.testimonial-dots');
-    
+
     if (!track || cards.length === 0) return;
-    
+
     let currentIndex = 0;
     let cardsPerView = getCardsPerView();
     const totalSlides = Math.ceil(cards.length / cardsPerView);
-    
+
     // Create dots
     for (let i = 0; i < totalSlides; i++) {
         const dot = document.createElement('div');
@@ -441,43 +501,43 @@ function initTestimonials() {
         dot.addEventListener('click', () => goToSlide(i));
         dotsContainer.appendChild(dot);
     }
-    
+
     function getCardsPerView() {
         if (window.innerWidth >= 1024) return 3;
         if (window.innerWidth >= 768) return 2;
         return 1;
     }
-    
+
     function updateSlider() {
         const cardWidth = cards[0].offsetWidth + 24; // Include gap
         track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-        
+
         // Update dots
         document.querySelectorAll('.testimonial-dot').forEach((dot, i) => {
             dot.classList.toggle('active', i === currentIndex);
         });
     }
-    
+
     function goToSlide(index) {
         currentIndex = Math.max(0, Math.min(index, cards.length - cardsPerView));
         updateSlider();
     }
-    
+
     prevBtn?.addEventListener('click', () => {
         goToSlide(currentIndex - 1);
     });
-    
+
     nextBtn?.addEventListener('click', () => {
         goToSlide(currentIndex + 1);
     });
-    
+
     // Update on resize (throttled)
     window.addEventListener('resize', throttle(() => {
         cardsPerView = getCardsPerView();
         currentIndex = Math.min(currentIndex, cards.length - cardsPerView);
         updateSlider();
     }, 100));
-    
+
     // Auto-advance with visibility-aware pause
     let autoAdvanceInterval;
     function startAutoAdvance() {
@@ -489,11 +549,11 @@ function initTestimonials() {
             }
         }, 5000);
     }
-    
+
     function stopAutoAdvance() {
         clearInterval(autoAdvanceInterval);
     }
-    
+
     // Pause when page not visible (performance optimization)
     document.addEventListener('visibilitychange', () => {
         if (document.hidden) {
@@ -502,7 +562,7 @@ function initTestimonials() {
             startAutoAdvance();
         }
     });
-    
+
     startAutoAdvance();
 }
 
@@ -512,21 +572,21 @@ function initTestimonials() {
 function initContactForm() {
     const form = document.getElementById('contact-form');
     const successMessage = document.getElementById('form-success');
-    
+
     if (!form) return;
-    
+
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
+
         const submitBtn = form.querySelector('button[type="submit"]');
         const btnText = submitBtn.querySelector('.btn-text');
         const btnLoading = submitBtn.querySelector('.btn-loading');
-        
+
         // Show loading state
         btnText.style.display = 'none';
         btnLoading.style.display = 'inline';
         submitBtn.disabled = true;
-        
+
         try {
             // Submit to Formspree
             const response = await fetch(form.action, {
@@ -536,12 +596,12 @@ function initContactForm() {
                     'Accept': 'application/json'
                 }
             });
-            
+
             if (response.ok) {
                 // Show success message
                 form.style.display = 'none';
                 successMessage.style.display = 'block';
-                
+
                 // Reset form after 5 seconds
                 setTimeout(() => {
                     form.reset();
@@ -570,7 +630,7 @@ function initContactForm() {
 function initActiveNavigation() {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('nav a[data-scroll]');
-    
+
     // Mark current page link as active
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const pageLinks = document.querySelectorAll('nav a[href]');
@@ -579,30 +639,69 @@ function initActiveNavigation() {
         // Check if this is a page link (not a hash link)
         if (href && !href.startsWith('#')) {
             const linkPage = href.split('/').pop();
-            if (linkPage === currentPage || 
+            if (linkPage === currentPage ||
                 (currentPage === '' && linkPage === 'index.html') ||
                 (currentPage === 'index.html' && href === 'index.html')) {
                 link.classList.add('active');
             }
         }
     });
-    
-    // Scroll-based active state for section links
-    const navObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.id;
-                navLinks.forEach(link => {
-                    link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-                });
+
+    function setActiveSection() {
+        const hashTarget = window.location.hash
+            ? document.querySelector(window.location.hash)
+            : null;
+
+        if (hashTarget) {
+            const hashRect = hashTarget.getBoundingClientRect();
+            const hashActivationLine = window.innerHeight * 0.55;
+            if (hashRect.top <= hashActivationLine && hashRect.bottom > 90) {
+                setActiveNavLink(window.location.hash);
+                return;
+            }
+        }
+
+        const offset = Math.min(window.innerHeight * 0.38, 360);
+        let currentId = "";
+
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= offset && rect.bottom > offset) {
+                currentId = section.id;
             }
         });
-    }, { 
-        threshold: 0.3,
-        rootMargin: '-100px 0px -66%'
+
+        setActiveNavLink(currentId ? `#${currentId}` : "");
+    }
+
+    window.addEventListener('scroll', throttle(setActiveSection, 100), { passive: true });
+    window.addEventListener('hashchange', setActiveSection);
+    setActiveSection();
+}
+
+function setActiveNavLink(targetSelector) {
+    const navLinks = document.querySelectorAll('nav a[href]');
+    navLinks.forEach(link => link.classList.remove('active'));
+
+    if (targetSelector) {
+        document.querySelectorAll('nav a[data-scroll]').forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === targetSelector);
+        });
+        return;
+    }
+
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (!href || href.startsWith('#')) return;
+
+        const linkPage = href.split('/').pop();
+        if (linkPage === currentPage ||
+            (currentPage === '' && linkPage === 'index.html') ||
+            (currentPage === 'index.html' && href === 'index.html')) {
+            link.classList.add('active');
+        }
     });
-    
-    sections.forEach(section => navObserver.observe(section));
 }
 
 // -------------------------------------------------------
@@ -610,38 +709,88 @@ function initActiveNavigation() {
 // -------------------------------------------------------
 function initResumeButton() {
     const resumeBtn = document.getElementById('resume-btn');
-    
+
     if (!resumeBtn) return;
-    
+
     resumeBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        // You can replace this with an actual PDF download link
-        alert('Resume download feature - add your CV PDF file and update the link!');
-        // Example: window.open('path/to/resume.pdf', '_blank');
+        const href = resumeBtn.getAttribute('href');
+        if (!href || href === '#') {
+            e.preventDefault();
+            alert('Resume file is not available yet.');
+        }
     });
 }
 
-// Optimized smooth scroll with debouncing
-let scrollTimeout;
-const smoothScrollToElement = (target) => {
-    if (scrollTimeout) clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => {
-        if (target) {
-            target.scrollIntoView({ 
-                behavior: "smooth",
-                block: "start",
-                inline: "nearest"
-            });
-        }
-    }, 10);
+const smoothScrollToElement = (target, hash, behavior = "smooth") => {
+    if (!target) return;
+
+    const headerOffset = 90;
+    const targetTop = target.getBoundingClientRect().top + window.scrollY - headerOffset;
+    const scrollTop = Math.max(0, targetTop);
+
+    if (behavior === "auto") {
+        window.scrollTo(0, scrollTop);
+    } else {
+        window.scrollTo({
+            top: scrollTop,
+            behavior
+        });
+    }
+
+    if (hash && window.location.hash !== hash) {
+        history.pushState(null, "", hash);
+    }
+
+    if (hash) {
+        setActiveNavLink(hash);
+        requestAnimationFrame(() => setActiveNavLink(hash));
+        window.setTimeout(() => setActiveNavLink(hash), 150);
+    }
 };
+
+function initInitialHashScroll() {
+    const hash = window.location.hash;
+    if (!hash) return;
+
+    const target = document.querySelector(hash);
+    if (!target) return;
+
+    const alignToHash = () => smoothScrollToElement(target, hash, "auto");
+    alignToHash();
+    requestAnimationFrame(alignToHash);
+    window.setTimeout(alignToHash, 50);
+    window.setTimeout(alignToHash, 250);
+    window.setTimeout(alignToHash, 800);
+    window.setTimeout(alignToHash, 1400);
+    document.fonts?.ready?.then(alignToHash).catch(() => {});
+    window.addEventListener("load", alignToHash, { once: true });
+}
+
+function initHashNavigation() {
+    window.addEventListener("hashchange", () => {
+        const hash = window.location.hash;
+        if (!hash) {
+            setActiveNavLink("");
+            return;
+        }
+
+        const target = document.querySelector(hash);
+        if (target) {
+            smoothScrollToElement(target, hash, "auto");
+        }
+    });
+}
 
 // Enhanced scroll handlers
 document.querySelectorAll("[data-scroll]").forEach((b) => {
     b.addEventListener("click", (e) => {
         e.preventDefault();
-        const target = document.querySelector(b.dataset.scroll);
-        smoothScrollToElement(target);
+        const targetSelector = b.dataset.scroll;
+        const target = document.querySelector(targetSelector);
+        if (!target) return;
+
+        setActiveNavLink(targetSelector);
+        smoothScrollToElement(target, targetSelector);
     });
 });
 
@@ -652,9 +801,9 @@ const projectStatus = document.getElementById("project-status");
 // Skeleton Loading for Projects
 function showSkeletonLoading() {
     if (!projectGrid) return;
-    
+
     projectGrid.innerHTML = '';
-    
+
     for (let i = 0; i < 3; i++) {
         const skeleton = document.createElement('article');
         skeleton.className = 'card project skeleton-card';
@@ -744,19 +893,19 @@ async function loadProjects() {
         const placeholderProjects = [
             {
                 placeholder: true,
-                title: "Behavior Analytics Toolkit",
+                title: "Operations Analytics Toolkit",
                 description:
-                    "Dashboard for ethics logs, practice modules, and compliance resources.",
-                meta: "Research · Data Viz",
+                    "Dashboard for compliance logs, workflow metrics, and practical decision support.",
+                meta: "Compliance · Data Viz",
                 link: "https://github.com/drsavvage90?tab=repositories",
                 linkLabel: "View Profile",
                 badge: "Planning",
             },
             {
                 placeholder: true,
-                title: "Inclusive Classroom Engine",
+                title: "Adaptive Workflow Engine",
                 description:
-                    "Adaptive supports for educators to track goals and differentiated instruction.",
+                    "Configurable supports for teams to track goals, actions, and user progress.",
                 meta: "Accessibility · Web",
                 link: "https://github.com/drsavvage90?tab=repositories",
                 linkLabel: "View Profile",
@@ -777,7 +926,7 @@ async function loadProjects() {
             const article = document.createElement("article");
             article.className = "card project fade-in-up stagger-delay";
             article.style.setProperty("--delay", `${index * 60}ms`);
-            
+
             // Add language data for filtering
             if (!isPlaceholder && repo.language) {
                 article.dataset.language = repo.language.toLowerCase();

@@ -3,32 +3,30 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Dr. Seth Nordgren - BCBA-D, professor, and CTO of Enigma Software Systems building practical tools for learning, ethics, productivity, and AI-enabled workflows." />
+    <meta name="description" content="Seth Nordgren - CTO of Enigma Software Systems, software developer, and BCBA-D building practical software at the intersection of behavior science and technology." />
     <meta name="theme-color" content="#667eea" />
-    
+
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json" />
-    
+
     <!-- Open Graph / Social Sharing -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://drsavvage90.github.io/" />
-    <meta property="og:title" content="Dr. Seth Nordgren - BCBA-D | Professor | CTO" />
-    <meta property="og:description" content="Bridging behavior science, education, and technology through practical tools and AI-enabled software systems." />
+    <meta property="og:title" content="Seth Nordgren - CTO | Developer | BCBA-D" />
+    <meta property="og:description" content="CTO of Enigma Software Systems building practical applications with clean, maintainable code and behavior-science informed design." />
     <meta property="og:image" content="https://drsavvage90.github.io/og-image.png" />
-    
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Dr. Seth Nordgren - BCBA-D | Professor | CTO" />
-    <meta name="twitter:description" content="Bridging behavior science, education, and technology through practical tools and AI-enabled software systems." />
-    
+    <meta name="twitter:title" content="Seth Nordgren - CTO | Developer | BCBA-D" />
+    <meta name="twitter:description" content="CTO of Enigma Software Systems building practical applications with clean, maintainable code and behavior-science informed design." />
+    <meta name="twitter:image" content="https://drsavvage90.github.io/og-image.png" />
+
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>" />
-    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>" />
-    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%23667eea'/%3E%3Cstop offset='1' stop-color='%2310b981'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='url(%23g)'/%3E%3Ctext x='50' y='59' text-anchor='middle' font-family='Arial,sans-serif' font-size='34' font-weight='800' fill='white'%3ESN%3C/text%3E%3C/svg%3E" />
+
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
+
     <!-- Core fonts - load immediately with display swap -->
     <link
       rel="stylesheet"
@@ -45,284 +43,918 @@
     <noscript>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" />
     </noscript>
-    
+
     <!-- Preload critical CSS -->
-    <link rel="preload" href="landing.css" as="style" />
-    <link rel="stylesheet" href="stylesheet.css" />
-    <link rel="stylesheet" href="landing.css" />
-    
-    <!-- Structured Data for SEO -->
+    <link rel="preload" href="stylesheet.css?v=20260428-4" as="style" />
+    <link rel="preload" href="pages.css?v=20260428-11" as="style" />
+    <link rel="stylesheet" href="stylesheet.css?v=20260428-4" />
+    <link rel="stylesheet" href="pages.css?v=20260428-11" />
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Dr. Seth Nordgren",
-      "jobTitle": ["BCBA-D", "College Professor", "Chief Technology Officer"],
-      "description": "Bridging behavior science, education, and technology through practical tools and AI-enabled software systems.",
+      "jobTitle": ["Chief Technology Officer", "Software Developer", "BCBA-D"],
+      "description": "CTO of Enigma Software Systems building practical applications with clean, maintainable code and behavior-science informed design.",
       "url": "https://drsavvage90.github.io",
       "sameAs": [
         "https://github.com/drsavvage90",
         "https://enigmasystems.ai"
       ],
-      "knowsAbout": ["Applied Behavior Analysis", "iOS Development", "Web Development", "Educational Technology"]
+      "knowsAbout": ["Software Development", "AI Workflows", "Applied Behavior Analysis", "Product Strategy", "iOS Development", "Web Development"]
     }
     </script>
-    
-    <title>Dr. Seth Nordgren</title>
+
+    <title>Seth Nordgren | CTO & Software Developer</title>
   </head>
-  <body class="landing-page">
-    <!-- Accessibility: Skip link for keyboard users -->
-    <a href="#path-chooser" class="skip-link">Skip to main content</a>
-    <main class="landing-main">
-      <!-- Background Animation -->
-      <div class="landing-bg">
-        <div class="bg-gradient"></div>
-        <div class="bg-grid"></div>
+  <body class="dev-page">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+    <header class="site">
+      <div class="container flex items-center justify-between" style="padding: 0.75rem 0">
+        <div class="flex items-center gap-4">
+          <a href="index.html" class="logo-link">
+            <div class="header-monogram" aria-label="Seth Nordgren">
+              <span>SN</span>
+            </div>
+          </a>
+          <div>
+            <strong>Seth Nordgren</strong>
+            <span class="header-subtitle">CTO & Developer</span>
+          </div>
+        </div>
+        <nav class="flex items-center gap-2" id="main-nav">
+          <a href="index.html">Home</a>
+          <a href="#value" data-scroll="#value">About</a>
+          <a href="#projects" data-scroll="#projects">Projects</a>
+          <a href="#skills" data-scroll="#skills">Skills</a>
+          <a href="#experience" data-scroll="#experience">Experience</a>
+          <a href="#goals" data-scroll="#goals">Focus</a>
+          <a href="#contact" class="btn" data-scroll="#contact">Contact</a>
+        </nav>
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
       </div>
-      
-      <!-- Content -->
-      <div class="landing-content">
-        <div class="landing-header">
-          <div class="profile-photo landing-photo">
+    </header>
+
+    <main id="main-content">
+      <!-- Hero Section -->
+      <section class="hero section page-hero dev-hero premium-hero">
+        <div class="hero-ambient" aria-hidden="true">
+          <div class="hero-grid-plane"></div>
+          <div class="hero-light-trace trace-one"></div>
+          <div class="hero-light-trace trace-two"></div>
+          <div class="hero-signal signal-ai">
+            <span>AI</span>
+            <small>Workflows</small>
+          </div>
+          <div class="hero-signal signal-ios">
+            <span>iOS</span>
+            <small>SwiftUI</small>
+          </div>
+          <div class="hero-signal signal-systems">
+            <span>Systems</span>
+            <small>Strategy</small>
+          </div>
+        </div>
+
+        <div class="container hero-content">
+          <div class="profile-photo dev-photo">
             <div class="photo-placeholder" aria-label="Profile photo">SN</div>
           </div>
-          <h1 class="landing-title">Dr. Seth Nordgren</h1>
-          <p class="landing-subtitle">BCBA-D | Professor | CTO</p>
-          <p class="landing-tagline">
-            Bridging behavior science, education, and technology through practical tools,
-            AI-enabled workflows, and user-centered software.
+          <div class="hero-badge dev-badge">CTO at Enigma Software Systems</div>
+          <h1>Seth Nordgren</h1>
+          <p class="credentials dev-title">
+            <span class="typing-text" id="typing-text"></span>
+            <span class="typing-cursor">|</span>
           </p>
-        </div>
-        
-        <div class="path-chooser" id="path-chooser">
-          <h2 class="chooser-prompt">How can I help you today?</h2>
-          
-          <div class="path-cards" role="navigation" aria-label="Portfolio sections">
-            <!-- Teaching Path -->
-            <a href="teaching.html" class="path-card teaching-card">
-              <div class="path-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-                </svg>
-              </div>
-              <h3 class="path-title">Educator & Researcher</h3>
-              <p class="path-description">
-                Explore my teaching philosophy, courses, publications, and work in 
-                Applied Behavior Analysis and behavior science education.
-              </p>
-              <div class="path-tags">
-                <span class="path-tag">BCBA-D</span>
-                <span class="path-tag">Professor</span>
-                <span class="path-tag">Research</span>
-              </div>
-              <span class="path-cta">
-                View Teaching Portfolio
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14"/>
-                  <path d="m12 5 7 7-7 7"/>
-                </svg>
-              </span>
+          <p class="sub">
+            CTO of Enigma Software Systems with a portfolio spanning AI SaaS, full-stack web platforms,
+            operational dashboards, and SwiftUI apps. I turn behavior-science thinking into practical
+            software with reliable systems, thoughtful interfaces, and clear product execution.
+          </p>
+
+          <div class="hero-proof-strip" aria-label="Portfolio highlights">
+            <div class="hero-proof-item">
+              <strong>CTO</strong>
+              <span>Enigma Software Systems</span>
+            </div>
+            <div class="hero-proof-item">
+              <strong>AI SaaS</strong>
+              <span>Workflow architecture</span>
+            </div>
+            <div class="hero-proof-item">
+              <strong>iOS + Web</strong>
+              <span>Product delivery</span>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects" data-scroll="#projects">View Projects</a>
+            <a class="btn" href="https://github.com/drsavvage90" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+              GitHub
             </a>
-            
-            <!-- Developer Path -->
-            <a href="developer.html" class="path-card developer-card">
-              <div class="path-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="16 18 22 12 16 6"/>
-                  <polyline points="8 6 2 12 8 18"/>
-                </svg>
-              </div>
-              <h3 class="path-title">CTO & Software Developer</h3>
-              <p class="path-description">
-                Discover my technical projects, leadership work at Enigma Software Systems,
-                and how I combine technology with behavior science.
-              </p>
-              <div class="path-tags">
-                <span class="path-tag">CTO</span>
-                <span class="path-tag">AI Systems</span>
-                <span class="path-tag">Product</span>
-              </div>
-              <span class="path-cta">
-                View Developer Portfolio
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14"/>
-                  <path d="m12 5 7 7-7 7"/>
-                </svg>
-              </span>
+            <a class="btn" href="https://enigmasystems.ai" target="_blank" rel="noopener">
+              Enigma Systems
+            </a>
+            <a class="btn btn-outline" href="resume.pdf" id="resume-btn" download="Seth-Nordgren-Resume.pdf">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7,10 12,15 17,10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Download Resume
             </a>
           </div>
         </div>
-        
-        <div class="landing-footer">
-          <div class="social-links-landing">
-            <a href="https://github.com/drsavvage90" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+      </section>
+
+      <!-- What I Bring Section -->
+      <section id="value" class="section">
+        <div class="container stack-lg">
+          <div class="section-heading value-heading">
+            <div>
+              <span class="section-eyebrow">Operating Style</span>
+              <h2>What I Bring to the Table</h2>
+              <p>
+                A practical blend of product leadership, technical execution, and behavior-science thinking
+                for teams that need software to be useful, maintainable, and trusted.
+              </p>
+            </div>
+            <div class="skills-summary value-summary">
+              <strong>Senior Signal</strong>
+              <span>Strategy | Architecture | Execution</span>
+            </div>
+          </div>
+
+          <div class="grid grid-3 grid-gap-lg value-grid">
+            <div class="card value-card">
+              <span class="value-index">01</span>
+              <h3>Systems Thinking</h3>
+              <p>Behavior science and software architecture both reward clear models. I use that lens to design workflows, data structures, and interfaces that hold up in real use.</p>
+            </div>
+            <div class="card value-card">
+              <span class="value-index">02</span>
+              <h3>Full-Stack Execution</h3>
+              <p>My GitHub work includes Next.js, React, TypeScript, NestJS, Prisma, Supabase, Firebase, Stripe, realtime features, and test automation.</p>
+            </div>
+            <div class="card value-card">
+              <span class="value-index">03</span>
+              <h3>Product Leadership</h3>
+              <p>As CTO of Enigma Software Systems, I connect product direction, technical strategy, and hands-on implementation without losing sight of the user.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="section">
+        <div class="container stack-lg">
+          <div class="section-heading projects-heading">
+            <div>
+              <span class="section-eyebrow">Selected Work</span>
+              <h2>Featured Projects</h2>
+              <p>
+                A curated set of builds that show applied engineering range: AI products,
+                compliance workflows, mobile apps, operational dashboards, and production-ready web platforms.
+              </p>
+            </div>
+            <div class="skills-summary projects-summary">
+              <strong>Portfolio Signals</strong>
+              <span>AI SaaS | Web Platforms | iOS | Data Systems</span>
+            </div>
+          </div>
+
+          <div class="projects-showcase">
+            <!-- Featured Project -->
+            <article class="card featured-project">
+              <div class="featured-project-content">
+                <div class="project-badges">
+                  <span class="badge badge-featured">Flagship Build</span>
+                  <span class="badge">Next.js</span>
+                  <span class="badge">AI</span>
+                  <span class="badge">Monorepo</span>
+                </div>
+                <h3>Vault AI</h3>
+                <p>
+                  AI-first workspace platform with multi-service architecture, document processing,
+                  realtime gateway services, tenant isolation checks, audit verification, and production guardrails.
+                </p>
+                <div class="project-proof-grid">
+                  <div>
+                    <strong>Architecture</strong>
+                    <span>App workspace, service boundaries, realtime gateway, and data layer.</span>
+                  </div>
+                  <div>
+                    <strong>AI Integration</strong>
+                    <span>OpenAI, Bedrock, Deepgram, document flows, and verification paths.</span>
+                  </div>
+                  <div>
+                    <strong>Reliability</strong>
+                    <span>Tenant isolation, audit checks, and maintainable production guardrails.</span>
+                  </div>
+                </div>
+                <div class="project-links">
+                  <a href="#contact" class="btn btn-primary" data-scroll="#contact">Discuss Project</a>
+                  <a href="https://enigmasystems.ai" class="btn" target="_blank" rel="noopener">Enigma Systems</a>
+                </div>
+              </div>
+              <aside class="project-proof-panel" aria-label="Vault AI proof points">
+                <span class="section-eyebrow">Why It Matters</span>
+                <ul class="project-proof-list">
+                  <li>Shows senior product architecture beyond a single frontend app.</li>
+                  <li>Connects AI tooling to privacy, auditability, and real workflow needs.</li>
+                  <li>Positions Enigma Software Systems as an active product company.</li>
+                </ul>
+              </aside>
+            </article>
+
+            <!-- Project Grid -->
+            <div class="project-grid">
+              <article class="card project-card">
+                <div class="project-card-top">
+                  <span class="project-type">Privacy AI</span>
+                  <a href="#contact" class="project-action" data-scroll="#contact">Discuss</a>
+                </div>
+                <h3>Haven Local MVP</h3>
+                <p>Privacy-first local desktop assistant built around human-in-the-loop approvals, local model execution, scoped permissions, auditable actions, and a conservative UX for nontechnical users.</p>
+                <ul class="project-impact-list">
+                  <li>Designed around local-first execution and user-controlled approvals.</li>
+                  <li>Balances advanced automation with conservative safety boundaries.</li>
+                </ul>
+                <div class="project-tech">
+                  <span>Tauri</span>
+                  <span>React</span>
+                  <span>Rust</span>
+                  <span>FastAPI</span>
+                </div>
+              </article>
+
+              <article class="card project-card">
+                <div class="project-card-top">
+                  <span class="project-type">Compliance SaaS</span>
+                  <a href="#contact" class="project-action" data-scroll="#contact">Discuss</a>
+                </div>
+                <h3>Supervise ABA</h3>
+                <p>BCBA supervision tracker PWA with BACB compliance workflows, fieldwork tracking, PDF reporting, signatures, alerts, subscriptions, and role-based data models.</p>
+                <ul class="project-impact-list">
+                  <li>Maps domain requirements into usable supervision and reporting flows.</li>
+                  <li>Combines subscriptions, documents, alerts, and role-aware data access.</li>
+                </ul>
+                <div class="project-tech">
+                  <span>Next.js</span>
+                  <span>Prisma</span>
+                  <span>Supabase</span>
+                  <span>Stripe</span>
+                </div>
+              </article>
+
+              <article class="card project-card">
+                <div class="project-card-top">
+                  <span class="project-type">Client CRM</span>
+                  <a href="#contact" class="project-action" data-scroll="#contact">Discuss</a>
+                </div>
+                <h3>AMM CRM</h3>
+                <p>Next.js CRM for Appalachian Marketing and Media with Prisma, auth, Kanban-style workflows, AI integrations, file storage, voice tooling, and analytics.</p>
+                <ul class="project-impact-list">
+                  <li>Turns operational work into structured pipelines and analytics views.</li>
+                  <li>Integrates AI and voice tooling into a practical business workflow.</li>
+                </ul>
+                <div class="project-tech">
+                  <span>Next.js</span>
+                  <span>React 19</span>
+                  <span>Prisma</span>
+                  <span>Deepgram</span>
+                </div>
+              </article>
+
+              <article class="card project-card">
+                <div class="project-card-top">
+                  <span class="project-type">Local Platform</span>
+                  <a href="#contact" class="project-action" data-scroll="#contact">Discuss</a>
+                </div>
+                <h3>Local Happenings</h3>
+                <p>Full-stack local events platform with a Next.js web app, NestJS API, shared contracts, mobile workspace, maps, calendars, realtime features, and Supabase integration.</p>
+                <ul class="project-impact-list">
+                  <li>Demonstrates multi-workspace product structure across web, API, and mobile.</li>
+                  <li>Connects maps, calendars, realtime features, and shared contracts.</li>
+                </ul>
+                <div class="project-tech">
+                  <span>Next.js</span>
+                  <span>NestJS</span>
+                  <span>Socket.IO</span>
+                  <span>Mapbox</span>
+                </div>
+              </article>
+
+              <article class="card project-card">
+                <div class="project-card-top">
+                  <span class="project-type">Company Site</span>
+                  <a href="https://github.com/drsavvage90/Enigma-Website" class="project-action" target="_blank" rel="noopener">Source</a>
+                </div>
+                <h3>Enigma Website</h3>
+                <p>Company website for Enigma Software Systems built with React, Vite, Three.js, React Three Fiber, Framer Motion, prerendering, tests, and Lighthouse checks.</p>
+                <ul class="project-impact-list">
+                  <li>Uses modern frontend tooling with performance and test coverage in mind.</li>
+                  <li>Supports the public brand presence for Enigma Software Systems.</li>
+                </ul>
+                <div class="project-tech">
+                  <span>React</span>
+                  <span>Three.js</span>
+                  <span>Vite</span>
+                  <span>Framer Motion</span>
+                </div>
+              </article>
+
+              <article class="card project-card">
+                <div class="project-card-top">
+                  <span class="project-type">iOS Productivity</span>
+                  <a href="#contact" class="project-action" data-scroll="#contact">Discuss</a>
+                </div>
+                <h3>NexusFlow</h3>
+                <p>SwiftUI productivity app with focus timers, widgets, Live Activities, CloudKit sync, calendar integration, analytics, folders, and automation-style focus workflows.</p>
+                <ul class="project-impact-list">
+                  <li>Shows native iOS execution across widgets, Live Activities, and sync.</li>
+                  <li>Applies behavior-science thinking to attention and productivity flows.</li>
+                </ul>
+                <div class="project-tech">
+                  <span>Swift</span>
+                  <span>SwiftUI</span>
+                  <span>WidgetKit</span>
+                  <span>CloudKit</span>
+                </div>
+              </article>
+
+              <article class="card project-card">
+                <div class="project-card-top">
+                  <span class="project-type">iOS Social</span>
+                  <a href="https://github.com/drsavvage90/theDen" class="project-action" target="_blank" rel="noopener">Source</a>
+                </div>
+                <h3>The Den</h3>
+                <p>SwiftUI social connection app with messaging, profiles, events, QR/NFC sharing, permissions-aware iOS features, and modern app structure.</p>
+                <ul class="project-impact-list">
+                  <li>Explores mobile social workflows with device-native sharing features.</li>
+                  <li>Uses modern iOS app structure with testing considerations.</li>
+                </ul>
+                <div class="project-tech">
+                  <span>Swift</span>
+                  <span>SwiftUI</span>
+                  <span>iOS</span>
+                  <span>XCTest</span>
+                </div>
+              </article>
+
+              <article class="card project-card">
+                <div class="project-card-top">
+                  <span class="project-type">Dashboard</span>
+                  <a href="#contact" class="project-action" data-scroll="#contact">Discuss</a>
+                </div>
+                <h3>AMM Project Manager</h3>
+                <p>Firebase-hosted project management dashboard with Firestore autosave, offline support, domain-restricted access, telemetry, Vite builds, and E2E coverage.</p>
+                <ul class="project-impact-list">
+                  <li>Builds operational visibility around projects, autosave, and offline use.</li>
+                  <li>Includes production-minded access controls, telemetry, and E2E coverage.</li>
+                </ul>
+                <div class="project-tech">
+                  <span>Firebase</span>
+                  <span>Firestore</span>
+                  <span>Vite</span>
+                  <span>Playwright</span>
+                </div>
+              </article>
+
+              <article class="card project-card">
+                <div class="project-card-top">
+                  <span class="project-type">Data App</span>
+                  <a href="https://github.com/drsavvage90/OsVitae" class="project-action" target="_blank" rel="noopener">Source</a>
+                </div>
+                <h3>OsVitae</h3>
+                <p>React/Vite application using Supabase, shadcn-style UI, Framer Motion, Recharts, Tailwind, Vitest, and security-focused linting.</p>
+                <ul class="project-impact-list">
+                  <li>Combines data visualization, UI polish, auth-backed data, and tests.</li>
+                  <li>Shows frontend product craft with security-focused linting practices.</li>
+                </ul>
+                <div class="project-tech">
+                  <span>React</span>
+                  <span>Supabase</span>
+                  <span>Recharts</span>
+                  <span>Vitest</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="section">
+        <div class="container stack-lg">
+          <div class="section-heading skills-heading">
+            <div>
+              <span class="section-eyebrow">Technical Stack</span>
+              <h2>Technical Skills</h2>
+              <p>
+                Practical engineering strengths drawn from shipped portfolio work: full-stack product delivery,
+                AI-enabled workflows, reliable data layers, and mobile application development.
+              </p>
+            </div>
+            <div class="skills-summary">
+              <strong>Primary focus</strong>
+              <span>AI SaaS · Web Platforms · iOS Apps</span>
+            </div>
+          </div>
+
+          <div class="skills-layout">
+            <article class="card skills-card">
+              <div class="skill-card-top">
+                <span class="skill-card-icon">UI</span>
+                <div>
+                  <h3>Frontend & Product UI</h3>
+                  <p>Building polished, responsive interfaces for dashboards, SaaS products, and customer-facing web apps.</p>
+                </div>
+              </div>
+              <div class="skill-clusters">
+                <div class="skill-cluster">
+                  <span class="cluster-label">Core</span>
+                  <div class="skill-tags">
+                    <span>React</span>
+                    <span>Next.js</span>
+                    <span>TypeScript</span>
+                    <span>JavaScript</span>
+                  </div>
+                </div>
+                <div class="skill-cluster">
+                  <span class="cluster-label">UI Systems</span>
+                  <div class="skill-tags">
+                    <span>Design Systems</span>
+                    <span>Tailwind</span>
+                    <span>Responsive UX</span>
+                  </div>
+                </div>
+                <div class="skill-cluster">
+                  <span class="cluster-label">Interactive</span>
+                  <div class="skill-tags">
+                    <span>Three.js</span>
+                    <span>Framer Motion</span>
+                    <span>Charts</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="card skills-card">
+              <div class="skill-card-top">
+                <span class="skill-card-icon">API</span>
+                <div>
+                  <h3>Backend & Data</h3>
+                  <p>Designing application backends, database models, auth flows, and operational data workflows.</p>
+                </div>
+              </div>
+              <div class="skill-clusters">
+                <div class="skill-cluster">
+                  <span class="cluster-label">Data Layer</span>
+                  <div class="skill-tags">
+                    <span>Prisma</span>
+                    <span>PostgreSQL</span>
+                    <span>Supabase</span>
+                    <span>Firebase</span>
+                  </div>
+                </div>
+                <div class="skill-cluster">
+                  <span class="cluster-label">Services</span>
+                  <div class="skill-tags">
+                    <span>NestJS</span>
+                    <span>Fastify</span>
+                    <span>REST APIs</span>
+                    <span>Socket.IO</span>
+                  </div>
+                </div>
+                <div class="skill-cluster">
+                  <span class="cluster-label">Product Systems</span>
+                  <div class="skill-tags">
+                    <span>Auth</span>
+                    <span>Multi-Tenant Apps</span>
+                    <span>Stripe</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="card skills-card">
+              <div class="skill-card-top">
+                <span class="skill-card-icon">AI</span>
+                <div>
+                  <h3>AI, Realtime & Media</h3>
+                  <p>Integrating model APIs, document workflows, realtime gateways, audio tooling, and reporting outputs.</p>
+                </div>
+              </div>
+              <div class="skill-clusters">
+                <div class="skill-cluster">
+                  <span class="cluster-label">AI Tooling</span>
+                  <div class="skill-tags">
+                    <span>OpenAI</span>
+                    <span>Bedrock</span>
+                    <span>AI SDK</span>
+                    <span>RAG Workflows</span>
+                  </div>
+                </div>
+                <div class="skill-cluster">
+                  <span class="cluster-label">Realtime</span>
+                  <div class="skill-tags">
+                    <span>WebSockets</span>
+                    <span>Deepgram</span>
+                    <span>Audio Pipelines</span>
+                  </div>
+                </div>
+                <div class="skill-cluster">
+                  <span class="cluster-label">Outputs</span>
+                  <div class="skill-tags">
+                    <span>Charts</span>
+                    <span>Reporting</span>
+                    <span>PDF Generation</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="card skills-card">
+              <div class="skill-card-top">
+                <span class="skill-card-icon">OPS</span>
+                <div>
+                  <h3>Mobile & Delivery</h3>
+                  <p>Shipping iOS features and maintaining quality through tests, CI checks, and production guardrails.</p>
+                </div>
+              </div>
+              <div class="skill-clusters">
+                <div class="skill-cluster">
+                  <span class="cluster-label">Mobile</span>
+                  <div class="skill-tags">
+                    <span>Swift</span>
+                    <span>SwiftUI</span>
+                    <span>CloudKit</span>
+                    <span>WidgetKit</span>
+                  </div>
+                </div>
+                <div class="skill-cluster">
+                  <span class="cluster-label">Quality</span>
+                  <div class="skill-tags">
+                    <span>Playwright</span>
+                    <span>Jest</span>
+                    <span>Vitest</span>
+                    <span>XCTest</span>
+                  </div>
+                </div>
+                <div class="skill-cluster">
+                  <span class="cluster-label">Delivery</span>
+                  <div class="skill-tags">
+                    <span>CI Guardrails</span>
+                    <span>Observability</span>
+                    <span>Lighthouse</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="card skills-proof">
+            <div>
+              <span class="section-eyebrow">Proof of Work</span>
+              <h3>How these skills show up in the portfolio</h3>
+            </div>
+            <div class="proof-items">
+              <div>
+                <strong>Full-stack apps</strong>
+                <span>Next.js, NestJS, Prisma, Supabase, Firebase, and Stripe across product dashboards and workflow tools.</span>
+              </div>
+              <div>
+                <strong>AI systems</strong>
+                <span>OpenAI, Bedrock, Deepgram, document processing, realtime services, and human-in-the-loop product patterns.</span>
+              </div>
+              <div>
+                <strong>Delivery quality</strong>
+                <span>Automated tests, CI guardrails, Lighthouse checks, accessibility-minded interfaces, and production-ready metadata.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience" class="section">
+        <div class="container stack-lg">
+          <div class="section-heading experience-heading">
+            <div>
+              <span class="section-eyebrow">Experience</span>
+              <h2>Experience & Education</h2>
+              <p>
+                Current technical leadership and hands-on software development, grounded by doctoral-level
+                behavior-science training and a practical product-building lens.
+              </p>
+            </div>
+            <div class="skills-summary">
+              <strong>Current role</strong>
+              <span>CTO · Enigma Software Systems</span>
+            </div>
+          </div>
+
+          <div class="experience-layout">
+            <article class="card experience-card experience-card-primary">
+              <div class="experience-card-header">
+                <div>
+                  <span class="timeline-date">Present</span>
+                  <h3>Chief Technology Officer</h3>
+                  <p class="timeline-subtitle">
+                    <a href="https://enigmasystems.ai" target="_blank" rel="noopener">Enigma Software Systems</a>
+                  </p>
+                </div>
+                <span class="role-type">Leadership</span>
+              </div>
+              <p>
+                Leading technical strategy and product development for practical software, AI-enabled
+                workflows, and reliable user-centered applications.
+              </p>
+              <ul class="impact-list">
+                <li>Connect product direction, implementation choices, and delivery priorities across Enigma projects.</li>
+                <li>Shape AI workflow architecture with attention to privacy, reliability, approvals, and maintainability.</li>
+                <li>Translate behavior-science thinking into practical product systems, measurement flows, and user experiences.</li>
+              </ul>
+              <div class="timeline-tech">
+                <span>Technical Leadership</span>
+                <span>Product Strategy</span>
+                <span>AI Systems</span>
+                <span>Full-Stack Delivery</span>
+              </div>
+            </article>
+
+            <article class="card experience-card">
+              <div class="experience-card-header">
+                <div>
+                  <span class="timeline-date">2023 - Present</span>
+                  <h3>Software Developer</h3>
+                  <p class="timeline-subtitle">Independent Projects</p>
+                </div>
+                <span class="role-type">Builder</span>
+              </div>
+              <p>
+                Building iOS apps and web platforms spanning productivity, supervision workflows,
+                local events, dashboards, and data collection.
+              </p>
+              <ul class="impact-list">
+                <li>Developed multiple full-stack and SwiftUI projects represented in the Featured Projects section.</li>
+                <li>Work across frontend interfaces, backend services, data models, testing, and deployment readiness.</li>
+                <li>Use GitHub projects to demonstrate applied engineering range rather than isolated coursework.</li>
+              </ul>
+              <div class="timeline-tech">
+                <span>Next.js</span>
+                <span>SwiftUI</span>
+                <span>Prisma</span>
+                <span>Testing</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="credential-grid">
+            <article class="card credential-panel">
+              <span class="section-eyebrow">Education</span>
+              <div class="credential-list-clean">
+                <div class="credential-row">
+                  <span class="timeline-date">2024</span>
+                  <div>
+                    <h3>Ph.D. in Psychology</h3>
+                    <p>Doctoral work involving data collection systems, statistical analysis, research methods, and applied measurement.</p>
+                  </div>
+                </div>
+                <div class="credential-row">
+                  <span class="timeline-date">BCBA-D</span>
+                  <div>
+                    <h3>Behavior-Science Foundation</h3>
+                    <p>Behavior analysis background that informs product design, compliance workflows, user adoption, and outcome-focused systems.</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="card credential-panel">
+              <span class="section-eyebrow">Professional Development</span>
+              <div class="credential-list-clean">
+                <div class="credential-row">
+                  <span class="timeline-date">2022</span>
+                  <div>
+                    <h3>Apple Developer Program</h3>
+                    <p>Swift and iOS development through Apple resources and online technical training.</p>
+                  </div>
+                </div>
+                <div class="credential-row">
+                  <span class="timeline-date">Ongoing</span>
+                  <div>
+                    <h3>Applied Software Practice</h3>
+                    <p>Continuous project work across web platforms, AI workflows, mobile apps, analytics, and delivery automation.</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Current Focus -->
+      <section id="goals" class="section">
+        <div class="container">
+          <div class="section-heading focus-heading">
+            <div>
+              <span class="section-eyebrow">Current Focus</span>
+              <h2>Building useful AI products with operational discipline.</h2>
+              <p>
+                My current work centers on Enigma Software Systems, applied AI workflows,
+                and focused product delivery across web, mobile, and behavior-science informed systems.
+              </p>
+            </div>
+            <div class="skills-summary focus-summary">
+              <strong>Open To</strong>
+              <span>Strategic partnerships, product builds, and selective consulting.</span>
+            </div>
+          </div>
+
+          <div class="focus-layout">
+            <article class="card focus-card focus-card-primary">
+              <span class="focus-index">01</span>
+              <h3>Enigma Product Buildout</h3>
+              <p>Turning practical AI workflows into polished, reliable tools for real users and teams.</p>
+              <div class="timeline-tech">
+                <span>AI Workflows</span>
+                <span>Product Strategy</span>
+                <span>Delivery</span>
+              </div>
+            </article>
+
+            <article class="card focus-card">
+              <span class="focus-index">02</span>
+              <h3>Strategic Partnerships</h3>
+              <p>Working with teams that need clear technical execution across AI, web platforms, and operational systems.</p>
+              <div class="timeline-tech">
+                <span>Technical Planning</span>
+                <span>Consulting</span>
+                <span>Execution</span>
+              </div>
+            </article>
+
+            <article class="card focus-card">
+              <span class="focus-index">03</span>
+              <h3>Applied AI Systems</h3>
+              <p>Designing human-in-the-loop tools with practical guardrails, maintainable architecture, and user trust.</p>
+              <div class="timeline-tech">
+                <span>Human Review</span>
+                <span>Reliability</span>
+                <span>Automation</span>
+              </div>
+            </article>
+
+            <article class="card focus-card">
+              <span class="focus-index">04</span>
+              <h3>iOS & Full-Stack Delivery</h3>
+              <p>Shipping focused web and mobile tools grounded in behavior science, measurable outcomes, and real-world use.</p>
+              <div class="timeline-tech">
+                <span>SwiftUI</span>
+                <span>Next.js</span>
+                <span>UX Systems</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="focus-cta">
+            <div>
+              <span class="section-eyebrow">Near-Term Priority</span>
+              <p>Ship maintainable products, form high-trust partnerships, and keep the portfolio grounded in measurable user value.</p>
+            </div>
+            <a class="btn btn-primary" href="#contact" data-scroll="#contact">Start a Conversation</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="section">
+        <div class="container">
+          <div class="contact-grid">
+            <div class="card contact-info-card">
+              <h2>Let's Connect</h2>
+              <p class="muted">
+                I'm open to conversations about Enigma Software Systems, consulting, product ideas,
+                and thoughtful collaborations at the intersection of software and behavior science.
+              </p>
+
+              <div class="contact-methods">
+                <a href="mailto:drsavvage@gmail.com" class="contact-method">
+                  <div class="contact-icon" aria-hidden="true">AT</div>
+                  <div>
+                    <strong>Email</strong>
+                    <span>drsavvage@gmail.com</span>
+                  </div>
+                </a>
+                <a href="https://github.com/drsavvage90" target="_blank" rel="noopener" class="contact-method">
+                  <div class="contact-icon" aria-hidden="true">GH</div>
+                  <div>
+                    <strong>GitHub</strong>
+                    <span>@drsavvage90</span>
+                  </div>
+                </a>
+                <a href="https://enigmasystems.ai" target="_blank" rel="noopener" class="contact-method">
+                  <div class="contact-icon" aria-hidden="true">ES</div>
+                  <div>
+                    <strong>Enigma Software Systems</strong>
+                    <span>enigmasystems.ai</span>
+                  </div>
+                </a>
+              </div>
+
+              <div class="availability-badge">
+                <span class="status-dot"></span>
+                Open to strategic conversations
+              </div>
+            </div>
+
+            <div class="card contact-form-card">
+              <h3>Send a Message</h3>
+              <form id="contact-form" class="contact-form" action="https://formspree.io/f/xpwzgvnq" method="POST">
+                <input type="hidden" name="_subject" value="New contact from portfolio">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" id="name" name="name" required placeholder="Your name">
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" required placeholder="your@email.com">
+                </div>
+                <div class="form-group">
+                  <label for="subject">Subject</label>
+                  <select id="subject" name="subject">
+                    <option value="job">Job Opportunity</option>
+                    <option value="freelance">Freelance Project</option>
+                    <option value="collaboration">Collaboration</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea id="message" name="message" rows="4" required placeholder="Tell me about the opportunity..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">
+                  <span class="btn-text">Send Message</span>
+                  <span class="btn-loading" style="display: none;">Sending...</span>
+                </button>
+              </form>
+              <div id="form-success" class="form-success" style="display: none;">
+                <div class="success-icon">✓</div>
+                <h4>Message Sent!</h4>
+                <p>Thanks for reaching out. I'll get back to you soon.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <strong>Seth Nordgren</strong>
+            <p class="muted">CTO · Enigma Software Systems · iOS · Web</p>
+          </div>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="#projects" data-scroll="#projects">Projects</a>
+            <a href="#skills" data-scroll="#skills">Skills</a>
+            <a href="#experience" data-scroll="#experience">Experience</a>
+            <a href="#contact" data-scroll="#contact">Contact</a>
+          </div>
+          <div class="footer-social">
+            <a href="https://github.com/drsavvage90" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
               </svg>
             </a>
           </div>
         </div>
+        <div class="footer-bottom">
+          <small>© <span id="y">2025</span> Seth Nordgren.</small>
+        </div>
       </div>
-    </main>
-    
-    <script>
-      // Performance: Use requestAnimationFrame for scroll
-      requestAnimationFrame(() => {
-        window.scrollTo(0, 0);
-      });
-      
-      // Handle browser back/forward button scroll restoration
-      if ('scrollRestoration' in history) {
-        history.scrollRestoration = 'manual';
-      }
-      
-      document.addEventListener('DOMContentLoaded', () => {
-        // Ensure scroll to top
-        window.scrollTo(0, 0);
-        
-        // Add entrance animations with stagger
-        const elements = document.querySelectorAll('.landing-header, .path-card, .landing-footer');
-        elements.forEach((el, i) => {
-          el.style.animationDelay = `${i * 0.15}s`;
-        });
-        
-        // Keyboard navigation for cards
-        const pathCards = document.querySelectorAll('.path-card');
-        pathCards.forEach(card => {
-          card.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              card.click();
-            }
-          });
-        });
-        
-        // 3D Tilt Effect for path cards
-        const init3DTilt = () => {
-          const cards = document.querySelectorAll('.path-card');
-          
-          cards.forEach(card => {
-            // Add glare element
-            const glare = document.createElement('div');
-            glare.className = 'tilt-glare';
-            card.appendChild(glare);
-            
-            card.addEventListener('mousemove', (e) => {
-              const rect = card.getBoundingClientRect();
-              const x = e.clientX - rect.left;
-              const y = e.clientY - rect.top;
-              const centerX = rect.width / 2;
-              const centerY = rect.height / 2;
-              
-              // Calculate rotation (max 8 degrees)
-              const rotateX = ((y - centerY) / centerY) * -8;
-              const rotateY = ((x - centerX) / centerX) * 8;
-              
-              // Apply transform with slight scale
-              card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-              
-              // Update glare position
-              const percentX = (x / rect.width) * 100;
-              const percentY = (y / rect.height) * 100;
-              card.style.setProperty('--mouse-x', `${percentX}%`);
-              card.style.setProperty('--mouse-y', `${percentY}%`);
-            });
-            
-            card.addEventListener('mouseleave', () => {
-              card.classList.add('tilt-reset');
-              card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
-              
-              // Remove reset class after transition
-              setTimeout(() => {
-                card.classList.remove('tilt-reset');
-              }, 500);
-            });
-            
-            card.addEventListener('mouseenter', () => {
-              card.classList.remove('tilt-reset');
-            });
-          });
-        };
-        
-        // Only enable on non-touch devices
-        if (!('ontouchstart' in window)) {
-          init3DTilt();
-        }
-        
-        // Add hover sound effect (subtle)
-        const addHoverFeedback = (element) => {
-          element.addEventListener('mouseenter', () => {
-            element.style.transition = 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease';
-          });
-        };
-        pathCards.forEach(addHoverFeedback);
-      });
-      
-      // Theme System
-      const THEMES = {
-        MODERN_LIGHT: 'modern-light',
-        MODERN_DARK: 'modern-dark',
-        RUSTIC: 'rustic'  // Holmes/Victorian theme
-      };
-      
-      function normalizeTheme(theme) {
-        // Map old theme names to new ones
-        const themeMap = {
-          'liquid-glass': THEMES.MODERN_LIGHT,
-          'light': THEMES.MODERN_LIGHT,
-          'tron': THEMES.MODERN_DARK,
-          'dark': THEMES.MODERN_DARK,
-          'rustic-light': THEMES.RUSTIC,
-          'rustic-dark': THEMES.RUSTIC,
-          'holmes': THEMES.RUSTIC
-        };
-        return themeMap[theme] || theme || THEMES.MODERN_LIGHT;
-      }
-      
-      function applyTheme(theme) {
-        const normalizedTheme = normalizeTheme(theme);
-        const html = document.documentElement;
-        const body = document.body;
-        
-        // Set data-theme attribute (primary method)
-        html.setAttribute('data-theme', normalizedTheme);
-        
-        // Also maintain body classes for backwards compatibility
-        body.classList.remove('theme-tron', 'theme-rustic-light', 'theme-rustic-dark', 'theme-holmes');
-        if (normalizedTheme === THEMES.MODERN_DARK) {
-          body.classList.add('theme-tron');
-        } else if (normalizedTheme === THEMES.RUSTIC) {
-          body.classList.add('theme-holmes');
-        }
-        
-        // Update meta theme-color
-        const metaThemeColor = document.querySelector('meta[name="theme-color"]');
-        if (metaThemeColor) {
-          const colors = {
-            [THEMES.MODERN_LIGHT]: '#f8fafc',
-            [THEMES.MODERN_DARK]: '#0a0a0f',
-            [THEMES.RUSTIC]: '#f0e6d3'  // Victorian parchment
-          };
-          metaThemeColor.content = colors[normalizedTheme] || '#f8fafc';
-        }
-        
-        // Store theme preference
-        localStorage.setItem('theme', normalizedTheme);
-        
-        // Announce theme change
-        const announcement = document.createElement('div');
-        announcement.setAttribute('role', 'status');
-        announcement.setAttribute('aria-live', 'polite');
-        announcement.className = 'sr-only';
-        announcement.textContent = `Theme changed to ${normalizedTheme.replace('-', ' ')}`;
-        document.body.appendChild(announcement);
-        setTimeout(() => announcement.remove(), 1000);
-      }
-      
-// Initialize theme on load
-      const savedTheme = localStorage.getItem('theme');
-      applyTheme(savedTheme);
-    </script>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <polyline points="18,15 12,9 6,15"></polyline>
+      </svg>
+    </button>
+
+    <script type="module" src="app.js?v=20260428-16"></script>
   </body>
 </html>

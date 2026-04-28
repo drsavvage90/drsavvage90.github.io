@@ -94,44 +94,14 @@
         </p>
         <div class="error-actions">
           <a href="index.html" class="btn btn-primary">Go Home</a>
-          <a href="teaching.html" class="btn">Teaching</a>
-          <a href="developer.html" class="btn">Developer</a>
+          <a href="resume.pdf" class="btn">Resume</a>
         </div>
       </div>
     </main>
     
     <script>
-      // Apply saved theme with data-theme attribute
-      (function () {
-        const THEMES = {
-          MODERN_LIGHT: 'modern-light',
-          MODERN_DARK: 'modern-dark',
-          RUSTIC_LIGHT: 'rustic-light',
-          RUSTIC_DARK: 'rustic-dark'
-        };
-        
-        function normalizeTheme(theme) {
-          const themeMap = {
-            'liquid-glass': THEMES.MODERN_LIGHT,
-            'light': THEMES.MODERN_LIGHT,
-            'tron': THEMES.MODERN_DARK,
-            'dark': THEMES.MODERN_DARK
-          };
-          return themeMap[theme] || theme || THEMES.MODERN_LIGHT;
-        }
-        
-        const saved = localStorage.getItem("theme");
-        const normalizedTheme = normalizeTheme(saved);
-        document.documentElement.setAttribute('data-theme', normalizedTheme);
-        
-        if (normalizedTheme === THEMES.MODERN_DARK) {
-          document.body.classList.add("theme-tron");
-        } else if (normalizedTheme === THEMES.RUSTIC_LIGHT) {
-          document.body.classList.add("theme-rustic-light");
-        } else if (normalizedTheme === THEMES.RUSTIC_DARK) {
-          document.body.classList.add("theme-rustic-dark");
-        }
-      })();
+      document.documentElement.setAttribute('data-theme', 'modern-light');
+      document.body.classList.remove('theme-tron', 'theme-holmes', 'theme-rustic-light', 'theme-rustic-dark');
     </script>
   </body>
 </html>
