@@ -570,9 +570,17 @@
     color: var(--fg-dim);
     letter-spacing: 0.05em;
   }
-  .proj .header .meta { display: flex; gap: 12px; align-items: center; }
+  .proj .header .meta { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
   .proj .header .meta .type { color: var(--accent); }
   .proj .header .meta .sep { color: var(--fg-faint); }
+  .proj .header .meta .gh-meta {
+    color: var(--fg-dim);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .proj .header .meta .gh-meta .star { color: var(--warn); }
+  .proj .header .meta .gh-meta .pushed { color: var(--fg-dim); }
   .proj .header .status {
     padding: 2px 8px;
     border: 1px solid var(--border-bright);
@@ -897,7 +905,7 @@
   </div>
   <div class="right">
     <span>v3.2.1</span>
-    <span>last build: 4h ago</span>
+    <span id="last-commit" data-default="last build: 4h ago">last build: …</span>
     <span class="status">online</span>
   </div>
 </div>
@@ -932,8 +940,9 @@
 
       <div class="stats">
         <div class="row"><span class="key">role</span><span class="val string">cto · enigma</span></div>
-        <div class="row"><span class="key">location</span><span class="val string">salt lake city, ut</span></div>
-        <div class="row"><span class="key">timezone</span><span class="val string">utc-7 / mst</span></div>
+        <div class="row"><span class="key">location</span><span class="val string">columbus, oh</span></div>
+        <div class="row"><span class="key">timezone</span><span class="val string">utc-4 / et</span></div>
+        <div class="row"><span class="key">weather</span><span class="val string" id="local-weather">…</span></div>
         <div class="row"><span class="key">credentials</span><span class="val string">phd · bcba-d</span></div>
         <div class="row"><span class="key">latest_ship</span><span class="val string">vault-ai v0.4</span></div>
         <div class="row"><span class="key">availability</span><span class="val live">open to convos</span></div>
@@ -1118,12 +1127,13 @@
       </div>
 
       <!-- ENIGMA WEBSITE -->
-      <div class="proj standard" data-tags="web">
+      <div class="proj standard" data-tags="web" data-repo="drsavvage90/Enigma-Website">
         <div class="header">
           <div class="meta">
             <span class="type">brand site</span>
             <span class="sep">·</span>
             <span>2024</span>
+            <span class="gh-meta" hidden></span>
           </div>
           <span class="status live">live</span>
         </div>
@@ -1137,12 +1147,13 @@
       </div>
 
       <!-- THE DEN -->
-      <div class="proj standard" data-tags="ios">
+      <div class="proj standard" data-tags="ios" data-repo="drsavvage90/theDen">
         <div class="header">
           <div class="meta">
             <span class="type">ios social</span>
             <span class="sep">·</span>
             <span>2024</span>
+            <span class="gh-meta" hidden></span>
           </div>
           <span class="status archived">archived</span>
         </div>
@@ -1172,12 +1183,13 @@
       </div>
 
       <!-- OSVITAE -->
-      <div class="proj wide" data-tags="web">
+      <div class="proj wide" data-tags="web" data-repo="drsavvage90/OsVitae">
         <div class="header">
           <div class="meta">
             <span class="type">data app</span>
             <span class="sep">·</span>
             <span>2023</span>
+            <span class="gh-meta" hidden></span>
           </div>
           <span class="status live">live</span>
         </div>
@@ -1280,7 +1292,7 @@
 
   <!-- ───── FOOTER ───── -->
   <div class="footer">
-    <div class="left">© 2026 seth nordgren <span style="color: var(--fg-faint)">·</span> built in <span class="accent">salt lake city</span></div>
+    <div class="left">© 2026 seth nordgren <span style="color: var(--fg-faint)">·</span> built in <span class="accent">columbus, oh</span></div>
     <div class="right">
       <span>·</span>process: 0x4e6f7264 <span>·</span> uptime: 1y 4m <span>·</span> last commit: 4h ago <span>·</span>
     </div>
@@ -1328,7 +1340,7 @@
 <span class="line">&nbsp;</span>`,
     whoami: () => `<span class="line">seth nordgren · cto, enigma software systems</span>
 <span class="line system">phd in psychology · bcba-d · builder</span>
-<span class="line">based in salt lake city · open to conversations</span>
+<span class="line">based in columbus, oh · open to conversations</span>
 <span class="line">&nbsp;</span>`,
     'ls projects': () => `<span class="line info">9 projects · most recent first:</span>
 <span class="line">  vault-ai          <span class="system">// flagship · ai workspace · shipping</span></span>
@@ -1435,6 +1447,104 @@
       input.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   });
+
+  // ────────────────────────────────────────
+  // LIVE DATA — github + open-meteo (cached)
+  // ────────────────────────────────────────
+  const TTL_MS = 60 * 60 * 1000; // 1h cache → ≤1 fetch/hr/visitor
+
+  async function cachedFetch(url, key) {
+    try {
+      const raw = localStorage.getItem(key);
+      if (raw) {
+        const { ts, data } = JSON.parse(raw);
+        if (Date.now() - ts < TTL_MS) return data;
+      }
+    } catch {}
+    const res = await fetch(url, { headers: { Accept: 'application/json' } });
+    if (!res.ok) throw new Error(`${res.status}`);
+    const data = await res.json();
+    try { localStorage.setItem(key, JSON.stringify({ ts: Date.now(), data })); } catch {}
+    return data;
+  }
+
+  function relTime(date) {
+    const diff = (Date.now() - new Date(date).getTime()) / 1000;
+    if (diff < 60) return `${Math.floor(diff)}s ago`;
+    if (diff < 3600) return `${Math.floor(diff / 60)}m ago`;
+    if (diff < 86400) return `${Math.floor(diff / 3600)}h ago`;
+    if (diff < 86400 * 30) return `${Math.floor(diff / 86400)}d ago`;
+    if (diff < 86400 * 365) return `${Math.floor(diff / 86400 / 30)}mo ago`;
+    return `${Math.floor(diff / 86400 / 365)}y ago`;
+  }
+
+  // Topbar: most recent push to any public repo
+  (async () => {
+    const el = document.getElementById('last-commit');
+    try {
+      const events = await cachedFetch(
+        'https://api.github.com/users/drsavvage90/events/public?per_page=30',
+        'gh:events'
+      );
+      const push = events.find(e => e.type === 'PushEvent');
+      if (push) el.textContent = `last commit: ${relTime(push.created_at)}`;
+      else el.textContent = el.dataset.default;
+    } catch {
+      el.textContent = el.dataset.default;
+    }
+  })();
+
+  // Project cards: stars + pushed_at for [data-repo]
+  document.querySelectorAll('.proj[data-repo]').forEach(async (card) => {
+    const slug = card.dataset.repo;
+    const slot = card.querySelector('.gh-meta');
+    if (!slot) return;
+    try {
+      const repo = await cachedFetch(
+        `https://api.github.com/repos/${slug}`,
+        `gh:repo:${slug}`
+      );
+      const star = repo.stargazers_count > 0
+        ? `<span class="star">★ ${repo.stargazers_count}</span>`
+        : '';
+      const pushed = repo.pushed_at
+        ? `<span class="pushed">pushed ${relTime(repo.pushed_at)}</span>`
+        : '';
+      const sep = star && pushed ? '<span style="color: var(--fg-faint)">·</span>' : '';
+      const inner = [star, sep, pushed].filter(Boolean).join(' ');
+      if (inner) {
+        slot.innerHTML = `<span style="color: var(--fg-faint)">·</span> ${inner}`;
+        slot.hidden = false;
+      }
+    } catch {} // silent: rate limit / network → leave hidden
+  });
+
+  // Open-Meteo: current weather for Columbus, OH
+  (async () => {
+    const el = document.getElementById('local-weather');
+    if (!el) return;
+    try {
+      const data = await cachedFetch(
+        'https://api.open-meteo.com/v1/forecast?latitude=39.9612&longitude=-82.9988&current=temperature_2m,weather_code&temperature_unit=fahrenheit&timezone=America/New_York',
+        'wx:columbus'
+      );
+      const t = Math.round(data.current.temperature_2m);
+      // WMO weather codes → short label
+      const codes = {
+        0: 'clear', 1: 'mostly clear', 2: 'partly cloudy', 3: 'overcast',
+        45: 'fog', 48: 'fog',
+        51: 'drizzle', 53: 'drizzle', 55: 'drizzle',
+        61: 'rain', 63: 'rain', 65: 'heavy rain',
+        71: 'snow', 73: 'snow', 75: 'heavy snow',
+        80: 'showers', 81: 'showers', 82: 'showers',
+        95: 'thunderstorm', 96: 'thunderstorm', 99: 'thunderstorm'
+      };
+      const label = codes[data.current.weather_code] ?? 'cloudy';
+      el.textContent = `${t}°f · ${label}`;
+    } catch {
+      el.textContent = '—';
+    }
+  })();
 </script>
 
 </body>

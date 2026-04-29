@@ -54,6 +54,6 @@
 
   <!-- footer strip -->
   <line x1="0" y1="568" x2="1200" y2="568" stroke="#1f2a1f" stroke-dasharray="4 4"/>
-  <text x="80" y="598" font-family="JetBrains Mono, monospace" font-size="13" fill="#3d4a3d">© 2026 seth nordgren <tspan fill="#7a8a7a">·</tspan> built in <tspan fill="#00ff7f">salt lake city</tspan></text>
+  <text x="80" y="598" font-family="JetBrains Mono, monospace" font-size="13" fill="#3d4a3d">© 2026 seth nordgren <tspan fill="#7a8a7a">·</tspan> built in <tspan fill="#00ff7f">columbus, oh</tspan></text>
   <text x="1120" y="598" font-family="JetBrains Mono, monospace" font-size="13" fill="#7a8a7a" text-anchor="end">drsavvage90.github.io</text>
 </svg>
