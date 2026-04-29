@@ -1,960 +1,1441 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Seth Nordgren - CTO of Enigma Software Systems, software developer, and BCBA-D building practical software at the intersection of behavior science and technology." />
-    <meta name="theme-color" content="#667eea" />
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Seth Nordgren - CTO of Enigma Software Systems. Builder, behavior scientist, and full-stack developer shipping AI products, web platforms, and SwiftUI apps." />
+<meta name="theme-color" content="#0a0e0a" />
 
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="manifest.json" />
+<!-- PWA Manifest -->
+<link rel="manifest" href="manifest.json" />
 
-    <!-- Open Graph / Social Sharing -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://drsavvage90.github.io/" />
-    <meta property="og:title" content="Seth Nordgren - CTO | Developer | BCBA-D" />
-    <meta property="og:description" content="CTO of Enigma Software Systems building practical applications with clean, maintainable code and behavior-science informed design." />
-    <meta property="og:image" content="https://drsavvage90.github.io/og-image.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Seth Nordgren - CTO | Developer | BCBA-D" />
-    <meta name="twitter:description" content="CTO of Enigma Software Systems building practical applications with clean, maintainable code and behavior-science informed design." />
-    <meta name="twitter:image" content="https://drsavvage90.github.io/og-image.png" />
+<!-- Open Graph / Social Sharing -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://drsavvage90.github.io/" />
+<meta property="og:title" content="Seth Nordgren - CTO | Developer | BCBA-D" />
+<meta property="og:description" content="CTO of Enigma Software Systems building practical applications with clean, maintainable code and behavior-science informed design." />
+<meta property="og:image" content="https://drsavvage90.github.io/og-image.svg" />
+<meta property="og:image:type" content="image/svg+xml" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Seth Nordgren - CTO | Developer | BCBA-D" />
+<meta name="twitter:description" content="CTO of Enigma Software Systems building practical applications with clean, maintainable code and behavior-science informed design." />
+<meta name="twitter:image" content="https://drsavvage90.github.io/og-image.svg" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%23667eea'/%3E%3Cstop offset='1' stop-color='%2310b981'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='url(%23g)'/%3E%3Ctext x='50' y='59' text-anchor='middle' font-family='Arial,sans-serif' font-size='34' font-weight='800' fill='white'%3ESN%3C/text%3E%3C/svg%3E" />
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230a0e0a'/%3E%3Ctext x='50' y='62' text-anchor='middle' font-family='monospace' font-size='38' font-weight='700' fill='%2300ff7f'%3ESN%3C/text%3E%3C/svg%3E" />
 
-    <!-- Preconnect to external domains -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Dr. Seth Nordgren",
+  "jobTitle": ["Chief Technology Officer", "Software Developer", "BCBA-D"],
+  "description": "CTO of Enigma Software Systems building practical applications with clean, maintainable code and behavior-science informed design.",
+  "url": "https://drsavvage90.github.io",
+  "sameAs": [
+    "https://github.com/drsavvage90",
+    "https://enigmasystems.ai"
+  ],
+  "knowsAbout": ["Software Development", "AI Workflows", "Applied Behavior Analysis", "Product Strategy", "iOS Development", "Web Development"]
+}
+</script>
 
-    <!-- Core fonts - load immediately with display swap -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
-      media="print" onload="this.media='all'"
-    />
-    <!-- Victorian/Holmes theme fonts - lazy loaded -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;500;600;700&family=Cinzel+Decorative:wght@400;700&family=Courier+Prime:wght@400;700&display=swap"
-      media="print" onload="this.media='all'"
-      fetchpriority="low"
-    />
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" />
-    </noscript>
+<title>seth nordgren // cto, enigma software systems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e0a;
+    --bg-elev: #0f140f;
+    --fg: #d4e4d4;
+    --fg-dim: #7a8a7a;
+    --fg-faint: #3d4a3d;
+    --accent: #00ff7f;
+    --accent-dim: #00b85e;
+    --accent-faint: rgba(0, 255, 127, 0.15);
+    --warn: #ffb454;
+    --danger: #ff6b6b;
+    --border: #1f2a1f;
+    --border-bright: #2d3d2d;
+  }
 
-    <!-- Preload critical CSS -->
-    <link rel="preload" href="stylesheet.css?v=20260428-4" as="style" />
-    <link rel="preload" href="pages.css?v=20260428-11" as="style" />
-    <link rel="stylesheet" href="stylesheet.css?v=20260428-4" />
-    <link rel="stylesheet" href="pages.css?v=20260428-11" />
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Dr. Seth Nordgren",
-      "jobTitle": ["Chief Technology Officer", "Software Developer", "BCBA-D"],
-      "description": "CTO of Enigma Software Systems building practical applications with clean, maintainable code and behavior-science informed design.",
-      "url": "https://drsavvage90.github.io",
-      "sameAs": [
-        "https://github.com/drsavvage90",
-        "https://enigmasystems.ai"
-      ],
-      "knowsAbout": ["Software Development", "AI Workflows", "Applied Behavior Analysis", "Product Strategy", "iOS Development", "Web Development"]
+  body {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg);
+    color: var(--fg);
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+  }
+
+  /* ───── CRT SCANLINE OVERLAY ───── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(
+      transparent 0%,
+      rgba(0, 255, 127, 0.015) 50%,
+      transparent 100%
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 1000;
+    animation: scanlines 8s linear infinite;
+  }
+  @keyframes scanlines {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100%; }
+  }
+
+  /* CRT vignette */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 60%, rgba(0, 0, 0, 0.4) 100%);
+    pointer-events: none;
+    z-index: 999;
+  }
+
+  /* Background grid */
+  .bg-grid {
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0, 255, 127, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 255, 127, 0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+    pointer-events: none;
+    z-index: 0;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  }
+
+  ::selection { background: var(--accent); color: var(--bg); }
+
+  /* ───── TOP BAR ───── */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(10, 14, 10, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    letter-spacing: 0.02em;
+  }
+  .topbar .left { display: flex; align-items: center; gap: 16px; }
+  .topbar .traffic {
+    display: flex;
+    gap: 6px;
+  }
+  .topbar .traffic span {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--border-bright);
+  }
+  .topbar .traffic span:nth-child(1) { background: var(--danger); }
+  .topbar .traffic span:nth-child(2) { background: var(--warn); }
+  .topbar .traffic span:nth-child(3) { background: var(--accent); }
+  .topbar .path { color: var(--fg-dim); }
+  .topbar .path .accent { color: var(--accent); }
+  .topbar .right {
+    display: flex;
+    gap: 20px;
+    color: var(--fg-dim);
+  }
+  .topbar .status {
+    color: var(--accent);
+  }
+  .topbar .status::before {
+    content: '●';
+    margin-right: 6px;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  /* ───── LAYOUT ───── */
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+    z-index: 1;
+  }
+
+  section { padding: 80px 0; position: relative; }
+  section + section { border-top: 1px dashed var(--border); }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--fg-dim);
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+  }
+  .section-label .num {
+    color: var(--accent);
+    margin-right: 8px;
+  }
+
+  /* ───── HERO ───── */
+  .hero {
+    padding: 100px 0 80px;
+    min-height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero .preamble {
+    font-size: 13px;
+    color: var(--fg-dim);
+    margin-bottom: 40px;
+    line-height: 1.8;
+  }
+  .hero .preamble .line {
+    opacity: 0;
+    animation: typeIn 0.4s forwards;
+  }
+  .hero .preamble .line:nth-child(1) { animation-delay: 0.2s; }
+  .hero .preamble .line:nth-child(2) { animation-delay: 0.6s; }
+  .hero .preamble .line:nth-child(3) { animation-delay: 1.0s; }
+  .hero .preamble .line:nth-child(4) { animation-delay: 1.4s; }
+  .hero .preamble .accent { color: var(--accent); }
+  .hero .preamble .comment { color: var(--fg-faint); }
+  .hero .preamble .prompt { color: var(--accent); }
+
+  @keyframes typeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero h1 {
+    font-size: clamp(48px, 9vw, 128px);
+    font-weight: 500;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: typeIn 0.5s forwards;
+    animation-delay: 1.6s;
+  }
+  .hero h1 .accent { color: var(--accent); }
+  .hero h1 .glitch {
+    position: relative;
+    display: inline-block;
+  }
+  .hero h1 .cursor {
+    display: inline-block;
+    width: 0.55em;
+    height: 0.85em;
+    background: var(--accent);
+    margin-left: 6px;
+    vertical-align: baseline;
+    animation: blink 1.06s step-end infinite;
+    box-shadow: 0 0 12px var(--accent);
+  }
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  .hero .role-line {
+    font-size: 16px;
+    color: var(--fg-dim);
+    margin-bottom: 56px;
+    opacity: 0;
+    animation: typeIn 0.5s forwards;
+    animation-delay: 2.0s;
+  }
+  .hero .role-line .accent { color: var(--accent); }
+  .hero .role-line .at {
+    color: var(--fg);
+    margin: 0 4px;
+  }
+
+  .hero .grid-meta {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 40px;
+    align-items: end;
+    opacity: 0;
+    animation: typeIn 0.5s forwards;
+    animation-delay: 2.4s;
+  }
+
+  .hero .desc {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--fg);
+    max-width: 620px;
+  }
+  .hero .desc .comment-block {
+    color: var(--fg-faint);
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+
+  .hero .stats {
+    border: 1px solid var(--border-bright);
+    background: var(--bg-elev);
+    padding: 0;
+    font-size: 12px;
+    position: relative;
+  }
+  .hero .stats::before {
+    content: 'whoami.json';
+    position: absolute;
+    top: -1px;
+    left: 12px;
+    transform: translateY(-50%);
+    background: var(--bg);
+    padding: 0 8px;
+    color: var(--fg-dim);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .hero .stats .row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 16px;
+    border-bottom: 1px dashed var(--border);
+  }
+  .hero .stats .row:last-child { border-bottom: none; }
+  .hero .stats .key {
+    color: var(--fg-dim);
+  }
+  .hero .stats .key::before {
+    content: '"';
+    color: var(--fg-faint);
+  }
+  .hero .stats .key::after {
+    content: '":';
+    color: var(--fg-faint);
+  }
+  .hero .stats .val {
+    color: var(--fg);
+  }
+  .hero .stats .val.string {
+    color: var(--accent);
+  }
+  .hero .stats .val.string::before, .hero .stats .val.string::after {
+    content: '"';
+    color: var(--fg-faint);
+  }
+  .hero .stats .val.live::before {
+    content: '●';
+    color: var(--accent);
+    margin-right: 6px;
+    animation: pulse 2s infinite;
+    text-shadow: 0 0 8px var(--accent);
+  }
+
+  .hero .scroll-indicator {
+    margin-top: 80px;
+    font-size: 11px;
+    color: var(--fg-faint);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: typeIn 0.5s forwards, bounce 2s 3.2s infinite;
+    animation-delay: 2.8s, 3.2s;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(4px); }
+  }
+
+  /* ───── ABOUT ───── */
+  .about {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .about .heading-col {
+    position: sticky;
+    top: 100px;
+  }
+  .about .body p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--fg);
+    margin-bottom: 20px;
+    max-width: 720px;
+  }
+  .about .body p .tag {
+    display: inline-block;
+    padding: 1px 8px;
+    border: 1px solid var(--border-bright);
+    border-radius: 3px;
+    color: var(--accent);
+    font-size: 13px;
+    margin: 0 2px;
+    background: rgba(0, 255, 127, 0.05);
+  }
+  .about .body p strong {
+    color: var(--fg);
+    font-weight: 600;
+    background: rgba(0, 255, 127, 0.08);
+    padding: 0 4px;
+  }
+  .about .body p::before {
+    content: '> ';
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* ───── NOW ───── */
+  .now {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 60px;
+  }
+  .now .now-content {
+    border: 1px solid var(--border-bright);
+    background: var(--bg-elev);
+    padding: 28px;
+    position: relative;
+  }
+  .now .now-content::before {
+    content: '~/now.md';
+    position: absolute;
+    top: -1px;
+    left: 16px;
+    transform: translateY(-50%);
+    background: var(--bg);
+    padding: 0 8px;
+    color: var(--fg-dim);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .now .now-content .timestamp {
+    font-size: 11px;
+    color: var(--fg-faint);
+    margin-bottom: 16px;
+    border-bottom: 1px dashed var(--border);
+    padding-bottom: 12px;
+  }
+  .now .now-content .timestamp::before {
+    content: '# updated ';
+    color: var(--fg-faint);
+  }
+  .now .now-content h3 {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--accent);
+    margin: 16px 0 8px;
+    letter-spacing: 0;
+  }
+  .now .now-content h3::before {
+    content: '## ';
+    color: var(--fg-faint);
+    font-weight: 400;
+  }
+  .now .now-content p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--fg);
+    margin-bottom: 12px;
+  }
+  .now .now-content ul {
+    list-style: none;
+    margin-bottom: 12px;
+  }
+  .now .now-content ul li {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--fg);
+    padding-left: 20px;
+    position: relative;
+  }
+  .now .now-content ul li::before {
+    content: '─';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  /* ───── PROJECTS ───── */
+  .projects-intro {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 60px;
+    margin-bottom: 40px;
+    align-items: start;
+  }
+  .projects-intro p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--fg-dim);
+    max-width: 640px;
+  }
+  .projects-intro .filter {
+    margin-top: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 11px;
+  }
+  .projects-intro .filter span {
+    padding: 4px 10px;
+    border: 1px solid var(--border-bright);
+    color: var(--fg-dim);
+    cursor: pointer;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .projects-intro .filter span.active {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+  }
+  .projects-intro .filter span:hover:not(.active) {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+  }
+  .proj {
+    border: 1px solid var(--border-bright);
+    background: var(--bg-elev);
+    padding: 28px;
+    position: relative;
+    transition: all 0.2s;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .proj::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .proj:hover {
+    border-color: var(--accent);
+    background: rgba(0, 255, 127, 0.03);
+    transform: translateY(-2px);
+  }
+  .proj:hover::before { opacity: 1; }
+  .proj:hover .arrow { transform: translate(4px, -4px); }
+
+  .proj.featured { grid-column: span 8; }
+  .proj.standard { grid-column: span 4; }
+  .proj.wide { grid-column: span 6; }
+  .proj.full { grid-column: span 12; }
+
+  .proj .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 11px;
+    color: var(--fg-dim);
+    letter-spacing: 0.05em;
+  }
+  .proj .header .meta { display: flex; gap: 12px; align-items: center; }
+  .proj .header .meta .type { color: var(--accent); }
+  .proj .header .meta .sep { color: var(--fg-faint); }
+  .proj .header .status {
+    padding: 2px 8px;
+    border: 1px solid var(--border-bright);
+    border-radius: 3px;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .proj .header .status.shipping {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: rgba(0, 255, 127, 0.05);
+  }
+  .proj .header .status.shipping::before {
+    content: '● ';
+    animation: pulse 2s infinite;
+  }
+  .proj .header .status.live { color: var(--accent); border-color: var(--border-bright); }
+  .proj .header .status.live::before { content: '◉ '; }
+  .proj .header .status.building { color: var(--warn); border-color: rgba(255, 180, 84, 0.3); }
+  .proj .header .status.building::before { content: '◌ '; }
+  .proj .header .status.archived { color: var(--fg-dim); }
+  .proj .header .status.archived::before { content: '◯ '; }
+
+  .proj h3 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+    color: var(--fg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .proj.featured h3 { font-size: 36px; }
+  .proj h3 .arrow {
+    color: var(--accent);
+    font-size: 18px;
+    transition: transform 0.2s;
+  }
+  .proj .tagline {
+    font-size: 13px;
+    color: var(--fg-dim);
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+  .proj .desc {
+    font-family: 'Geist', sans-serif;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--fg);
+    margin-bottom: 20px;
+    opacity: 0.85;
+  }
+  .proj.featured .desc { font-size: 15px; }
+  .proj .stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    font-size: 11px;
+    color: var(--fg-dim);
+    border-top: 1px dashed var(--border);
+    padding-top: 16px;
+  }
+  .proj .stack span:not(:last-child)::after {
+    content: '·';
+    margin-left: 12px;
+    color: var(--fg-faint);
+  }
+  .proj .links {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+    font-size: 11px;
+  }
+  .proj .links a {
+    color: var(--accent);
+    text-decoration: none;
+    padding: 4px 10px;
+    border: 1px solid var(--border-bright);
+    transition: all 0.15s;
+  }
+  .proj .links a:hover {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+  }
+
+  /* ───── EXPERIENCE / EDUCATION ───── */
+  .timeline {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .tl-list {
+    border-left: 1px solid var(--border);
+    padding-left: 32px;
+    position: relative;
+  }
+  .tl-item {
+    margin-bottom: 40px;
+    position: relative;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -38px;
+    top: 6px;
+    width: 13px;
+    height: 13px;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+  }
+  .tl-item.current::before {
+    background: var(--accent);
+    box-shadow: 0 0 12px var(--accent);
+    animation: pulse 2s infinite;
+  }
+  .tl-item .date {
+    font-size: 11px;
+    color: var(--fg-dim);
+    margin-bottom: 6px;
+    letter-spacing: 0.05em;
+  }
+  .tl-item .date.current { color: var(--accent); }
+  .tl-item h4 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+  .tl-item .org {
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .tl-item .org a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--accent-dim);
+  }
+  .tl-item p {
+    font-family: 'Geist', sans-serif;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--fg);
+    opacity: 0.85;
+    max-width: 640px;
+  }
+
+  /* ───── COMMAND LINE EASTER EGG ───── */
+  .cli {
+    border: 1px solid var(--border-bright);
+    background: var(--bg-elev);
+    padding: 24px;
+    position: relative;
+    margin-top: 24px;
+  }
+  .cli::before {
+    content: 'interactive · type help';
+    position: absolute;
+    top: -1px;
+    right: 16px;
+    transform: translateY(-50%);
+    background: var(--bg);
+    padding: 0 8px;
+    color: var(--fg-dim);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .cli-output {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--fg);
+    min-height: 100px;
+    max-height: 280px;
+    overflow-y: auto;
+    margin-bottom: 12px;
+  }
+  .cli-output .line { display: block; }
+  .cli-output .system { color: var(--fg-dim); }
+  .cli-output .echo { color: var(--accent); }
+  .cli-output .err { color: var(--danger); }
+  .cli-output .info { color: var(--warn); }
+  .cli-input-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-top: 1px dashed var(--border);
+    padding-top: 12px;
+  }
+  .cli-input-row .prompt {
+    color: var(--accent);
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+  .cli-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--fg);
+    font-family: inherit;
+    font-size: 13px;
+    caret-color: var(--accent);
+  }
+
+  /* ───── CONTACT ───── */
+  .contact {
+    text-align: center;
+    padding: 100px 0;
+  }
+  .contact h2 {
+    font-size: clamp(40px, 6vw, 80px);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    margin-bottom: 24px;
+    line-height: 1;
+  }
+  .contact h2 .accent { color: var(--accent); }
+  .contact .blurb {
+    font-family: 'Geist', sans-serif;
+    font-size: 16px;
+    color: var(--fg-dim);
+    max-width: 540px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+  }
+  .contact .links {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+  .contact .links a {
+    padding: 14px 24px;
+    border: 1px solid var(--border-bright);
+    color: var(--fg);
+    text-decoration: none;
+    font-size: 13px;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .contact .links a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-faint);
+  }
+  .contact .links a.primary {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+    font-weight: 500;
+  }
+  .contact .links a.primary:hover {
+    background: transparent;
+    color: var(--accent);
+  }
+
+  /* ───── FOOTER ───── */
+  .footer {
+    border-top: 1px dashed var(--border);
+    padding: 32px 0;
+    font-size: 11px;
+    color: var(--fg-faint);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer .left .accent { color: var(--accent); }
+  .footer .right { color: var(--fg-dim); }
+  .footer .right span { color: var(--fg-faint); margin: 0 8px; }
+
+  /* ───── RESPONSIVE ───── */
+  @media (max-width: 900px) {
+    .topbar { padding: 12px 20px; font-size: 11px; }
+    .topbar .right { display: none; }
+    .container { padding: 0 20px; }
+    .hero { padding: 60px 0 40px; }
+    .hero .grid-meta { grid-template-columns: 1fr; gap: 32px; }
+    .about, .now, .timeline, .projects-intro { grid-template-columns: 1fr; gap: 24px; }
+    .about .heading-col { position: relative; top: 0; }
+    .projects-grid { gap: 12px; }
+    .proj.featured, .proj.standard, .proj.wide { grid-column: span 12; }
+    section { padding: 56px 0; }
+  }
+
+  @media (max-width: 500px) {
+    .hero h1 { font-size: 48px; }
+    .topbar .traffic { display: none; }
+    .footer { font-size: 10px; }
+  }
+
+  /* Subtle text-flicker */
+  .flicker {
+    animation: flicker 6s infinite;
+  }
+  @keyframes flicker {
+    0%, 95%, 100% { opacity: 1; }
+    96% { opacity: 0.85; }
+    97% { opacity: 1; }
+    98% { opacity: 0.92; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+
+<!-- ───── TOP BAR ───── -->
+<div class="topbar">
+  <div class="left">
+    <div class="traffic"><span></span><span></span><span></span></div>
+    <div class="path">seth@enigma:<span class="accent">~/portfolio</span>$</div>
+  </div>
+  <div class="right">
+    <span>v3.2.1</span>
+    <span>last build: 4h ago</span>
+    <span class="status">online</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ───── HERO ───── -->
+  <section class="hero">
+    <div class="preamble">
+      <div class="line"><span class="comment"># welcome.sh — last login: today</span></div>
+      <div class="line"><span class="prompt">$</span> whoami</div>
+      <div class="line"><span class="comment">→ </span><span class="accent">seth_nordgren</span> <span class="comment">// cto, builder, behavior scientist</span></div>
+      <div class="line"><span class="prompt">$</span> cat intro.md</div>
+    </div>
+
+    <h1 class="flicker">
+      seth<br>nord<span class="accent">gren</span><span class="cursor"></span>
+    </h1>
+
+    <div class="role-line">
+      <span class="accent">cto</span><span class="at"> @ </span><span>enigma software systems</span> <span style="color: var(--fg-faint)">·</span> behavior scientist who ships
+    </div>
+
+    <div class="grid-meta">
+      <div class="desc">
+        <div class="comment-block">// the short version</div>
+        I build AI products, full-stack web platforms, and SwiftUI apps. PhD in psychology, BCBA-D, and a decade of training in how humans actually behave — not how product managers wish they did.
+        <br><br>
+        <div class="comment-block">// the longer one is below ↓</div>
+        Most "AI workspace" demos look impressive and fall apart in production. I'm interested in the boring engineering that makes the magic actually work: tenant isolation, audit trails, human-in-the-loop approvals, the unglamorous stuff that earns trust.
+      </div>
+
+      <div class="stats">
+        <div class="row"><span class="key">role</span><span class="val string">cto · enigma</span></div>
+        <div class="row"><span class="key">location</span><span class="val string">salt lake city, ut</span></div>
+        <div class="row"><span class="key">timezone</span><span class="val string">utc-7 / mst</span></div>
+        <div class="row"><span class="key">credentials</span><span class="val string">phd · bcba-d</span></div>
+        <div class="row"><span class="key">latest_ship</span><span class="val string">vault-ai v0.4</span></div>
+        <div class="row"><span class="key">availability</span><span class="val live">open to convos</span></div>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">↓ scroll · or press / for command line</div>
+  </section>
+
+  <!-- ───── ABOUT ───── -->
+  <section id="about">
+    <div class="section-label"><span class="num">01</span> about · ./background.md</div>
+    <div class="about">
+      <div class="heading-col">
+        <div class="section-label" style="margin: 0;">read.me()</div>
+      </div>
+      <div class="body">
+        <p>I came to software the long way. Seven years training as a <strong>behavior analyst</strong> before I shipped a single line of production code. I now do both — and I've come to think the most interesting software is the kind that respects how people actually work, not how they're supposed to.</p>
+
+        <p>That perspective shapes everything I build. AI workflows with <span class="tag">human review</span>. Dashboards that surface the next decision. Compliance tools designed around the moments people are most likely to skip a step. Mobile apps that respect attention rather than capture it.</p>
+
+        <p>As <strong>CTO of Enigma Software Systems</strong>, I lead product and engineering for AI tools that have to hold up to real audit, real scale, and real humans. <span class="tag">Vault AI</span> is the flagship — but the thinking shows up everywhere I touch.</p>
+
+        <p>Outside of Enigma I ship a lot. iOS apps, BCBA compliance tools, CRMs, dashboards. The throughline isn't a stack — it's that every project is a small experiment in <strong>making software that's used, not just installed</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── NOW ───── -->
+  <section id="now">
+    <div class="section-label"><span class="num">02</span> currently · ./now.md</div>
+    <div class="now">
+      <div class="heading-col">
+        <div class="section-label" style="margin: 0;">this month</div>
+      </div>
+      <div class="now-content">
+        <div class="timestamp">apr 28, 2026</div>
+        <h3>shipping</h3>
+        <p><strong>Vault AI v0.5</strong> — pushing on the audit verification layer and tightening the realtime gateway. The fun stuff.</p>
+        <h3>building</h3>
+        <ul>
+          <li>haven local — privacy-first desktop AI assistant</li>
+          <li>NexusFlow widgets — iOS Live Activities for focus</li>
+          <li>internal tooling for behavior-data review at Enigma</li>
+        </ul>
+        <h3>thinking about</h3>
+        <ul>
+          <li>progressive trust models for agentic workflows</li>
+          <li>graceful failure UX when an LLM is wrong but confident</li>
+          <li>why most "agents" feel like demos and not products</li>
+        </ul>
+        <h3>open to</h3>
+        <p>strategic partnerships, selective consulting, and conversations with people building serious AI tools.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── PROJECTS ───── -->
+  <section id="projects">
+    <div class="section-label"><span class="num">03</span> work · ./projects/</div>
+
+    <div class="projects-intro">
+      <div class="heading-col">
+        <div class="section-label" style="margin: 0;">9 projects · 2023→</div>
+      </div>
+      <div>
+        <p>A working list of what I've shipped. Featured first, then comprehensive — full-stack AI products, compliance SaaS, native iOS, dashboards, marketing sites. Status: <span style="color: var(--accent)">●</span> shipping · <span style="color: var(--accent)">◉</span> live · <span style="color: var(--warn)">◌</span> building · <span style="color: var(--fg-dim)">◯</span> archived.</p>
+        <div class="filter">
+          <span class="active" data-filter="all">all (9)</span>
+          <span data-filter="ai">ai</span>
+          <span data-filter="web">web</span>
+          <span data-filter="ios">ios</span>
+          <span data-filter="saas">saas</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="projects-grid" id="projects-grid">
+
+      <!-- FLAGSHIP -->
+      <div class="proj featured" data-tags="ai web saas">
+        <div class="header">
+          <div class="meta">
+            <span class="type">★ flagship</span>
+            <span class="sep">·</span>
+            <span>2025 → present</span>
+            <span class="sep">·</span>
+            <span>enigma</span>
+          </div>
+          <span class="status shipping">shipping</span>
+        </div>
+        <h3>vault-ai <span class="arrow">↗</span></h3>
+        <div class="tagline">// AI-first workspace built for trust, not demos.</div>
+        <div class="desc">Multi-service architecture with document processing, realtime gateway services, tenant isolation, audit verification, and production guardrails. The product Enigma exists to ship — designed around the boring details (approvals, scoping, traceability) that make AI tools usable in regulated environments.</div>
+        <div class="stack">
+          <span>next.js</span><span>nestjs</span><span>postgres</span><span>openai</span><span>bedrock</span><span>deepgram</span><span>realtime</span>
+        </div>
+        <div class="links">
+          <a href="https://enigmasystems.ai">enigma →</a>
+          <a href="#contact">discuss</a>
+        </div>
+      </div>
+
+      <!-- HAVEN LOCAL -->
+      <div class="proj standard" data-tags="ai">
+        <div class="header">
+          <div class="meta">
+            <span class="type">privacy ai</span>
+            <span class="sep">·</span>
+            <span>2025</span>
+          </div>
+          <span class="status building">building</span>
+        </div>
+        <h3>haven-local <span class="arrow">↗</span></h3>
+        <div class="tagline">// local-first AI, human approvals.</div>
+        <div class="desc">Privacy-first desktop assistant. Local model execution, scoped permissions, auditable actions, conservative UX for nontechnical users.</div>
+        <div class="stack"><span>tauri</span><span>react</span><span>rust</span><span>fastapi</span></div>
+      </div>
+
+      <!-- SUPERVISE ABA -->
+      <div class="proj wide" data-tags="saas web">
+        <div class="header">
+          <div class="meta">
+            <span class="type">compliance saas</span>
+            <span class="sep">·</span>
+            <span>2024</span>
+          </div>
+          <span class="status live">live</span>
+        </div>
+        <h3>supervise-aba <span class="arrow">↗</span></h3>
+        <div class="tagline">// BACB-compliant supervision, end to end.</div>
+        <div class="desc">BCBA supervision tracker PWA. Fieldwork tracking, PDF reporting with signatures, alerts, subscriptions, and role-based data models. A domain-heavy product where behavior-science training translates directly into product decisions.</div>
+        <div class="stack"><span>next.js</span><span>prisma</span><span>supabase</span><span>stripe</span></div>
+      </div>
+
+      <!-- NEXUSFLOW -->
+      <div class="proj wide" data-tags="ios">
+        <div class="header">
+          <div class="meta">
+            <span class="type">ios productivity</span>
+            <span class="sep">·</span>
+            <span>2024</span>
+          </div>
+          <span class="status live">live</span>
+        </div>
+        <h3>nexusflow <span class="arrow">↗</span></h3>
+        <div class="tagline">// attention as a design problem.</div>
+        <div class="desc">SwiftUI productivity app. Focus timers, widgets, Live Activities, CloudKit sync, calendar integration, analytics, automation-style focus workflows. My personal lab for behavior-informed attention tools.</div>
+        <div class="stack"><span>swift</span><span>swiftui</span><span>widgetkit</span><span>cloudkit</span></div>
+      </div>
+
+      <!-- AMM CRM -->
+      <div class="proj standard" data-tags="ai web saas">
+        <div class="header">
+          <div class="meta">
+            <span class="type">client crm</span>
+            <span class="sep">·</span>
+            <span>2024</span>
+          </div>
+          <span class="status live">live</span>
+        </div>
+        <h3>amm-crm <span class="arrow">↗</span></h3>
+        <div class="tagline">// real ops, real pipeline.</div>
+        <div class="desc">Next.js CRM with auth, Kanban workflows, AI integrations, file storage, voice tooling, analytics.</div>
+        <div class="stack"><span>next.js</span><span>react 19</span><span>prisma</span><span>deepgram</span></div>
+      </div>
+
+      <!-- LOCAL HAPPENINGS -->
+      <div class="proj standard" data-tags="web ios">
+        <div class="header">
+          <div class="meta">
+            <span class="type">local platform</span>
+            <span class="sep">·</span>
+            <span>2024</span>
+          </div>
+          <span class="status live">live</span>
+        </div>
+        <h3>local-happenings <span class="arrow">↗</span></h3>
+        <div class="tagline">// events across web, api, mobile.</div>
+        <div class="desc">Multi-workspace product structure. Maps, calendars, realtime features, shared contracts.</div>
+        <div class="stack"><span>next.js</span><span>nestjs</span><span>socket.io</span><span>mapbox</span></div>
+      </div>
+
+      <!-- ENIGMA WEBSITE -->
+      <div class="proj standard" data-tags="web">
+        <div class="header">
+          <div class="meta">
+            <span class="type">brand site</span>
+            <span class="sep">·</span>
+            <span>2024</span>
+          </div>
+          <span class="status live">live</span>
+        </div>
+        <h3>enigmasystems.ai <span class="arrow">↗</span></h3>
+        <div class="tagline">// public face of enigma.</div>
+        <div class="desc">React + Three.js + R3F + Framer Motion, prerendered, tested, Lighthouse-tuned.</div>
+        <div class="stack"><span>react</span><span>three.js</span><span>vite</span><span>framer</span></div>
+        <div class="links">
+          <a href="https://github.com/drsavvage90/Enigma-Website">source →</a>
+        </div>
+      </div>
+
+      <!-- THE DEN -->
+      <div class="proj standard" data-tags="ios">
+        <div class="header">
+          <div class="meta">
+            <span class="type">ios social</span>
+            <span class="sep">·</span>
+            <span>2024</span>
+          </div>
+          <span class="status archived">archived</span>
+        </div>
+        <h3>the-den <span class="arrow">↗</span></h3>
+        <div class="tagline">// device-native sharing exploration.</div>
+        <div class="desc">SwiftUI social app. Messaging, profiles, events, QR/NFC sharing, permissions-aware iOS features.</div>
+        <div class="stack"><span>swift</span><span>swiftui</span><span>xctest</span></div>
+        <div class="links">
+          <a href="https://github.com/drsavvage90/theDen">source →</a>
+        </div>
+      </div>
+
+      <!-- AMM PROJECT MANAGER -->
+      <div class="proj wide" data-tags="web saas">
+        <div class="header">
+          <div class="meta">
+            <span class="type">dashboard</span>
+            <span class="sep">·</span>
+            <span>2023</span>
+          </div>
+          <span class="status live">live</span>
+        </div>
+        <h3>amm-project-manager <span class="arrow">↗</span></h3>
+        <div class="tagline">// operational visibility, offline-ready.</div>
+        <div class="desc">Firebase-hosted project management dashboard. Firestore autosave, offline support, domain-restricted access, telemetry, Vite builds, Playwright E2E.</div>
+        <div class="stack"><span>firebase</span><span>firestore</span><span>vite</span><span>playwright</span></div>
+      </div>
+
+      <!-- OSVITAE -->
+      <div class="proj wide" data-tags="web">
+        <div class="header">
+          <div class="meta">
+            <span class="type">data app</span>
+            <span class="sep">·</span>
+            <span>2023</span>
+          </div>
+          <span class="status live">live</span>
+        </div>
+        <h3>osvitae <span class="arrow">↗</span></h3>
+        <div class="tagline">// data viz with security-first defaults.</div>
+        <div class="desc">React/Vite app with Supabase, shadcn UI, Framer Motion, Recharts, Tailwind, Vitest, security-focused linting. Frontend product craft.</div>
+        <div class="stack"><span>react</span><span>supabase</span><span>recharts</span><span>vitest</span></div>
+        <div class="links">
+          <a href="https://github.com/drsavvage90/OsVitae">source →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ───── EXPERIENCE ───── -->
+  <section id="experience">
+    <div class="section-label"><span class="num">04</span> experience · ./history.log</div>
+    <div class="timeline">
+      <div class="heading-col">
+        <div class="section-label" style="margin: 0;">trajectory</div>
+      </div>
+      <div class="tl-list">
+        <div class="tl-item current">
+          <div class="date current">2024 → present · current</div>
+          <h4>chief technology officer</h4>
+          <div class="org"><a href="https://enigmasystems.ai">enigma software systems →</a></div>
+          <p>Leading technical strategy and product development. AI workflow architecture with attention to privacy, reliability, and approvals. Translating behavior-science thinking into measurement flows, product systems, and user experiences that hold up in production.</p>
+        </div>
+
+        <div class="tl-item">
+          <div class="date">2023 → present</div>
+          <h4>independent software developer</h4>
+          <div class="org">across web, ios, and ai</div>
+          <p>Building full-stack web platforms and SwiftUI apps spanning productivity, supervision workflows, events, dashboards, and data collection. The portfolio above is the working evidence — applied range, not coursework.</p>
+        </div>
+
+        <div class="tl-item">
+          <div class="date">2024</div>
+          <h4>ph.d., psychology</h4>
+          <div class="org">doctoral training</div>
+          <p>Doctoral work involving data collection systems, statistical analysis, research methods, and applied measurement.</p>
+        </div>
+
+        <div class="tl-item">
+          <div class="date">credentialed</div>
+          <h4>bcba-d · board certified behavior analyst, doctoral</h4>
+          <div class="org">behavior science foundation</div>
+          <p>Behavior analysis training that informs product design, compliance workflows, user adoption, and outcome-focused systems.</p>
+        </div>
+
+        <div class="tl-item">
+          <div class="date">2022 → ongoing</div>
+          <h4>apple developer program</h4>
+          <div class="org">swift · ios · swiftui</div>
+          <p>Continuous applied software practice across web platforms, AI workflows, mobile apps, and delivery automation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── COMMAND LINE ───── -->
+  <section id="cli">
+    <div class="section-label"><span class="num">05</span> interactive · ./console</div>
+    <div class="timeline">
+      <div class="heading-col">
+        <div class="section-label" style="margin: 0;">try it</div>
+      </div>
+      <div>
+        <p style="font-family: 'Geist', sans-serif; font-size: 14px; line-height: 1.65; color: var(--fg-dim); margin-bottom: 16px; max-width: 600px;">
+          A small console. Type <span style="color: var(--accent); font-family: 'JetBrains Mono', monospace;">help</span> for commands. Press <span style="color: var(--accent); font-family: 'JetBrains Mono', monospace;">/</span> anywhere on the page to focus it.
+        </p>
+        <div class="cli">
+          <div class="cli-output" id="cli-output">
+            <span class="line system"># welcome to seth's console · v3.2.1</span>
+            <span class="line system"># type 'help' to see what's available</span>
+            <span class="line">&nbsp;</span>
+          </div>
+          <div class="cli-input-row">
+            <span class="prompt">seth@enigma:~$</span>
+            <input class="cli-input" id="cli-input" type="text" autocomplete="off" spellcheck="false" placeholder="type help">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── CONTACT ───── -->
+  <section class="contact" id="contact">
+    <div class="section-label" style="justify-content: center;"><span class="num">06</span> connect · ./contact</div>
+    <h2>let's <span class="accent">talk</span>.</h2>
+    <p class="blurb">Open to conversations about Enigma, applied AI, behavior-informed product design, and serious technical collaborations.</p>
+    <div class="links">
+      <a href="mailto:contact@enigmasystems.ai" class="primary">contact@enigmasystems.ai →</a>
+      <a href="https://github.com/drsavvage90">github</a>
+      <a href="https://enigmasystems.ai">enigma</a>
+      <a href="resume.pdf">resume.pdf</a>
+    </div>
+  </section>
+
+  <!-- ───── FOOTER ───── -->
+  <div class="footer">
+    <div class="left">© 2026 seth nordgren <span style="color: var(--fg-faint)">·</span> built in <span class="accent">salt lake city</span></div>
+    <div class="right">
+      <span>·</span>process: 0x4e6f7264 <span>·</span> uptime: 1y 4m <span>·</span> last commit: 4h ago <span>·</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ────────────────────────────────────────
+  // PROJECT FILTERING
+  // ────────────────────────────────────────
+  const filters = document.querySelectorAll('.filter span');
+  const projects = document.querySelectorAll('.proj');
+  filters.forEach(f => {
+    f.addEventListener('click', () => {
+      filters.forEach(x => x.classList.remove('active'));
+      f.classList.add('active');
+      const tag = f.dataset.filter;
+      projects.forEach(p => {
+        const tags = (p.dataset.tags || '').split(' ');
+        const show = tag === 'all' || tags.includes(tag);
+        p.style.display = show ? '' : 'none';
+      });
+    });
+  });
+
+  // ────────────────────────────────────────
+  // INTERACTIVE CLI
+  // ────────────────────────────────────────
+  const output = document.getElementById('cli-output');
+  const input = document.getElementById('cli-input');
+  const history = [];
+  let histIdx = -1;
+
+  const commands = {
+    help: () => `<span class="line info">available commands:</span>
+<span class="line">  <span class="echo">help</span>          show this message</span>
+<span class="line">  <span class="echo">whoami</span>        about seth</span>
+<span class="line">  <span class="echo">ls projects</span>   list projects</span>
+<span class="line">  <span class="echo">cat now</span>       what i'm working on</span>
+<span class="line">  <span class="echo">stack</span>         tech i use</span>
+<span class="line">  <span class="echo">contact</span>       how to reach me</span>
+<span class="line">  <span class="echo">enigma</span>        about the company</span>
+<span class="line">  <span class="echo">sudo</span>          (don't)</span>
+<span class="line">  <span class="echo">clear</span>         clear console</span>
+<span class="line">&nbsp;</span>`,
+    whoami: () => `<span class="line">seth nordgren · cto, enigma software systems</span>
+<span class="line system">phd in psychology · bcba-d · builder</span>
+<span class="line">based in salt lake city · open to conversations</span>
+<span class="line">&nbsp;</span>`,
+    'ls projects': () => `<span class="line info">9 projects · most recent first:</span>
+<span class="line">  vault-ai          <span class="system">// flagship · ai workspace · shipping</span></span>
+<span class="line">  haven-local       <span class="system">// privacy-first desktop ai · building</span></span>
+<span class="line">  supervise-aba     <span class="system">// bcba compliance · live</span></span>
+<span class="line">  nexusflow         <span class="system">// ios focus app · live</span></span>
+<span class="line">  amm-crm           <span class="system">// crm + ai + voice · live</span></span>
+<span class="line">  local-happenings  <span class="system">// events platform · live</span></span>
+<span class="line">  enigmasystems.ai  <span class="system">// brand site · live</span></span>
+<span class="line">  the-den           <span class="system">// ios social · archived</span></span>
+<span class="line">  osvitae           <span class="system">// react data app · live</span></span>
+<span class="line">&nbsp;</span>`,
+    'cat now': () => `<span class="line info"># now.md · apr 2026</span>
+<span class="line">shipping vault-ai v0.5 · audit verification + realtime</span>
+<span class="line">building haven-local · privacy-first desktop ai</span>
+<span class="line">thinking about progressive trust models for agents</span>
+<span class="line system"># open to: partnerships, selective consulting</span>
+<span class="line">&nbsp;</span>`,
+    stack: () => `<span class="line info">stack i reach for:</span>
+<span class="line">  <span class="echo">frontend</span>   next.js · react · typescript · tailwind · framer</span>
+<span class="line">  <span class="echo">backend</span>    nestjs · fastify · prisma · postgres · supabase</span>
+<span class="line">  <span class="echo">ai</span>         openai · bedrock · deepgram · ai sdk · rag</span>
+<span class="line">  <span class="echo">mobile</span>     swift · swiftui · widgetkit · cloudkit</span>
+<span class="line">  <span class="echo">realtime</span>   websockets · socket.io · audio pipelines</span>
+<span class="line">  <span class="echo">testing</span>    playwright · vitest · jest · xctest</span>
+<span class="line">&nbsp;</span>`,
+    contact: () => `<span class="line">email · <span class="echo">contact@enigmasystems.ai</span></span>
+<span class="line">github · <span class="echo">github.com/drsavvage90</span></span>
+<span class="line">enigma · <span class="echo">enigmasystems.ai</span></span>
+<span class="line">&nbsp;</span>`,
+    enigma: () => `<span class="line info">enigma software systems</span>
+<span class="line">consumer-friendly agentic workflow tools.</span>
+<span class="line">positioned as a simplified alternative to dev-first platforms.</span>
+<span class="line">vault-ai is the flagship product.</span>
+<span class="line system">→ enigmasystems.ai</span>
+<span class="line">&nbsp;</span>`,
+    sudo: () => `<span class="line err">seth is not in the sudoers file. this incident will be reported.</span>
+<span class="line">&nbsp;</span>`,
+    clear: () => 'CLEAR',
+    ls: () => `<span class="line">about.md  now.md  projects/  experience.log  contact.md</span>
+<span class="line">&nbsp;</span>`,
+    pwd: () => `<span class="line">/home/seth/portfolio</span>
+<span class="line">&nbsp;</span>`,
+    date: () => `<span class="line">${new Date().toString()}</span>
+<span class="line">&nbsp;</span>`,
+    exit: () => `<span class="line system">nice try. but you're stuck here with me.</span>
+<span class="line">&nbsp;</span>`,
+    'rm -rf /': () => `<span class="line err">nope.</span>
+<span class="line">&nbsp;</span>`,
+    coffee: () => `<span class="line">&nbsp;&nbsp;&nbsp;&nbsp;( (</span>
+<span class="line">&nbsp;&nbsp;&nbsp;&nbsp;) )</span>
+<span class="line">&nbsp;&nbsp;.______.</span>
+<span class="line">&nbsp;&nbsp;|      |]</span>
+<span class="line">&nbsp;&nbsp;\\&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/</span>
+<span class="line">&nbsp;&nbsp;&nbsp;\`----'</span>
+<span class="line system">// fuel acquired</span>
+<span class="line">&nbsp;</span>`
+  };
+
+  function append(html) {
+    output.innerHTML += html;
+    output.scrollTop = output.scrollHeight;
+  }
+
+  function runCommand(cmd) {
+    const trimmed = cmd.trim().toLowerCase();
+    append(`<span class="line"><span style="color: var(--accent)">seth@enigma:~$</span> ${cmd}</span>`);
+    if (!trimmed) return;
+    history.unshift(cmd);
+    histIdx = -1;
+    if (commands[trimmed]) {
+      const result = commands[trimmed]();
+      if (result === 'CLEAR') {
+        output.innerHTML = `<span class="line system"># cleared</span><span class="line">&nbsp;</span>`;
+      } else {
+        append(result);
+      }
+    } else {
+      append(`<span class="line err">command not found: ${cmd}. try 'help'.</span><span class="line">&nbsp;</span>`);
     }
-    </script>
+  }
 
-    <title>Seth Nordgren | CTO & Software Developer</title>
-  </head>
-  <body class="dev-page">
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      runCommand(input.value);
+      input.value = '';
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (histIdx < history.length - 1) histIdx++;
+      input.value = history[histIdx] || '';
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (histIdx > 0) histIdx--;
+      else { histIdx = -1; input.value = ''; return; }
+      input.value = history[histIdx] || '';
+    }
+  });
 
-    <header class="site">
-      <div class="container flex items-center justify-between" style="padding: 0.75rem 0">
-        <div class="flex items-center gap-4">
-          <a href="index.html" class="logo-link">
-            <div class="header-monogram" aria-label="Seth Nordgren">
-              <span>SN</span>
-            </div>
-          </a>
-          <div>
-            <strong>Seth Nordgren</strong>
-            <span class="header-subtitle">CTO & Developer</span>
-          </div>
-        </div>
-        <nav class="flex items-center gap-2" id="main-nav">
-          <a href="index.html">Home</a>
-          <a href="#value" data-scroll="#value">About</a>
-          <a href="#projects" data-scroll="#projects">Projects</a>
-          <a href="#skills" data-scroll="#skills">Skills</a>
-          <a href="#experience" data-scroll="#experience">Experience</a>
-          <a href="#goals" data-scroll="#goals">Focus</a>
-          <a href="#contact" class="btn" data-scroll="#contact">Contact</a>
-        </nav>
-        <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-        </button>
-      </div>
-    </header>
+  // Press / anywhere to focus CLI
+  document.addEventListener('keydown', (e) => {
+    if (e.key === '/' && document.activeElement !== input) {
+      e.preventDefault();
+      input.focus();
+      input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  });
+</script>
 
-    <main id="main-content">
-      <!-- Hero Section -->
-      <section class="hero section page-hero dev-hero premium-hero">
-        <div class="hero-ambient" aria-hidden="true">
-          <div class="hero-grid-plane"></div>
-          <div class="hero-light-trace trace-one"></div>
-          <div class="hero-light-trace trace-two"></div>
-          <div class="hero-signal signal-ai">
-            <span>AI</span>
-            <small>Workflows</small>
-          </div>
-          <div class="hero-signal signal-ios">
-            <span>iOS</span>
-            <small>SwiftUI</small>
-          </div>
-          <div class="hero-signal signal-systems">
-            <span>Systems</span>
-            <small>Strategy</small>
-          </div>
-        </div>
-
-        <div class="container hero-content">
-          <div class="profile-photo dev-photo">
-            <div class="photo-placeholder" aria-label="Profile photo">SN</div>
-          </div>
-          <div class="hero-badge dev-badge">CTO at Enigma Software Systems</div>
-          <h1>Seth Nordgren</h1>
-          <p class="credentials dev-title">
-            <span class="typing-text" id="typing-text"></span>
-            <span class="typing-cursor">|</span>
-          </p>
-          <p class="sub">
-            CTO of Enigma Software Systems with a portfolio spanning AI SaaS, full-stack web platforms,
-            operational dashboards, and SwiftUI apps. I turn behavior-science thinking into practical
-            software with reliable systems, thoughtful interfaces, and clear product execution.
-          </p>
-
-          <div class="hero-proof-strip" aria-label="Portfolio highlights">
-            <div class="hero-proof-item">
-              <strong>CTO</strong>
-              <span>Enigma Software Systems</span>
-            </div>
-            <div class="hero-proof-item">
-              <strong>AI SaaS</strong>
-              <span>Workflow architecture</span>
-            </div>
-            <div class="hero-proof-item">
-              <strong>iOS + Web</strong>
-              <span>Product delivery</span>
-            </div>
-          </div>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#projects" data-scroll="#projects">View Projects</a>
-            <a class="btn" href="https://github.com/drsavvage90" target="_blank" rel="noopener">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-              </svg>
-              GitHub
-            </a>
-            <a class="btn" href="https://enigmasystems.ai" target="_blank" rel="noopener">
-              Enigma Systems
-            </a>
-            <a class="btn btn-outline" href="resume.pdf" id="resume-btn" download="Seth-Nordgren-Resume.pdf">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                <polyline points="7,10 12,15 17,10"/>
-                <line x1="12" y1="15" x2="12" y2="3"/>
-              </svg>
-              Download Resume
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- What I Bring Section -->
-      <section id="value" class="section">
-        <div class="container stack-lg">
-          <div class="section-heading value-heading">
-            <div>
-              <span class="section-eyebrow">Operating Style</span>
-              <h2>What I Bring to the Table</h2>
-              <p>
-                A practical blend of product leadership, technical execution, and behavior-science thinking
-                for teams that need software to be useful, maintainable, and trusted.
-              </p>
-            </div>
-            <div class="skills-summary value-summary">
-              <strong>Senior Signal</strong>
-              <span>Strategy | Architecture | Execution</span>
-            </div>
-          </div>
-
-          <div class="grid grid-3 grid-gap-lg value-grid">
-            <div class="card value-card">
-              <span class="value-index">01</span>
-              <h3>Systems Thinking</h3>
-              <p>Behavior science and software architecture both reward clear models. I use that lens to design workflows, data structures, and interfaces that hold up in real use.</p>
-            </div>
-            <div class="card value-card">
-              <span class="value-index">02</span>
-              <h3>Full-Stack Execution</h3>
-              <p>My GitHub work includes Next.js, React, TypeScript, NestJS, Prisma, Supabase, Firebase, Stripe, realtime features, and test automation.</p>
-            </div>
-            <div class="card value-card">
-              <span class="value-index">03</span>
-              <h3>Product Leadership</h3>
-              <p>As CTO of Enigma Software Systems, I connect product direction, technical strategy, and hands-on implementation without losing sight of the user.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Projects Section -->
-      <section id="projects" class="section">
-        <div class="container stack-lg">
-          <div class="section-heading projects-heading">
-            <div>
-              <span class="section-eyebrow">Selected Work</span>
-              <h2>Featured Projects</h2>
-              <p>
-                A curated set of builds that show applied engineering range: AI products,
-                compliance workflows, mobile apps, operational dashboards, and production-ready web platforms.
-              </p>
-            </div>
-            <div class="skills-summary projects-summary">
-              <strong>Portfolio Signals</strong>
-              <span>AI SaaS | Web Platforms | iOS | Data Systems</span>
-            </div>
-          </div>
-
-          <div class="projects-showcase">
-            <!-- Featured Project -->
-            <article class="card featured-project">
-              <div class="featured-project-content">
-                <div class="project-badges">
-                  <span class="badge badge-featured">Flagship Build</span>
-                  <span class="badge">Next.js</span>
-                  <span class="badge">AI</span>
-                  <span class="badge">Monorepo</span>
-                </div>
-                <h3>Vault AI</h3>
-                <p>
-                  AI-first workspace platform with multi-service architecture, document processing,
-                  realtime gateway services, tenant isolation checks, audit verification, and production guardrails.
-                </p>
-                <div class="project-proof-grid">
-                  <div>
-                    <strong>Architecture</strong>
-                    <span>App workspace, service boundaries, realtime gateway, and data layer.</span>
-                  </div>
-                  <div>
-                    <strong>AI Integration</strong>
-                    <span>OpenAI, Bedrock, Deepgram, document flows, and verification paths.</span>
-                  </div>
-                  <div>
-                    <strong>Reliability</strong>
-                    <span>Tenant isolation, audit checks, and maintainable production guardrails.</span>
-                  </div>
-                </div>
-                <div class="project-links">
-                  <a href="#contact" class="btn btn-primary" data-scroll="#contact">Discuss Project</a>
-                  <a href="https://enigmasystems.ai" class="btn" target="_blank" rel="noopener">Enigma Systems</a>
-                </div>
-              </div>
-              <aside class="project-proof-panel" aria-label="Vault AI proof points">
-                <span class="section-eyebrow">Why It Matters</span>
-                <ul class="project-proof-list">
-                  <li>Shows senior product architecture beyond a single frontend app.</li>
-                  <li>Connects AI tooling to privacy, auditability, and real workflow needs.</li>
-                  <li>Positions Enigma Software Systems as an active product company.</li>
-                </ul>
-              </aside>
-            </article>
-
-            <!-- Project Grid -->
-            <div class="project-grid">
-              <article class="card project-card">
-                <div class="project-card-top">
-                  <span class="project-type">Privacy AI</span>
-                  <a href="#contact" class="project-action" data-scroll="#contact">Discuss</a>
-                </div>
-                <h3>Haven Local MVP</h3>
-                <p>Privacy-first local desktop assistant built around human-in-the-loop approvals, local model execution, scoped permissions, auditable actions, and a conservative UX for nontechnical users.</p>
-                <ul class="project-impact-list">
-                  <li>Designed around local-first execution and user-controlled approvals.</li>
-                  <li>Balances advanced automation with conservative safety boundaries.</li>
-                </ul>
-                <div class="project-tech">
-                  <span>Tauri</span>
-                  <span>React</span>
-                  <span>Rust</span>
-                  <span>FastAPI</span>
-                </div>
-              </article>
-
-              <article class="card project-card">
-                <div class="project-card-top">
-                  <span class="project-type">Compliance SaaS</span>
-                  <a href="#contact" class="project-action" data-scroll="#contact">Discuss</a>
-                </div>
-                <h3>Supervise ABA</h3>
-                <p>BCBA supervision tracker PWA with BACB compliance workflows, fieldwork tracking, PDF reporting, signatures, alerts, subscriptions, and role-based data models.</p>
-                <ul class="project-impact-list">
-                  <li>Maps domain requirements into usable supervision and reporting flows.</li>
-                  <li>Combines subscriptions, documents, alerts, and role-aware data access.</li>
-                </ul>
-                <div class="project-tech">
-                  <span>Next.js</span>
-                  <span>Prisma</span>
-                  <span>Supabase</span>
-                  <span>Stripe</span>
-                </div>
-              </article>
-
-              <article class="card project-card">
-                <div class="project-card-top">
-                  <span class="project-type">Client CRM</span>
-                  <a href="#contact" class="project-action" data-scroll="#contact">Discuss</a>
-                </div>
-                <h3>AMM CRM</h3>
-                <p>Next.js CRM for Appalachian Marketing and Media with Prisma, auth, Kanban-style workflows, AI integrations, file storage, voice tooling, and analytics.</p>
-                <ul class="project-impact-list">
-                  <li>Turns operational work into structured pipelines and analytics views.</li>
-                  <li>Integrates AI and voice tooling into a practical business workflow.</li>
-                </ul>
-                <div class="project-tech">
-                  <span>Next.js</span>
-                  <span>React 19</span>
-                  <span>Prisma</span>
-                  <span>Deepgram</span>
-                </div>
-              </article>
-
-              <article class="card project-card">
-                <div class="project-card-top">
-                  <span class="project-type">Local Platform</span>
-                  <a href="#contact" class="project-action" data-scroll="#contact">Discuss</a>
-                </div>
-                <h3>Local Happenings</h3>
-                <p>Full-stack local events platform with a Next.js web app, NestJS API, shared contracts, mobile workspace, maps, calendars, realtime features, and Supabase integration.</p>
-                <ul class="project-impact-list">
-                  <li>Demonstrates multi-workspace product structure across web, API, and mobile.</li>
-                  <li>Connects maps, calendars, realtime features, and shared contracts.</li>
-                </ul>
-                <div class="project-tech">
-                  <span>Next.js</span>
-                  <span>NestJS</span>
-                  <span>Socket.IO</span>
-                  <span>Mapbox</span>
-                </div>
-              </article>
-
-              <article class="card project-card">
-                <div class="project-card-top">
-                  <span class="project-type">Company Site</span>
-                  <a href="https://github.com/drsavvage90/Enigma-Website" class="project-action" target="_blank" rel="noopener">Source</a>
-                </div>
-                <h3>Enigma Website</h3>
-                <p>Company website for Enigma Software Systems built with React, Vite, Three.js, React Three Fiber, Framer Motion, prerendering, tests, and Lighthouse checks.</p>
-                <ul class="project-impact-list">
-                  <li>Uses modern frontend tooling with performance and test coverage in mind.</li>
-                  <li>Supports the public brand presence for Enigma Software Systems.</li>
-                </ul>
-                <div class="project-tech">
-                  <span>React</span>
-                  <span>Three.js</span>
-                  <span>Vite</span>
-                  <span>Framer Motion</span>
-                </div>
-              </article>
-
-              <article class="card project-card">
-                <div class="project-card-top">
-                  <span class="project-type">iOS Productivity</span>
-                  <a href="#contact" class="project-action" data-scroll="#contact">Discuss</a>
-                </div>
-                <h3>NexusFlow</h3>
-                <p>SwiftUI productivity app with focus timers, widgets, Live Activities, CloudKit sync, calendar integration, analytics, folders, and automation-style focus workflows.</p>
-                <ul class="project-impact-list">
-                  <li>Shows native iOS execution across widgets, Live Activities, and sync.</li>
-                  <li>Applies behavior-science thinking to attention and productivity flows.</li>
-                </ul>
-                <div class="project-tech">
-                  <span>Swift</span>
-                  <span>SwiftUI</span>
-                  <span>WidgetKit</span>
-                  <span>CloudKit</span>
-                </div>
-              </article>
-
-              <article class="card project-card">
-                <div class="project-card-top">
-                  <span class="project-type">iOS Social</span>
-                  <a href="https://github.com/drsavvage90/theDen" class="project-action" target="_blank" rel="noopener">Source</a>
-                </div>
-                <h3>The Den</h3>
-                <p>SwiftUI social connection app with messaging, profiles, events, QR/NFC sharing, permissions-aware iOS features, and modern app structure.</p>
-                <ul class="project-impact-list">
-                  <li>Explores mobile social workflows with device-native sharing features.</li>
-                  <li>Uses modern iOS app structure with testing considerations.</li>
-                </ul>
-                <div class="project-tech">
-                  <span>Swift</span>
-                  <span>SwiftUI</span>
-                  <span>iOS</span>
-                  <span>XCTest</span>
-                </div>
-              </article>
-
-              <article class="card project-card">
-                <div class="project-card-top">
-                  <span class="project-type">Dashboard</span>
-                  <a href="#contact" class="project-action" data-scroll="#contact">Discuss</a>
-                </div>
-                <h3>AMM Project Manager</h3>
-                <p>Firebase-hosted project management dashboard with Firestore autosave, offline support, domain-restricted access, telemetry, Vite builds, and E2E coverage.</p>
-                <ul class="project-impact-list">
-                  <li>Builds operational visibility around projects, autosave, and offline use.</li>
-                  <li>Includes production-minded access controls, telemetry, and E2E coverage.</li>
-                </ul>
-                <div class="project-tech">
-                  <span>Firebase</span>
-                  <span>Firestore</span>
-                  <span>Vite</span>
-                  <span>Playwright</span>
-                </div>
-              </article>
-
-              <article class="card project-card">
-                <div class="project-card-top">
-                  <span class="project-type">Data App</span>
-                  <a href="https://github.com/drsavvage90/OsVitae" class="project-action" target="_blank" rel="noopener">Source</a>
-                </div>
-                <h3>OsVitae</h3>
-                <p>React/Vite application using Supabase, shadcn-style UI, Framer Motion, Recharts, Tailwind, Vitest, and security-focused linting.</p>
-                <ul class="project-impact-list">
-                  <li>Combines data visualization, UI polish, auth-backed data, and tests.</li>
-                  <li>Shows frontend product craft with security-focused linting practices.</li>
-                </ul>
-                <div class="project-tech">
-                  <span>React</span>
-                  <span>Supabase</span>
-                  <span>Recharts</span>
-                  <span>Vitest</span>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Skills Section -->
-      <section id="skills" class="section">
-        <div class="container stack-lg">
-          <div class="section-heading skills-heading">
-            <div>
-              <span class="section-eyebrow">Technical Stack</span>
-              <h2>Technical Skills</h2>
-              <p>
-                Practical engineering strengths drawn from shipped portfolio work: full-stack product delivery,
-                AI-enabled workflows, reliable data layers, and mobile application development.
-              </p>
-            </div>
-            <div class="skills-summary">
-              <strong>Primary focus</strong>
-              <span>AI SaaS · Web Platforms · iOS Apps</span>
-            </div>
-          </div>
-
-          <div class="skills-layout">
-            <article class="card skills-card">
-              <div class="skill-card-top">
-                <span class="skill-card-icon">UI</span>
-                <div>
-                  <h3>Frontend & Product UI</h3>
-                  <p>Building polished, responsive interfaces for dashboards, SaaS products, and customer-facing web apps.</p>
-                </div>
-              </div>
-              <div class="skill-clusters">
-                <div class="skill-cluster">
-                  <span class="cluster-label">Core</span>
-                  <div class="skill-tags">
-                    <span>React</span>
-                    <span>Next.js</span>
-                    <span>TypeScript</span>
-                    <span>JavaScript</span>
-                  </div>
-                </div>
-                <div class="skill-cluster">
-                  <span class="cluster-label">UI Systems</span>
-                  <div class="skill-tags">
-                    <span>Design Systems</span>
-                    <span>Tailwind</span>
-                    <span>Responsive UX</span>
-                  </div>
-                </div>
-                <div class="skill-cluster">
-                  <span class="cluster-label">Interactive</span>
-                  <div class="skill-tags">
-                    <span>Three.js</span>
-                    <span>Framer Motion</span>
-                    <span>Charts</span>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="card skills-card">
-              <div class="skill-card-top">
-                <span class="skill-card-icon">API</span>
-                <div>
-                  <h3>Backend & Data</h3>
-                  <p>Designing application backends, database models, auth flows, and operational data workflows.</p>
-                </div>
-              </div>
-              <div class="skill-clusters">
-                <div class="skill-cluster">
-                  <span class="cluster-label">Data Layer</span>
-                  <div class="skill-tags">
-                    <span>Prisma</span>
-                    <span>PostgreSQL</span>
-                    <span>Supabase</span>
-                    <span>Firebase</span>
-                  </div>
-                </div>
-                <div class="skill-cluster">
-                  <span class="cluster-label">Services</span>
-                  <div class="skill-tags">
-                    <span>NestJS</span>
-                    <span>Fastify</span>
-                    <span>REST APIs</span>
-                    <span>Socket.IO</span>
-                  </div>
-                </div>
-                <div class="skill-cluster">
-                  <span class="cluster-label">Product Systems</span>
-                  <div class="skill-tags">
-                    <span>Auth</span>
-                    <span>Multi-Tenant Apps</span>
-                    <span>Stripe</span>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="card skills-card">
-              <div class="skill-card-top">
-                <span class="skill-card-icon">AI</span>
-                <div>
-                  <h3>AI, Realtime & Media</h3>
-                  <p>Integrating model APIs, document workflows, realtime gateways, audio tooling, and reporting outputs.</p>
-                </div>
-              </div>
-              <div class="skill-clusters">
-                <div class="skill-cluster">
-                  <span class="cluster-label">AI Tooling</span>
-                  <div class="skill-tags">
-                    <span>OpenAI</span>
-                    <span>Bedrock</span>
-                    <span>AI SDK</span>
-                    <span>RAG Workflows</span>
-                  </div>
-                </div>
-                <div class="skill-cluster">
-                  <span class="cluster-label">Realtime</span>
-                  <div class="skill-tags">
-                    <span>WebSockets</span>
-                    <span>Deepgram</span>
-                    <span>Audio Pipelines</span>
-                  </div>
-                </div>
-                <div class="skill-cluster">
-                  <span class="cluster-label">Outputs</span>
-                  <div class="skill-tags">
-                    <span>Charts</span>
-                    <span>Reporting</span>
-                    <span>PDF Generation</span>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="card skills-card">
-              <div class="skill-card-top">
-                <span class="skill-card-icon">OPS</span>
-                <div>
-                  <h3>Mobile & Delivery</h3>
-                  <p>Shipping iOS features and maintaining quality through tests, CI checks, and production guardrails.</p>
-                </div>
-              </div>
-              <div class="skill-clusters">
-                <div class="skill-cluster">
-                  <span class="cluster-label">Mobile</span>
-                  <div class="skill-tags">
-                    <span>Swift</span>
-                    <span>SwiftUI</span>
-                    <span>CloudKit</span>
-                    <span>WidgetKit</span>
-                  </div>
-                </div>
-                <div class="skill-cluster">
-                  <span class="cluster-label">Quality</span>
-                  <div class="skill-tags">
-                    <span>Playwright</span>
-                    <span>Jest</span>
-                    <span>Vitest</span>
-                    <span>XCTest</span>
-                  </div>
-                </div>
-                <div class="skill-cluster">
-                  <span class="cluster-label">Delivery</span>
-                  <div class="skill-tags">
-                    <span>CI Guardrails</span>
-                    <span>Observability</span>
-                    <span>Lighthouse</span>
-                  </div>
-                </div>
-              </div>
-            </article>
-          </div>
-
-          <div class="card skills-proof">
-            <div>
-              <span class="section-eyebrow">Proof of Work</span>
-              <h3>How these skills show up in the portfolio</h3>
-            </div>
-            <div class="proof-items">
-              <div>
-                <strong>Full-stack apps</strong>
-                <span>Next.js, NestJS, Prisma, Supabase, Firebase, and Stripe across product dashboards and workflow tools.</span>
-              </div>
-              <div>
-                <strong>AI systems</strong>
-                <span>OpenAI, Bedrock, Deepgram, document processing, realtime services, and human-in-the-loop product patterns.</span>
-              </div>
-              <div>
-                <strong>Delivery quality</strong>
-                <span>Automated tests, CI guardrails, Lighthouse checks, accessibility-minded interfaces, and production-ready metadata.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Experience Section -->
-      <section id="experience" class="section">
-        <div class="container stack-lg">
-          <div class="section-heading experience-heading">
-            <div>
-              <span class="section-eyebrow">Experience</span>
-              <h2>Experience & Education</h2>
-              <p>
-                Current technical leadership and hands-on software development, grounded by doctoral-level
-                behavior-science training and a practical product-building lens.
-              </p>
-            </div>
-            <div class="skills-summary">
-              <strong>Current role</strong>
-              <span>CTO · Enigma Software Systems</span>
-            </div>
-          </div>
-
-          <div class="experience-layout">
-            <article class="card experience-card experience-card-primary">
-              <div class="experience-card-header">
-                <div>
-                  <span class="timeline-date">Present</span>
-                  <h3>Chief Technology Officer</h3>
-                  <p class="timeline-subtitle">
-                    <a href="https://enigmasystems.ai" target="_blank" rel="noopener">Enigma Software Systems</a>
-                  </p>
-                </div>
-                <span class="role-type">Leadership</span>
-              </div>
-              <p>
-                Leading technical strategy and product development for practical software, AI-enabled
-                workflows, and reliable user-centered applications.
-              </p>
-              <ul class="impact-list">
-                <li>Connect product direction, implementation choices, and delivery priorities across Enigma projects.</li>
-                <li>Shape AI workflow architecture with attention to privacy, reliability, approvals, and maintainability.</li>
-                <li>Translate behavior-science thinking into practical product systems, measurement flows, and user experiences.</li>
-              </ul>
-              <div class="timeline-tech">
-                <span>Technical Leadership</span>
-                <span>Product Strategy</span>
-                <span>AI Systems</span>
-                <span>Full-Stack Delivery</span>
-              </div>
-            </article>
-
-            <article class="card experience-card">
-              <div class="experience-card-header">
-                <div>
-                  <span class="timeline-date">2023 - Present</span>
-                  <h3>Software Developer</h3>
-                  <p class="timeline-subtitle">Independent Projects</p>
-                </div>
-                <span class="role-type">Builder</span>
-              </div>
-              <p>
-                Building iOS apps and web platforms spanning productivity, supervision workflows,
-                local events, dashboards, and data collection.
-              </p>
-              <ul class="impact-list">
-                <li>Developed multiple full-stack and SwiftUI projects represented in the Featured Projects section.</li>
-                <li>Work across frontend interfaces, backend services, data models, testing, and deployment readiness.</li>
-                <li>Use GitHub projects to demonstrate applied engineering range rather than isolated coursework.</li>
-              </ul>
-              <div class="timeline-tech">
-                <span>Next.js</span>
-                <span>SwiftUI</span>
-                <span>Prisma</span>
-                <span>Testing</span>
-              </div>
-            </article>
-          </div>
-
-          <div class="credential-grid">
-            <article class="card credential-panel">
-              <span class="section-eyebrow">Education</span>
-              <div class="credential-list-clean">
-                <div class="credential-row">
-                  <span class="timeline-date">2024</span>
-                  <div>
-                    <h3>Ph.D. in Psychology</h3>
-                    <p>Doctoral work involving data collection systems, statistical analysis, research methods, and applied measurement.</p>
-                  </div>
-                </div>
-                <div class="credential-row">
-                  <span class="timeline-date">BCBA-D</span>
-                  <div>
-                    <h3>Behavior-Science Foundation</h3>
-                    <p>Behavior analysis background that informs product design, compliance workflows, user adoption, and outcome-focused systems.</p>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="card credential-panel">
-              <span class="section-eyebrow">Professional Development</span>
-              <div class="credential-list-clean">
-                <div class="credential-row">
-                  <span class="timeline-date">2022</span>
-                  <div>
-                    <h3>Apple Developer Program</h3>
-                    <p>Swift and iOS development through Apple resources and online technical training.</p>
-                  </div>
-                </div>
-                <div class="credential-row">
-                  <span class="timeline-date">Ongoing</span>
-                  <div>
-                    <h3>Applied Software Practice</h3>
-                    <p>Continuous project work across web platforms, AI workflows, mobile apps, analytics, and delivery automation.</p>
-                  </div>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Current Focus -->
-      <section id="goals" class="section">
-        <div class="container">
-          <div class="section-heading focus-heading">
-            <div>
-              <span class="section-eyebrow">Current Focus</span>
-              <h2>Building useful AI products with operational discipline.</h2>
-              <p>
-                My current work centers on Enigma Software Systems, applied AI workflows,
-                and focused product delivery across web, mobile, and behavior-science informed systems.
-              </p>
-            </div>
-            <div class="skills-summary focus-summary">
-              <strong>Open To</strong>
-              <span>Strategic partnerships, product builds, and selective consulting.</span>
-            </div>
-          </div>
-
-          <div class="focus-layout">
-            <article class="card focus-card focus-card-primary">
-              <span class="focus-index">01</span>
-              <h3>Enigma Product Buildout</h3>
-              <p>Turning practical AI workflows into polished, reliable tools for real users and teams.</p>
-              <div class="timeline-tech">
-                <span>AI Workflows</span>
-                <span>Product Strategy</span>
-                <span>Delivery</span>
-              </div>
-            </article>
-
-            <article class="card focus-card">
-              <span class="focus-index">02</span>
-              <h3>Strategic Partnerships</h3>
-              <p>Working with teams that need clear technical execution across AI, web platforms, and operational systems.</p>
-              <div class="timeline-tech">
-                <span>Technical Planning</span>
-                <span>Consulting</span>
-                <span>Execution</span>
-              </div>
-            </article>
-
-            <article class="card focus-card">
-              <span class="focus-index">03</span>
-              <h3>Applied AI Systems</h3>
-              <p>Designing human-in-the-loop tools with practical guardrails, maintainable architecture, and user trust.</p>
-              <div class="timeline-tech">
-                <span>Human Review</span>
-                <span>Reliability</span>
-                <span>Automation</span>
-              </div>
-            </article>
-
-            <article class="card focus-card">
-              <span class="focus-index">04</span>
-              <h3>iOS & Full-Stack Delivery</h3>
-              <p>Shipping focused web and mobile tools grounded in behavior science, measurable outcomes, and real-world use.</p>
-              <div class="timeline-tech">
-                <span>SwiftUI</span>
-                <span>Next.js</span>
-                <span>UX Systems</span>
-              </div>
-            </article>
-          </div>
-
-          <div class="focus-cta">
-            <div>
-              <span class="section-eyebrow">Near-Term Priority</span>
-              <p>Ship maintainable products, form high-trust partnerships, and keep the portfolio grounded in measurable user value.</p>
-            </div>
-            <a class="btn btn-primary" href="#contact" data-scroll="#contact">Start a Conversation</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact Section -->
-      <section id="contact" class="section">
-        <div class="container">
-          <div class="contact-grid">
-            <div class="card contact-info-card">
-              <h2>Let's Connect</h2>
-              <p class="muted">
-                I'm open to conversations about Enigma Software Systems, consulting, product ideas,
-                and thoughtful collaborations at the intersection of software and behavior science.
-              </p>
-
-              <div class="contact-methods">
-                <a href="mailto:drsavvage@gmail.com" class="contact-method">
-                  <div class="contact-icon" aria-hidden="true">AT</div>
-                  <div>
-                    <strong>Email</strong>
-                    <span>drsavvage@gmail.com</span>
-                  </div>
-                </a>
-                <a href="https://github.com/drsavvage90" target="_blank" rel="noopener" class="contact-method">
-                  <div class="contact-icon" aria-hidden="true">GH</div>
-                  <div>
-                    <strong>GitHub</strong>
-                    <span>@drsavvage90</span>
-                  </div>
-                </a>
-                <a href="https://enigmasystems.ai" target="_blank" rel="noopener" class="contact-method">
-                  <div class="contact-icon" aria-hidden="true">ES</div>
-                  <div>
-                    <strong>Enigma Software Systems</strong>
-                    <span>enigmasystems.ai</span>
-                  </div>
-                </a>
-              </div>
-
-              <div class="availability-badge">
-                <span class="status-dot"></span>
-                Open to strategic conversations
-              </div>
-            </div>
-
-            <div class="card contact-form-card">
-              <h3>Send a Message</h3>
-              <form id="contact-form" class="contact-form" action="https://formspree.io/f/xpwzgvnq" method="POST">
-                <input type="hidden" name="_subject" value="New contact from portfolio">
-                <div class="form-group">
-                  <label for="name">Name</label>
-                  <input type="text" id="name" name="name" required placeholder="Your name">
-                </div>
-                <div class="form-group">
-                  <label for="email">Email</label>
-                  <input type="email" id="email" name="email" required placeholder="your@email.com">
-                </div>
-                <div class="form-group">
-                  <label for="subject">Subject</label>
-                  <select id="subject" name="subject">
-                    <option value="job">Job Opportunity</option>
-                    <option value="freelance">Freelance Project</option>
-                    <option value="collaboration">Collaboration</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="message">Message</label>
-                  <textarea id="message" name="message" rows="4" required placeholder="Tell me about the opportunity..."></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary btn-full">
-                  <span class="btn-text">Send Message</span>
-                  <span class="btn-loading" style="display: none;">Sending...</span>
-                </button>
-              </form>
-              <div id="form-success" class="form-success" style="display: none;">
-                <div class="success-icon">✓</div>
-                <h4>Message Sent!</h4>
-                <p>Thanks for reaching out. I'll get back to you soon.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-brand">
-            <strong>Seth Nordgren</strong>
-            <p class="muted">CTO · Enigma Software Systems · iOS · Web</p>
-          </div>
-          <div class="footer-links">
-            <a href="index.html">Home</a>
-            <a href="#projects" data-scroll="#projects">Projects</a>
-            <a href="#skills" data-scroll="#skills">Skills</a>
-            <a href="#experience" data-scroll="#experience">Experience</a>
-            <a href="#contact" data-scroll="#contact">Contact</a>
-          </div>
-          <div class="footer-social">
-            <a href="https://github.com/drsavvage90" target="_blank" rel="noopener" aria-label="GitHub">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <small>© <span id="y">2025</span> Seth Nordgren.</small>
-        </div>
-      </div>
-    </footer>
-
-    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-        <polyline points="18,15 12,9 6,15"></polyline>
-      </svg>
-    </button>
-
-    <script type="module" src="app.js?v=20260428-16"></script>
-  </body>
+</body>
 </html>
